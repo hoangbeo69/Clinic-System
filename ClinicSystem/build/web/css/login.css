@@ -1,0 +1,42 @@
+
+/* 
+    Author     : Long
+*/
+
+#body {
+  background-image: url("https://png.pngtree.com/background/20210711/original/pngtree-dental-hospital-dental-beauty-oral-health-background-material-picture-image_1122754.jpg");
+  background-size: cover;
+  
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 610px;
+  height: 470px;
+  border: 1px solid #9C9C9C;
+  background-color: #FFFFFF;
+  opacity: 93%;
+  border-radius: 20px
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -50px;
+}
+#password{
+    width: 10cm;
+}
+#togglePassword{
+    font-size: 14px;
+}
+#sign{
+    width: 3cm;
+}
+.mess{
+    height: 50px;
+    color: red;
+    margin: 0;
+}
+.back{
+    margin-left: 9cm;
+}
