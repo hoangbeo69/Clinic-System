@@ -1,0 +1,34 @@
+
+F
+java:S1066©"/Merge this if statement with the enclosing one.(ˆø¶ª
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ˆ€„Šûÿÿÿÿ
+˜
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‚“¶î
+—
+java:S1186#"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ë¤ö›
+‚
+java:S1130'"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(‰¼÷É
+
+java:S1130'"wRemove the declaration of thrown exception 'javax.servlet.ServletException', as it cannot be thrown from method's body.(‰¼÷É
+R
+java:S1172&"<Remove these unused method parameters "request", "response".(Ç¯íŞ
+V	java:S1251"<This block of commented-out lines of code should be removed.(ÉÃÑşÿÿÿÿ
+‚
+java:S1130C"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(‰¼÷É
+
+java:S1130C"wRemove the declaration of thrown exception 'javax.servlet.ServletException', as it cannot be thrown from method's body.(‰¼÷É
+R
+java:S1172B"<Remove these unused method parameters "request", "response".(åøÄ—
+V	java:S125M"<This block of commented-out lines of code should be removed.(¶ë¯Îùÿÿÿÿ
+V	java:S125V"<This block of commented-out lines of code should be removed.(Ä›ø•øÿÿÿÿ
+@
+java:S1181w"%Catch Exception instead of Throwable.(•”ø¾øÿÿÿÿ
+Q
+java:S1161 ":Add the "@Override" annotation above this method signature(‚“¶î
+Q
+java:S1161¦":Add the "@Override" annotation above this method signature(ß¹¶¼
+D	java:S108Î")Either remove or fill this block of code.(±Ÿ—±ÿÿÿÿÿ
+D	java:S108Ö")Either remove or fill this block of code.(±Ÿ—±ÿÿÿÿÿ
+D	java:S108ä")Either remove or fill this block of code.(±Ÿ—±ÿÿÿÿÿ
+d
+java:S1128"IRemove this unused import 'javax.servlet.http.HttpServletRequestWrapper'.(ŞÇ¶¦ıÿÿÿÿ
