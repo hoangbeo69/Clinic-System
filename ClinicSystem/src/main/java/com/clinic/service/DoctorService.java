@@ -13,4 +13,6 @@ public interface DoctorService {
   Doctor findById(Long id);
 
   List<Doctor> findAll();
+
+  boolean udpate(Doctor doctor);
 }

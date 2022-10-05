@@ -7,6 +7,7 @@ package com.clinic.entity;
 
 import com.clinic.model.AccountStatus;
 import java.util.Date;
+
 /**
  * @author ADMIN
  */
@@ -22,6 +23,7 @@ public class Account {
   private Date dob;
   private AccountStatus status;
   private Integer statusCode;
+
 
   public Account(Long id, String username, String password, String fullName, String phoneNumber,
       String email, Date dob) {

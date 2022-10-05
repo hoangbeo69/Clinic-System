@@ -17,4 +17,6 @@ public interface DoctorDao extends GenericDao {
   Long save(Doctor doctor);
 
   List<Doctor> findAll();
+
+  Long update(Doctor doctor);
 }

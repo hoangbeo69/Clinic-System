@@ -45,4 +45,17 @@ public class DoctorServiceImpl implements DoctorService {
   public List<Doctor> findAll() {
     return doctorDao.findAll();
   }
+
+  @Override
+  public boolean udpate(Doctor doctor) {
+    if (ObjectUtils.isEmpty(doctor)) {
+      return false;
+    }
+    Long id = accountDao.update(doctor);
+    if (ObjectUtils.isNotEmpty(id)) {
+      doctor.setId(id);
+      id = doctorDao.update(doctor);
+    }
+    return ObjectUtils.isNotEmpty(id) ? true: false;
+  }
 }

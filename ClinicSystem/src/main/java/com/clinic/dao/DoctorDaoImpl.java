@@ -52,8 +52,17 @@ public class DoctorDaoImpl extends AbstractDAO implements DoctorDao {
     return query(sql.toString(), new DoctorMapper());
   }
 
+  @Override
+  public Long update(Doctor doctor) {
+    StringBuilder sql = new StringBuilder(
+        "UPDATE Doctor SET Specialization = ? WHERE Id = ?");
+    boolean result = update(sql.toString(),doctor.getSpecialization(),
+        doctor.getId());
+    return result ? doctor.getId():null;
+  }
+
   private Doctor getDoctorOnlyById(Long id) {
-    String sql = "SELECT * FROM Doctor WHERE Id = ?";
+    String sql = "SELECT * FROM Doctor D INNER JOIN Account A on A.Id = D.Id WHERE D.Id = ?";
     List<Doctor> doctors = query(sql, new DoctorMapper(), id);
     return CollectionsUtil.isEmpty(doctors) ? null : doctors.get(0);
   }

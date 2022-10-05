@@ -5,8 +5,11 @@
 package com.clinic.util;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.ConvertUtils;
+import org.apache.commons.beanutils.converters.DateConverter;
 
 public class FormUtil {
 
@@ -14,6 +17,9 @@ public class FormUtil {
     T object = null;
     try {
       object = tClass.newInstance(); //khởi tạo đối tượng
+      DateConverter converter = new DateConverter( null );
+      converter.setPattern("yyyy-mm-dd");
+      ConvertUtils.register(converter, Date.class);
       BeanUtils.populate(object, request.getParameterMap());
     } catch (InstantiationException e) {
       System.out.println(e);

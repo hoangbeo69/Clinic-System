@@ -94,7 +94,7 @@
                                         <td>${doctor.dob}</td>
                                         <td>
                                             <c:url var="singleURL" value="doctor/detail">
-                                                <c:param name="id" value="${user.id}"/>
+                                                <c:param name="id" value="${doctor.id}"/>
                                             </c:url>
                                             <a class="btn btn-info" title="Detail"
                                                data-toggle="tooltip"

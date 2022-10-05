@@ -4,24 +4,30 @@ import com.clinic.dao.AccountDao;
 import com.clinic.dao.AccountDaoImpl;
 import com.clinic.dao.DoctorDao;
 import com.clinic.dao.DoctorDaoImpl;
+import com.clinic.dto.BookingAppointmentDto;
 import com.clinic.entity.Doctor;
+import com.clinic.service.DoctorService;
+import com.clinic.service.DoctorServiceImpl;
+import com.clinic.util.FormUtil;
+import com.clinic.util.StringUtil;
 import java.io.IOException;
+import java.sql.Timestamp;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 
 
 @WebServlet(name = "DoctorController", urlPatterns = {"/doctor/detail"})
 public class DoctorController extends HttpServlet {
 
-  private AccountDao accountDao;
-  private DoctorDao doctorDao;
+  private DoctorService doctorService;
 
   public DoctorController() {
-    this.doctorDao = new DoctorDaoImpl();
-    this.accountDao = new AccountDaoImpl();
+    this.doctorService = new DoctorServiceImpl();
   }
 
 
@@ -50,10 +56,13 @@ public class DoctorController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    Long id = Long.parseLong(request.getParameter("accountId"));
-    Doctor d = doctorDao.findById(id);
-    request.setAttribute("d", d);
-    request.getRequestDispatcher("/views/DoctorInfo.jsp").forward(request, response);
+    if (StringUtils.isNotEmpty(request.getParameter("id"))) {
+      Long id = Long.parseLong(request.getParameter("id"));
+
+      Doctor doctor = doctorService.findById(id);
+      request.setAttribute("doctor", doctor);
+    }
+    request.getRequestDispatcher("/views/doctor-information.jsp").forward(request, response);
   }
 
   /**
@@ -66,7 +75,35 @@ public class DoctorController extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    processRequest(request, response);
+    request.setCharacterEncoding("UTF-8");
+    response.setContentType("application/json");
+    Doctor doctor = FormUtil.toModel(Doctor.class,
+        request);
+    boolean result = false;
+    if(ObjectUtils.isNotEmpty(doctor.getId())){
+      result = doctorService.udpate(doctor);
+      if (result) {
+        response.sendRedirect(
+            request.getContextPath() + "/doctor/detail?"+doctor.getId()+"message" +
+                "=updatedoctor_success&alert" +
+                "=success");
+      } else {
+        response.sendRedirect(
+            request.getContextPath() + "/doctor/detail?"+doctor.getId()+"message" +
+                "=updatedoctor_notsuccess&alert=danger");
+      }
+    }else {
+      Long id = doctorService.createNew(doctor);
+      if (id != null) {
+        response.sendRedirect(
+            request.getContextPath() + "/doctor/detail?"+id+"message=newdoctor_success&alert" +
+                "=success");
+      } else {
+        response.sendRedirect(
+            request.getContextPath() + "/doctor/detail?"+id+"message=newdoctor_notsuccess&alert=danger");
+      }
+    }
+
   }
 
   /**

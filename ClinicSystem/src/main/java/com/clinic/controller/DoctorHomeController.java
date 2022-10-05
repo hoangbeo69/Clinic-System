@@ -50,6 +50,7 @@ public class DoctorHomeController extends HttpServlet {
       List<Doctor> doctors = doctorService.findAll();
       request.setAttribute("doctors", doctors);
       request.getRequestDispatcher("/views/doctor-home.jsp").forward(request, response);
+      System.out.println(doctors);;
     } catch (Exception ex) {
       Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
     }
