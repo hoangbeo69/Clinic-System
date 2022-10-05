@@ -4,11 +4,16 @@
  */
 package com.clinic.service;
 
+import com.clinic.dao.BookingSlotDao;
+import com.clinic.dao.BookingSlotDaoImpl;
 import com.clinic.dto.BookingAppointmentDto;
+import com.clinic.dto.BookingSlotDto;
 import com.clinic.entity.Appointment;
+import com.clinic.entity.BookingSlot;
 import com.clinic.entity.Patient;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.ObjectUtils;
@@ -21,9 +26,12 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
   private PatientService patientService;
   private AppointmentService appointmentService;
 
+  private BookingSlotDao bookingSlotDao;
+
   public AppointmentBookingServiceImpl() {
     patientService = new PatientServiceImpl();
     appointmentService = new AppointmentServiceImpl();
+    bookingSlotDao = new BookingSlotDaoImpl();
   }
 
   @Override
@@ -44,13 +52,45 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
         .collect(Collectors.toList());
     Map<Long, Patient> patients = (Map<Long, Patient>) patientService.getMapPatientByListId(
         listPatientId);
-    List<BookingAppointmentDto> bookingAppointmentDtos = appointments.stream().map((e)->{
+    return appointments.stream().map(e->{
       BookingAppointmentDto dto = new BookingAppointmentDto();
       dto.setAppointment(e);
       dto.setPatient(patients.get(e.getPatientId()));
       return dto;
     }).collect(Collectors.toList());
-    return bookingAppointmentDtos;
+  }
+
+  @Override
+  public BookingAppointmentDto findById(Long id) {
+    BookingAppointmentDto bookingAppointmentDto = new BookingAppointmentDto();
+    Appointment appointment = null;
+    if (ObjectUtils.isNotEmpty(id)) {
+      appointment = appointmentService.findById(id);
+      if (ObjectUtils.isNotEmpty(appointment)) {
+        bookingAppointmentDto.setAppointment(appointment);
+      }
+    }
+    if(appointment == null){
+      return  null;
+    }
+
+    Long bookingSlotId = appointment.getBookingSlotId();
+    if (ObjectUtils.isNotEmpty(bookingSlotId)) {
+      BookingSlotDto bookingSlotDto = bookingSlotDao.findDtoById(id);
+      if (ObjectUtils.isNotEmpty(bookingSlotDto)) {
+        bookingAppointmentDto.setBookingSlot(bookingSlotDto);
+      }
+    }
+
+    Long patientId = appointment.getPatientId();
+    if (ObjectUtils.isNotEmpty(patientId)) {
+      Patient patient = patientService.findById(patientId);
+      if (ObjectUtils.isNotEmpty(patient)) {
+        bookingAppointmentDto.setPatient(patient);
+      }
+    }
+
+    return bookingAppointmentDto;
   }
 
 }

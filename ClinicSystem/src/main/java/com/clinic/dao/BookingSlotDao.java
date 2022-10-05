@@ -4,6 +4,7 @@
  */
 package com.clinic.dao;
 
+import com.clinic.dto.BookingSlotDto;
 import com.clinic.entity.BookingSlot;
 import java.util.List;
 
@@ -22,4 +23,6 @@ public interface BookingSlotDao extends GenericDao {
     boolean delete(Long id);
 
     List<BookingSlot> findAll();
+
+    BookingSlotDto findDtoById(Long id);
 }

@@ -4,7 +4,9 @@
  */
 package com.clinic.dto;
 
+import com.clinic.dao.BookingSlotDao;
 import com.clinic.entity.Appointment;
+import com.clinic.entity.BookingSlot;
 import com.clinic.entity.Patient;
 import com.clinic.model.AppointmentStatus;
 import com.clinic.util.DateUtil;
@@ -41,6 +43,35 @@ public class BookingAppointmentDto {
   private String description;
   private Long patientId;
   private String address;
+  private Long roomId;
+
+  private String roomName;
+
+  private String roomDescription;
+
+  public Long getRoomId() {
+    return roomId;
+  }
+
+  public void setRoomId(Long roomId) {
+    this.roomId = roomId;
+  }
+
+  public String getRoomName() {
+    return roomName;
+  }
+
+  public void setRoomName(String roomName) {
+    this.roomName = roomName;
+  }
+
+  public String getRoomDescription() {
+    return roomDescription;
+  }
+
+  public void setRoomDescription(String roomDescription) {
+    this.roomDescription = roomDescription;
+  }
 
   public BookingAppointmentDto() {
   }
@@ -305,6 +336,18 @@ public class BookingAppointmentDto {
     this.setDob(patient.getDob().toString());
     this.setSex(patient.getSex());
     this.address = patient.getAddress();
+  }
+
+  public void setBookingSlot(BookingSlotDto bookingSlotDto) {
+    this.id = bookingSlotDto.getId();
+    this.roomId = bookingSlotDto.getRoomId();
+    this.dateSlot = DateUtil.getStrDate(bookingSlotDto.getDateSlot());
+    this.timeSlot = bookingSlotDto.getTimeSlot().getTimeValue();
+    this.timeSlotOrder = bookingSlotDto.getTimeSlotOrder();
+    this.doctorId = bookingSlotDto.getDoctorId();
+    this.roomDescription = bookingSlotDto.getDescription();
+    this.roomName = bookingSlotDto.getRoomName();
+    this.roomId = bookingSlotDto.getRoomId();
   }
 
 }

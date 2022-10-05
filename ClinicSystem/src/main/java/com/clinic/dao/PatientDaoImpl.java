@@ -36,7 +36,7 @@ public class PatientDaoImpl extends AbstractDAO implements PatientDao {
   }
 
   @Override
-  public Patient getPatientById(long id) {
+  public Patient getPatientById(Long id) {
     Account account = accountDao.findById(id);
     if (ObjectUtils.isEmpty(account)) {
       return null;

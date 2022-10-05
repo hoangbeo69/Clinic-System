@@ -4,8 +4,11 @@
  */
 package com.clinic.dao;
 
+import com.clinic.dto.BookingSlotDto;
 import com.clinic.entity.BookingSlot;
 import com.clinic.mapper.AppointmentMapper;
+import com.clinic.mapper.BookingSlotDtoMapper;
+import com.clinic.mapper.BookingSlotMapper;
 import com.clinic.util.CollectionsUtil;
 import java.util.List;
 
@@ -36,7 +39,7 @@ public class BookingSlotDaoImpl extends AbstractDAO implements BookingSlotDao {
   @Override
   public BookingSlot findById(Long id) {
     String sql = "SELECT * FROM BookingSlot WHERE Id = ? ";
-    List<BookingSlot> bookingSlots = query(sql, new AppointmentMapper(), id);
+    List<BookingSlot> bookingSlots = query(sql, new BookingSlotMapper(), id);
     return CollectionsUtil.isEmpty(bookingSlots) ? null : bookingSlots.get(0);
   }
 
@@ -49,6 +52,14 @@ public class BookingSlotDaoImpl extends AbstractDAO implements BookingSlotDao {
   @Override
   public List<BookingSlot> findAll() {
     String sql = "SELECT * FROM BookingSlot";
-    return query(sql, new AppointmentMapper());
+    return query(sql, new BookingSlotMapper());
+  }
+
+  @Override
+  public BookingSlotDto findDtoById(Long id) {
+    String sql = "SELECT * FROM BookingSlot BS INNER JOIN ROOM R on BS.RoomId = R.Id" +
+        "WHERE Id = ?";
+    List<BookingSlotDto> bookingSlotDtos = query(sql, new BookingSlotDtoMapper(),id);
+    return CollectionsUtil.isEmpty(bookingSlotDtos) ? null : bookingSlotDtos.get(0);
   }
 }

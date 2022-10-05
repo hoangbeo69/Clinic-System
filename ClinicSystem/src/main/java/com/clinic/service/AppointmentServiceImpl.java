@@ -32,13 +32,17 @@ public class AppointmentServiceImpl implements AppointmentService {
     appointment.setId(null);
     appointment.setCreatedDate(new Timestamp(System.currentTimeMillis()));
     appointment.setUpdatedDate(new Timestamp(System.currentTimeMillis()));
-    Long id = appointmentDao.save(appointment);
-    return id;
+    return appointmentDao.save(appointment);
   }
 
   @Override
   public List<Appointment> findAll() {
     return appointmentDao.findAll();
+  }
+
+  @Override
+  public Appointment findById(Long id) {
+    return appointmentDao.findById(id);
   }
 
 }

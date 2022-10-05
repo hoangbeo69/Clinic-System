@@ -17,4 +17,5 @@ public interface AppointmentBookingService {
 
     List<BookingAppointmentDto> findAll();
 
+  BookingAppointmentDto findById(Long id);
 }

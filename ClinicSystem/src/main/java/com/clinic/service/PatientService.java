@@ -21,4 +21,7 @@ public interface PatientService {
   Map<Long, Patient> getMapPatientByListId(List<Long> listPatientId);
 
   List<Patient> findAll();
+
+
+  Patient findById(Long patientId);
 }

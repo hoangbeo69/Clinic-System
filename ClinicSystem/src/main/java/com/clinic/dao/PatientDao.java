@@ -14,7 +14,7 @@ public interface PatientDao extends GenericDao {
 
   Patient getPatientByEmail(String email);
 
-  Patient getPatientById(long id);
+  Patient getPatientById(Long id);
 
   Long save(Patient patient);
 

@@ -15,6 +15,7 @@ public interface AppointmentService {
 
   Long createNew(BookingAppointmentDto bookingAppointmentDto);
 
-  public List<Appointment> findAll();
+  List<Appointment> findAll();
 
+  Appointment findById(Long id);
 }
