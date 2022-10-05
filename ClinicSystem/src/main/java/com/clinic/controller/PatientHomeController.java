@@ -10,7 +10,10 @@ import com.clinic.dao.AccountDaoImpl;
 import com.clinic.dao.PatientDao;
 import com.clinic.dao.PatientDaoImpl;
 import com.clinic.entity.Patient;
+import com.clinic.service.PatientService;
+import com.clinic.service.PatientServiceImpl;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,15 +21,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "PationInfoController", urlPatterns = {"/PationInfoController"})
-public class PationInfoController extends HttpServlet {
+@WebServlet(name = "PatientHomeController", urlPatterns = {"/patient"})
+public class PatientHomeController extends HttpServlet {
 
-  private PatientDao patientDao;
-  private AccountDao accountDao;
+  private PatientService patientService;
 
-  public PationInfoController() {
-    this.patientDao = new PatientDaoImpl();
-    this.accountDao = new AccountDaoImpl();
+  public PatientHomeController() {
+    this.patientService = new PatientServiceImpl();
   }
 
   /**
@@ -55,10 +56,9 @@ public class PationInfoController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    int id = Integer.parseInt(request.getParameter("accountId"));
-    Patient p = patientDao.getPatientById(id);
-    request.setAttribute("p", p);
-    request.getRequestDispatcher("/views/PatientInfo.jsp").forward(request, response);
+    List<Patient> patients = patientService.findAll();
+    request.setAttribute("patients", patients);
+    request.getRequestDispatcher("/views/patient-home.jsp").forward(request, response);
   }
 
   /**

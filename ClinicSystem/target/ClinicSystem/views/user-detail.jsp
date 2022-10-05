@@ -40,31 +40,31 @@
 
                         <form id="formUserDetail">
                             <div class="form-group">
-                                <label for="title">Username</label>
+                                <label for="username">Username</label>
                                 <input type="text" required="" class="form-control" name="username" id="username" placeholder="" value="${user.title}">
                             </div>
                             <div class="form-group">
-                                <label for="thumbnail">Full Name</label>
+                                <label for="fullname">Full Name</label>
                                 <input type="text" class="form-control" name="fullname" id="fullname" placeholder="" value="${user.fullName}>
                             </div>
                             <div class="form-group">
-                                <label for="shortDescription">Password</label>
+                                <label for="password">Password</label>
                                 <input type="password" required="" class="form-control"  name="password" id="password" placeholder="" value="123456">
                             </div>
                             <div class="form-group">
-                                <label for="shortDescription">Re-Password</label>
+                                <label for="repassword">Re-Password</label>
                                 <input type="password" required="" class="form-control"  name="repassword" id="repassword" placeholder="" value="123456">
                             </div>
                             <div class="form-group">
-                                <label for="content">Phone Number</label>
+                                <label for="phoneNumber">Phone Number</label>
                                 <input type="text" required="" class="form-control"  name="phoneNumber" id="phoneNumber" placeholder="" value="${user.phoneNumber}">
                             </div>
                             <div class="form-group">
-                                <label for="content">Email</label>
+                                <label for="email">Email</label>
                                 <input type="text" required="" class="form-control"  name="email" id="email" placeholder="" value="${user.email}">
                             </div>
                             <div class="form-group">
-                                <label for="content">Date Of Birth</label>
+                                <label for="dob">Date Of Birth</label>
                                 <input type="date" required="" class="form-control"  name="dob" id="dob" placeholder="" value="${user.dob}">
                             </div>
                             <div class="form-group">

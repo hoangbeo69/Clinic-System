@@ -54,4 +54,9 @@ public class PatientServiceImpl implements PatientService {
         .collect(Collectors.toMap(Patient::getId, Function.identity()));
   }
 
+  @Override
+  public List<Patient> findAll() {
+    return patientDao.findAll();
+  }
+
 }

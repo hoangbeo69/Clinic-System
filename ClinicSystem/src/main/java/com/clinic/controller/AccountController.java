@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "UserController", urlPatterns = {"/users"})
+@WebServlet(name = "UserController", urlPatterns = {"/user"})
 public class AccountController extends HttpServlet{
 
     AccountService accountService;

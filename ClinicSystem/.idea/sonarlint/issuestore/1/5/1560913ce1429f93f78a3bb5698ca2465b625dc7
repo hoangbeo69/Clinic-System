@@ -1,5 +1,0 @@
-
-w
-java:S4165#"aRemove this useless assignment; "sex" already holds the assigned value along all execution paths.(ç£—´
-E
-java:S1656#"/Remove or correct this useless self-assignment.(ç£—´

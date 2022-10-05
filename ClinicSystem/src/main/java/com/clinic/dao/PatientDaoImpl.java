@@ -86,4 +86,12 @@ public class PatientDaoImpl extends AbstractDAO implements PatientDao {
     return patients;
   }
 
+  @Override
+  public List<Patient> findAll() {
+    StringBuilder sql = new StringBuilder(
+        "SELECT * FROM Patient P\n" + "INNER JOIN Account A on A.Id = P.Id");
+    List<Patient> patients = query(sql.toString(), new PatientMapper());
+    return patients;
+  }
+
 }

@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "DoctorInfoController", urlPatterns = {"/DoctorInfoController"})
-public class DoctorInfoController extends HttpServlet {
+@WebServlet(name = "DoctorController", urlPatterns = {"/doctor/detail"})
+public class DoctorController extends HttpServlet {
 
   private AccountDao accountDao;
   private DoctorDao doctorDao;
 
-  public DoctorInfoController() {
+  public DoctorController() {
     this.doctorDao = new DoctorDaoImpl();
     this.accountDao = new AccountDaoImpl();
   }
@@ -50,8 +50,8 @@ public class DoctorInfoController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    int id = Integer.parseInt(request.getParameter("accountId"));
-    Doctor d = doctorDao.getDoctorById(id);
+    Long id = Long.parseLong(request.getParameter("accountId"));
+    Doctor d = doctorDao.findById(id);
     request.setAttribute("d", d);
     request.getRequestDispatcher("/views/DoctorInfo.jsp").forward(request, response);
   }

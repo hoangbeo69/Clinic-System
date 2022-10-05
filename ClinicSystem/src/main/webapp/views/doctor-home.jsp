@@ -24,13 +24,13 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Medical record</h5>
+                            <h5 class="m-b-10">Doctor record</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i
                                     class="feather icon-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Medical record</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Doctor record</a></li>
                         </ul>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         </div>
         <!-- [ Main Content ] start -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-xl-12">
                 <div class="card table-card">
                     <div class="card-header">
                         <h5>Projects</h5>
@@ -72,302 +72,38 @@
                             <table class="table table-hover mb-0" id="doctors-table">
                                 <thead>
                                 <tr>
-                                    <th>
-                                        Name of patient
-                                    </th>
-                                    <th>Name</th>
-                                    <th>Due Date</th>
-                                    <th class="text-right">Action</th>
+                                    <th>Index</th>
+                                    <th>Username</th>
+                                    <th>Specialization</th>
+                                    <th>Full Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                    <th>Date Of Birth</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-4.jpg"
-                                                 alt="user image"
-                                                 class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>John Deo</h6>
-                                                <p class="text-muted m-b-0">Graphics Designer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Able Pro</td>
-                                    <td>Jun, 26</td>
-                                    <td class="text-right"><label class="badge badge-light-danger">Low</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-2.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>Jenifer Vintage</h6>
-                                                <p class="text-muted m-b-0">Web Designer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Mashable</td>
-                                    <td>March, 31</td>
-                                    <td class="text-right"><label class="badge badge-light-primary">high</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-3.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>William Jem</h6>
-                                                <p class="text-muted m-b-0">Developer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Flatable</td>
-                                    <td>Aug, 02</td>
-                                    <td class="text-right"><label class="badge badge-light-success">medium</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-2.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>David Jones</h6>
-                                                <p class="text-muted m-b-0">Developer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Guruable</td>
-                                    <td>Sep, 22</td>
-                                    <td class="text-right"><label class="badge badge-light-primary">high</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-4.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>John Deo</h6>
-                                                <p class="text-muted m-b-0">Graphics Designer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Able Pro</td>
-                                    <td>Jun, 26</td>
-                                    <td class="text-right"><label class="badge badge-light-danger">Low</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-2.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>Jenifer Vintage</h6>
-                                                <p class="text-muted m-b-0">Web Designer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Mashable</td>
-                                    <td>March, 31</td>
-                                    <td class="text-right"><label class="badge badge-light-primary">high</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-3.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>William Jem</h6>
-                                                <p class="text-muted m-b-0">Developer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Flatable</td>
-                                    <td>Aug, 02</td>
-                                    <td class="text-right"><label class="badge badge-light-success">medium</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-2.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>David Jones</h6>
-                                                <p class="text-muted m-b-0">Developer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Guruable</td>
-                                    <td>Sep, 22</td>
-                                    <td class="text-right"><label class="badge badge-light-primary">high</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-4.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>John Deo</h6>
-                                                <p class="text-muted m-b-0">Graphics Designer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Able Pro</td>
-                                    <td>Jun, 26</td>
-                                    <td class="text-right"><label class="badge badge-light-danger">Low</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-2.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>Jenifer Vintage</h6>
-                                                <p class="text-muted m-b-0">Web Designer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Mashable</td>
-                                    <td>March, 31</td>
-                                    <td class="text-right"><label class="badge badge-light-primary">high</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-3.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>William Jem</h6>
-                                                <p class="text-muted m-b-0">Developer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Flatable</td>
-                                    <td>Aug, 02</td>
-                                    <td class="text-right"><label class="badge badge-light-success">medium</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-2.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>David Jones</h6>
-                                                <p class="text-muted m-b-0">Developer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Guruable</td>
-                                    <td>Sep, 22</td>
-                                    <td class="text-right"><label class="badge badge-light-primary">high</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-4.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>John Deo</h6>
-                                                <p class="text-muted m-b-0">Graphics Designer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Able Pro</td>
-                                    <td>Jun, 26</td>
-                                    <td class="text-right"><label class="badge badge-light-danger">Low</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-2.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>Jenifer Vintage</h6>
-                                                <p class="text-muted m-b-0">Web Designer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Mashable</td>
-                                    <td>March, 31</td>
-                                    <td class="text-right"><label class="badge badge-light-primary">high</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-3.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>William Jem</h6>
-                                                <p class="text-muted m-b-0">Developer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Flatable</td>
-                                    <td>Aug, 02</td>
-                                    <td class="text-right"><label class="badge badge-light-success">medium</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="d-inline-block align-middle">
-                                            <img
-                                                    src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-2.jpg"
-                                                    alt="user image"
-                                                    class="img-radius wid-40 align-top m-r-15">
-                                            <div class="d-inline-block">
-                                                <h6>David Jones</h6>
-                                                <p class="text-muted m-b-0">Developer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>Guruable</td>
-                                    <td>Sep, 22</td>
-                                    <td class="text-right"><label class="badge badge-light-primary">high</label>
-                                    </td>
-                                </tr>
+                                <c:forEach var="doctor" items="${doctors}" varStatus="loop">
+                                    <tr>
+                                        <td>${loop.count}</td>
+                                        <td>${doctor.username}</td>
+                                        <td>${doctor.specialization}</td>
+                                        <td>${doctor.fullName}</td>
+                                        <td>${doctor.phoneNumber}</td>
+                                        <td>${doctor.email}</td>
+                                        <td>${doctor.dob}</td>
+                                        <td>
+                                            <c:url var="singleURL" value="doctor/detail">
+                                                <c:param name="id" value="${user.id}"/>
+                                            </c:url>
+                                            <a class="btn btn-info" title="Detail"
+                                               data-toggle="tooltip"
+                                               href="<c:url value="${singleURL}"/>">
+                                                <i class="feather icon-edit" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>

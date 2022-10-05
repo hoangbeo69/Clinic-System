@@ -39,37 +39,34 @@
                             class="pcoded-mtext">Appointment</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/doctors" class="nav-link "><span
-                            class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
-                            class="pcoded-mtext">Information</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/doctors" class="nav-link "><span
+                    <a href="<%=request.getContextPath()%>/doctor" class="nav-link "><span
                             class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
                             class="pcoded-mtext">Doctor</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/patients" class="nav-link "><span
+                    <a href="<%=request.getContextPath()%>/patient" class="nav-link "><span
                             class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
                             class="pcoded-mtext">Patient</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/users" class="nav-link "><span
+                    <a href="<%=request.getContextPath()%>/user" class="nav-link "><span
                             class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
                             class="pcoded-mtext">Account Management</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/room" class="nav-link "><span
+                    <a href="<%=request.getContextPath()%>/home" class="nav-link "><span
                             class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
                             class="pcoded-mtext">Room</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i
-                            class="fa-solid fa-calendar-days"></i></span><span class="pcoded-mtext">Schedule</span></a>
+                    <a href="<%=request.getContextPath()%>/home" class="nav-link "><span
+                            class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
+                            class="pcoded-mtext">Schedule</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i
-                            class="fa-solid fa-notes-medical"></i></span><span class="pcoded-mtext">Medical Records</span></a>
+                    <a href="<%=request.getContextPath()%>/home" class="nav-link "><span
+                            class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
+                            class="pcoded-mtext">Medical Records</span></a>
                 </li>
             </ul>
 

@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <header>
-    <title>Doctor Infomation</title>
+    <title>Patient Infomation</title>
     <jsp:include page="common/header.jsp"/>
 </header>
 <body class="">
@@ -24,13 +24,13 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Doctor record</h5>
+                            <h5 class="m-b-10">Patient record</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i
                                     class="feather icon-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Doctor record</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Patient record</a></li>
                         </ul>
                     </div>
                 </div>
@@ -74,26 +74,34 @@
                                 <tr>
                                     <th>Index</th>
                                     <th>Username</th>
-                                    <th>Specialization</th>
                                     <th>Full Name</th>
                                     <th>Phone Number</th>
                                     <th>Email</th>
                                     <th>Date Of Birth</th>
+                                    <th>Insurance Code</th>
+                                    <th>Identity Card</th>
+                                    <th>Address</th>
+                                    <th>Guardian Fullname</th>
+                                    <th>Guardian PhoneNumber</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="doctor" items="${doctors}" varStatus="loop">
+                                <c:forEach var="patient" items="${patients}" varStatus="loop">
                                     <tr>
                                         <td>${loop.count}</td>
-                                        <td>${doctor.username}</td>
-                                        <td>${doctor.specialization}</td>
-                                        <td>${doctor.fullName}</td>
-                                        <td>${doctor.phoneNumber}</td>
-                                        <td>${doctor.email}</td>
-                                        <td>${doctor.dob}</td>
+                                        <td>${patient.username}</td>
+                                        <td>${patient.fullName}</td>
+                                        <td>${patient.phoneNumber}</td>
+                                        <td>${patient.email}</td>
+                                        <td>${patient.dob}</td>
+                                        <td>${patient.insuranceCode}</td>
+                                        <td>${patient.identityCard}</td>
+                                        <td>${patient.address}</td>
+                                        <td>${patient.guardianFullname}</td>
+                                        <td>${patient.guardianPhoneNumber}</td>
                                         <td>
-                                            <c:url var="singleURL" value="doctor/detail">
+                                            <c:url var="singleURL" value="patient/detail">
                                                 <c:param name="id" value="${user.id}"/>
                                             </c:url>
                                             <a class="btn btn-info" title="Detail"

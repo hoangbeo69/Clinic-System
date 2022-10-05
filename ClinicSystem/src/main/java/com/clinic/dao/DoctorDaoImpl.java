@@ -6,7 +6,9 @@ package com.clinic.dao;
 
 import com.clinic.entity.Account;
 import com.clinic.entity.Doctor;
+import com.clinic.entity.Patient;
 import com.clinic.mapper.DoctorMapper;
+import com.clinic.mapper.PatientMapper;
 import com.clinic.util.CollectionsUtil;
 import java.util.List;
 import org.apache.commons.lang3.ObjectUtils;
@@ -23,7 +25,7 @@ public class DoctorDaoImpl extends AbstractDAO implements DoctorDao {
   }
 
   @Override
-  public Doctor getDoctorById(long id) {
+  public Doctor findById(Long id) {
     Account account = accountDao.findById(id);
     if (ObjectUtils.isEmpty(account)) {
       return null;
@@ -35,7 +37,22 @@ public class DoctorDaoImpl extends AbstractDAO implements DoctorDao {
 
   }
 
-  private Doctor getDoctorOnlyById(long id) {
+  @Override
+  public Long save(Doctor doctor) {
+    StringBuilder sql = new StringBuilder("INSERT INTO Doctor ");
+    sql.append(" (Id,Specialization) VALUES (?,?)");
+    insert(sql.toString(), doctor.getId(), doctor.getSpecialization());
+    return doctor.getId();
+  }
+
+  @Override
+  public List<Doctor> findAll() {
+    StringBuilder sql = new StringBuilder(
+        "SELECT * FROM Doctor D\n" + "INNER JOIN Account A on A.Id = D.Id");
+    return query(sql.toString(), new DoctorMapper());
+  }
+
+  private Doctor getDoctorOnlyById(Long id) {
     String sql = "SELECT * FROM Doctor WHERE Id = ?";
     List<Doctor> doctors = query(sql, new DoctorMapper(), id);
     return CollectionsUtil.isEmpty(doctors) ? null : doctors.get(0);

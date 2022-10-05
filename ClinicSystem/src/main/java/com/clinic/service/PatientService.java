@@ -14,9 +14,11 @@ import java.util.Map;
  */
 public interface PatientService {
 
-  public Long createNew(BookingAppointmentDto bookingAppointmentDto);
+  Long createNew(BookingAppointmentDto bookingAppointmentDto);
 
-  public List<Patient> getByListId(List<Long> listPatientId);
+  List<Patient> getByListId(List<Long> listPatientId);
 
-  public Map<Long, Patient> getMapPatientByListId(List<Long> listPatientId);
+  Map<Long, Patient> getMapPatientByListId(List<Long> listPatientId);
+
+  List<Patient> findAll();
 }

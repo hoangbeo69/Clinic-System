@@ -32,7 +32,7 @@
         </div>
         <!-- [ Main Content ] start -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-xl-12">
                 <div class="card table-card">
                     <div class="card-header">
                         <h5>Projects</h5>
@@ -72,7 +72,7 @@
                                     <th>Phone Number</th>
                                     <th>Email</th>
                                     <th>Date Of Birth</th>
-                                    <th>Action</th>
+                                    <th class="text-right">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>

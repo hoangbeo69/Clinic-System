@@ -77,7 +77,7 @@
                                         <td>${appointment.description}</td>
                                         <td>${appointment.status.name()}</td>
                                         <td>
-                                            <c:url var="singleURL" value="detail">
+                                            <c:url var="singleURL" value="appointment/detail">
                                                 <c:param name="id" value="${appointment.id}"/>
                                             </c:url>
                                             <a class="btn btn-info" title="Detail"

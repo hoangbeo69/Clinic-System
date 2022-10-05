@@ -5,11 +5,16 @@
 package com.clinic.dao;
 
 import com.clinic.entity.Doctor;
+import java.util.List;
+
 /**
- *
  * @author nguye
  */
-public interface DoctorDao extends GenericDao{
+public interface DoctorDao extends GenericDao {
 
-    Doctor getDoctorById(long id);
+  Doctor findById(Long id);
+
+  Long save(Doctor doctor);
+
+  List<Doctor> findAll();
 }

@@ -21,4 +21,6 @@ public interface PatientDao extends GenericDao {
   Long update(Patient patient);
 
   List<Patient> getByListId(List<Long> listPatientId);
+
+  List<Patient> findAll();
 }
