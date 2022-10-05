@@ -1,0 +1,16 @@
+
+w
+java:S1989="aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(»êûÇ
+~
+java:S1989J"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(‘ŸÑ
+X
+java:S1128"6Remove this unused import 'com.clinic.dao.AccountDao'.(íá©Äşÿÿÿÿ8…ú£«º0
+W
+java:S1128	":Remove this unused import 'com.clinic.dao.AccountDaoImpl'.(º«ïß8…ú£«º0
+X
+java:S1128
+"6Remove this unused import 'com.clinic.dao.PatientDao'.(ÇÛºÌÿÿÿÿÿ8…ú£«º0
+W
+java:S1128":Remove this unused import 'com.clinic.dao.PatientDaoImpl'.(À£É8†ú£«º0
+s
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ˆ•’øÿÿÿÿ
