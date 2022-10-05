@@ -74,15 +74,9 @@
                     </div>
                     <div class="card-body py-3 px-4">
                         <form action="<%=request.getContextPath()%>/doctor/detail" method="post">
-
-                            <c:if test="${not empty doctor.id}">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit
-                                    User</h5>
-                            </c:if>
-                            <c:if test="${not empty messageResponse.message}">
-                                <div class="alert alert-${messageResponse.alert}"
-                                     role="alert">
-                                        ${messageResponse.message}
+                            <c:if test="${not empty message}">
+                                <div class="alert alert-${alert}" role="alert">
+                                        ${message}
                                 </div>
                             </c:if>
                             <div class="form-group">

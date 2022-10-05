@@ -8,29 +8,15 @@ package com.clinic.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 /**
  * @author nguye
  */
 public class PropertiesService {
 
-  private static Properties properties;
-
+  static ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
   public static String get(String key) {
-    if (properties == null) {
-      {
-        try (InputStream input = PropertiesService.class.getResourceAsStream(
-            "message.properties");) {
-          properties = new Properties();
-          properties.load(input);
-        } catch (IOException io) {
-          io.printStackTrace();
-        }
-      }
-    }
-    if (key == null) {
-      return null;
-    }
-    return (String) properties.get(key);
+    return resourceBundle.getString(key);
   }
 }

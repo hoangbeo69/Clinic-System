@@ -9,6 +9,7 @@ import com.clinic.entity.Doctor;
 import com.clinic.service.DoctorService;
 import com.clinic.service.DoctorServiceImpl;
 import com.clinic.util.FormUtil;
+import com.clinic.util.HttpUtil;
 import com.clinic.util.StringUtil;
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -58,9 +59,9 @@ public class DoctorController extends HttpServlet {
       throws ServletException, IOException {
     if (StringUtils.isNotEmpty(request.getParameter("id"))) {
       Long id = Long.parseLong(request.getParameter("id"));
-
       Doctor doctor = doctorService.findById(id);
       request.setAttribute("doctor", doctor);
+      HttpUtil.setMessageResponse(request);
     }
     request.getRequestDispatcher("/views/doctor-information.jsp").forward(request, response);
   }
@@ -84,12 +85,12 @@ public class DoctorController extends HttpServlet {
       result = doctorService.udpate(doctor);
       if (result) {
         response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?"+doctor.getId()+"message" +
+            request.getContextPath() + "/doctor/detail?id="+doctor.getId()+"&message" +
                 "=updatedoctor_success&alert" +
                 "=success");
       } else {
         response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?"+doctor.getId()+"message" +
+            request.getContextPath() + "/doctor/detail?id=?"+doctor.getId()+"&message" +
                 "=updatedoctor_notsuccess&alert=danger");
       }
     }else {
