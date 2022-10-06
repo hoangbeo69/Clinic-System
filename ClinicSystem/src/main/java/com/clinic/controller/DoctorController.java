@@ -90,18 +90,19 @@ public class DoctorController extends HttpServlet {
                 "=success");
       } else {
         response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?id=?"+doctor.getId()+"&message" +
+            request.getContextPath() + "/doctor/detail?id="+doctor.getId()+"&message" +
                 "=updatedoctor_notsuccess&alert=danger");
       }
     }else {
       Long id = doctorService.createNew(doctor);
       if (id != null) {
         response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?"+id+"message=newdoctor_success&alert" +
+            request.getContextPath() + "/doctor/detail?"+id+"&message=newdoctor_success&alert" +
                 "=success");
       } else {
         response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?"+id+"message=newdoctor_notsuccess&alert=danger");
+            request.getContextPath() + "/doctor/detail?"+id+"&message=newdoctor_notsuccess&alert" +
+                "=danger");
       }
     }
 
