@@ -1,18 +1,12 @@
 package com.clinic.controller;
 
-import com.clinic.dao.AccountDao;
-import com.clinic.dao.AccountDaoImpl;
-import com.clinic.dao.DoctorDao;
-import com.clinic.dao.DoctorDaoImpl;
-import com.clinic.dto.BookingAppointmentDto;
-import com.clinic.entity.Doctor;
-import com.clinic.service.DoctorService;
-import com.clinic.service.DoctorServiceImpl;
+import com.clinic.entity.Patient;
+import com.clinic.model.TimeSlot;
+import com.clinic.service.PatientService;
+import com.clinic.service.PatientServiceImpl;
 import com.clinic.util.FormUtil;
 import com.clinic.util.HttpUtil;
-import com.clinic.util.StringUtil;
 import java.io.IOException;
-import java.sql.Timestamp;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,16 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
+@WebServlet(name = "PatientController", urlPatterns = {"/patient/detail"})
+public class PatientController extends HttpServlet {
 
-@WebServlet(name = "DoctorController", urlPatterns = {"/doctor/detail"})
-public class DoctorController extends HttpServlet {
+  PatientService patientService;
 
-  private DoctorService doctorService;
-
-  public DoctorController() {
-    this.doctorService = new DoctorServiceImpl();
+  public PatientController() {
+    patientService = new PatientServiceImpl();
   }
-
 
   /**
    * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,7 +34,6 @@ public class DoctorController extends HttpServlet {
    */
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
   }
 
   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -59,11 +50,13 @@ public class DoctorController extends HttpServlet {
       throws ServletException, IOException {
     if (StringUtils.isNotEmpty(request.getParameter("id"))) {
       Long id = Long.parseLong(request.getParameter("id"));
-      Doctor doctor = doctorService.findById(id);
-      request.setAttribute("doctor", doctor);
+      Patient patient = patientService.findById(id);
+      HttpUtil.setMessageResponse(request);
+      request.setAttribute("TIMESLOTS", TimeSlot.values());
+      request.setAttribute("patient", patient);
       HttpUtil.setMessageResponse(request);
     }
-    request.getRequestDispatcher("/views/doctor-information.jsp").forward(request, response);
+    request.getRequestDispatcher("/views/patient-information.jsp").forward(request, response);
   }
 
   /**
@@ -78,31 +71,20 @@ public class DoctorController extends HttpServlet {
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
     response.setContentType("application/json");
-    Doctor doctor = FormUtil.toModel(Doctor.class, request);
+    Patient patient = FormUtil.toModel(Patient.class, request);
     boolean result = false;
-    if (ObjectUtils.isNotEmpty(doctor.getId())) {
-      result = doctorService.udpate(doctor);
+    if (ObjectUtils.isNotEmpty(patient.getId())) {
+      result = patientService.udpate(patient);
       if (result) {
         response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?id=" + doctor.getId() + "&message" +
+            request.getContextPath() + "/patient/detail?id=" + patient.getId() + "&message" +
                 "=updatedoctor_success&alert" + "=success");
       } else {
         response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?id=" + doctor.getId() + "&message" +
+            request.getContextPath() + "/patient/detail?id=" + patient.getId() + "&message" +
                 "=updatedoctor_notsuccess&alert=danger");
       }
-    } else {
-      Long id = doctorService.createNew(doctor);
-      if (id != null) {
-        response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?" + id + "&message=newdoctor_success&alert" +
-                "=success");
-      } else {
-        response.sendRedirect(request.getContextPath() + "/doctor/detail?" + id +
-            "&message=newdoctor_notsuccess&alert" + "=danger");
-      }
     }
-
   }
 
   /**
@@ -113,5 +95,4 @@ public class DoctorController extends HttpServlet {
   public String getServletInfo() {
     return "Short description";
   }// </editor-fold>
-
 }

@@ -22,6 +22,8 @@ public interface PatientService {
 
   List<Patient> findAll();
 
-
   Patient findById(Long patientId);
+
+  boolean udpate(Patient patient);
+
 }

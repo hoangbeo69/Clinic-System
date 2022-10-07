@@ -64,4 +64,9 @@ public class PatientServiceImpl implements PatientService {
     return patientDao.getPatientById(patientId);
   }
 
+  @Override
+  public boolean udpate(Patient patient) {
+    return false;
+  }
+
 }
