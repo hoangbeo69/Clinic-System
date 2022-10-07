@@ -76,7 +76,7 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
 
     Long bookingSlotId = appointment.getBookingSlotId();
     if (ObjectUtils.isNotEmpty(bookingSlotId)) {
-      BookingSlotDto bookingSlotDto = bookingSlotDao.findDtoById(id);
+      BookingSlotDto bookingSlotDto = bookingSlotDao.findDtoById(bookingSlotId);
       if (ObjectUtils.isNotEmpty(bookingSlotDto)) {
         bookingAppointmentDto.setBookingSlot(bookingSlotDto);
       }

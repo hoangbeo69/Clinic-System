@@ -8,14 +8,13 @@ import com.clinic.dto.BookingAppointmentDto;
 import java.util.List;
 
 /**
- *
  * @author nguye
  */
 public interface AppointmentBookingService {
 
-    boolean booking(BookingAppointmentDto bookingAppointmentDto);
+  boolean booking(BookingAppointmentDto bookingAppointmentDto);
 
-    List<BookingAppointmentDto> findAll();
+  List<BookingAppointmentDto> findAll();
 
   BookingAppointmentDto findById(Long id);
 }

@@ -50,7 +50,8 @@ public class PatientDaoImpl extends AbstractDAO implements PatientDao {
   }
 
   private Patient getPatientOnlyById(long id) {
-    String sql = "SELECT * FROM Patient WHERE Id = ?";
+    String sql = "SELECT * FROM Patient P INNER JOIN Account A on A.Id = P.Id" +
+        " WHERE P.id = ? ";
     List<Patient> patients = query(sql, new PatientMapper(), id);
     return CollectionsUtil.isEmpty(patients) ? null : patients.get(0);
   }

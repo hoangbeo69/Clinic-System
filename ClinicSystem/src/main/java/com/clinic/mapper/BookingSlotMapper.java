@@ -18,7 +18,7 @@ public class BookingSlotMapper implements RowMapper<BookingSlot> {
   public BookingSlot mapRow(ResultSet rs) {
     BookingSlot bookingSlot = new BookingSlot();
     try {
-      bookingSlot.setId(rs.getLong("Id"));
+      bookingSlot.setId(rs.getLong(1));
       bookingSlot.setDoctorId(rs.getLong("DoctorId"));
       bookingSlot.setDateSlot(rs.getDate("MedicalRecordId"));
       bookingSlot.setTimeSlot(TimeSlot.get(rs.getInt("BookingSlotId")));

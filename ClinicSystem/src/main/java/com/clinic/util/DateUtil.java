@@ -18,7 +18,7 @@ public class DateUtil {
     static Logger logger = Logger.getLogger(DateUtil.class.toString());
 
     public static String getStrDate(Date date) {
-        SimpleDateFormat sm = new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat sm = new SimpleDateFormat("YYYY-MM-DD");
         if (null == date) {
             date = new Date();
         }

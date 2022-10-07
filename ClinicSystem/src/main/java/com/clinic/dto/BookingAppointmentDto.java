@@ -4,9 +4,7 @@
  */
 package com.clinic.dto;
 
-import com.clinic.dao.BookingSlotDao;
 import com.clinic.entity.Appointment;
-import com.clinic.entity.BookingSlot;
 import com.clinic.entity.Patient;
 import com.clinic.model.AppointmentStatus;
 import com.clinic.util.DateUtil;
@@ -30,7 +28,7 @@ public class BookingAppointmentDto {
   private Long medicalRecordId;
   private Integer timeSlotOrder;
   private String timeSlot;
-  private String dateSlot;
+  private Date dateSlot;
   private AppointmentStatus status;
   private Integer statusCode;
   private String statusDescription;
@@ -44,10 +42,27 @@ public class BookingAppointmentDto {
   private Long patientId;
   private String address;
   private Long roomId;
-
   private String roomName;
-
   private String roomDescription;
+
+  private String guardianFullname;
+  private String guardianPhoneNumber;
+
+  public String getGuardianFullname() {
+    return guardianFullname;
+  }
+
+  public void setGuardianFullname(String guardianFullname) {
+    this.guardianFullname = guardianFullname;
+  }
+
+  public String getGuardianPhoneNumber() {
+    return guardianPhoneNumber;
+  }
+
+  public void setGuardianPhoneNumber(String guardianPhoneNumber) {
+    this.guardianPhoneNumber = guardianPhoneNumber;
+  }
 
   public Long getRoomId() {
     return roomId;
@@ -180,11 +195,11 @@ public class BookingAppointmentDto {
     this.timeSlotOrder = timeSlotOrder;
   }
 
-  public String getDateSlot() {
+  public Date getDateSlot() {
     return dateSlot;
   }
 
-  public void setDateSlot(String dateSlot) {
+  public void setDateSlot(Date dateSlot) {
     this.dateSlot = dateSlot;
   }
 
@@ -276,37 +291,6 @@ public class BookingAppointmentDto {
     this.patientId = patientId;
   }
 
-  public BookingAppointmentDto(Long id, String username, String password, String fullName,
-      String phoneNumber, String email, String sex, String dob, Long doctorId, Long medicalRecordId,
-      Integer timeSlotOrder, String timeSlot, String dateSlot, AppointmentStatus status,
-      Integer statusCode, String statusDescription, String appointmentCode, Long bookingSlotId,
-      String createdBy, String updateBy, Timestamp createdDate, Timestamp updatedDate,
-      String description, Long patientId) {
-    this.id = id;
-    this.username = username;
-    this.password = password;
-    this.fullName = fullName;
-    this.phoneNumber = phoneNumber;
-    this.email = email;
-    this.sex = sex;
-    this.dob = dob;
-    this.doctorId = doctorId;
-    this.medicalRecordId = medicalRecordId;
-    this.timeSlotOrder = timeSlotOrder;
-    this.timeSlot = timeSlot;
-    this.dateSlot = dateSlot;
-    this.status = status;
-    this.statusCode = statusCode;
-    this.statusDescription = statusDescription;
-    this.appointmentCode = appointmentCode;
-    this.bookingSlotId = bookingSlotId;
-    this.createdBy = createdBy;
-    this.updateBy = updateBy;
-    this.createdDate = createdDate;
-    this.updatedDate = updatedDate;
-    this.description = description;
-    this.patientId = patientId;
-  }
 
   public void setAppointment(Appointment appointment) {
     this.id = appointment.getId();
@@ -315,7 +299,7 @@ public class BookingAppointmentDto {
     this.patientId = appointment.getPatientId();
     this.timeSlotOrder = appointment.getTimeSlotOrder();
     this.timeSlot = appointment.getTimeSlot().getTimeValue();
-    this.dateSlot = DateUtil.getStrDate(appointment.getDateSlot());
+    this.dateSlot = appointment.getDateSlot();
     this.status = appointment.getStatus();
     this.statusCode = appointment.getStatusCode();
     this.statusDescription = appointment.getDescription();
@@ -329,19 +313,21 @@ public class BookingAppointmentDto {
   }
 
   public void setPatient(Patient patient) {
-    this.setId(patient.getId());
+    this.setPatientId(patient.getId());
     this.setFullName(patient.getFullName());
     this.setPhoneNumber(patient.getPhoneNumber());
     this.setEmail(patient.getEmail());
     this.setDob(patient.getDob().toString());
     this.setSex(patient.getSex());
+    this.setGuardianFullname(patient.getGuardianFullname());
+    this.setGuardianPhoneNumber(patient.getGuardianPhoneNumber());
     this.address = patient.getAddress();
   }
 
   public void setBookingSlot(BookingSlotDto bookingSlotDto) {
     this.id = bookingSlotDto.getId();
     this.roomId = bookingSlotDto.getRoomId();
-    this.dateSlot = DateUtil.getStrDate(bookingSlotDto.getDateSlot());
+    this.dateSlot = bookingSlotDto.getDateSlot();
     this.timeSlot = bookingSlotDto.getTimeSlot().getTimeValue();
     this.timeSlotOrder = bookingSlotDto.getTimeSlotOrder();
     this.doctorId = bookingSlotDto.getDoctorId();

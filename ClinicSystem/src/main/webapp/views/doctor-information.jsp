@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html>
 <html>
 <header>
@@ -118,7 +119,8 @@
                                 <label for="dob">Date Of Birth</label>
                                 <input type="date" name="dob" class="form-control" id=
                                         "dob"
-                                       placeholder="DD/MM/YYYY">
+                                       placeholder="DD/MM/YYYY" value="<fmt:formatDate
+                                       pattern='YYYY-MM-DD' value='${doctor.dob}' />">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -130,7 +132,7 @@
                                 <label for="specialization">Specialization</label>
                                 <input type="text" required="" class="form-control"
                                        name="specialization" id="specialization"
-                                       placeholder="" value="${doctor.dob}">
+                                       placeholder="" value="${doctor.specialization}">
                             </div>
                             <input type="hidden" id="id" name="id" value="${doctor.id}">
                             <div class="form-group">

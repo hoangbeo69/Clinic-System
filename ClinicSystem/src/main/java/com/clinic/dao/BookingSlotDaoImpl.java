@@ -57,8 +57,8 @@ public class BookingSlotDaoImpl extends AbstractDAO implements BookingSlotDao {
 
   @Override
   public BookingSlotDto findDtoById(Long id) {
-    String sql = "SELECT * FROM BookingSlot BS INNER JOIN ROOM R on BS.RoomId = R.Id" +
-        "WHERE Id = ?";
+    String sql = "SELECT * FROM BookingSlot BS INNER JOIN ROOM R on BS.RoomId = R.Id " +
+        "WHERE BS.Id = ?";
     List<BookingSlotDto> bookingSlotDtos = query(sql, new BookingSlotDtoMapper(),id);
     return CollectionsUtil.isEmpty(bookingSlotDtos) ? null : bookingSlotDtos.get(0);
   }

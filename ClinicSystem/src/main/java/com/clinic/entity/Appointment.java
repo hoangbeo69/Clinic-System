@@ -65,7 +65,7 @@ public class Appointment {
     this.patientId = bookingAppointmentDto.getPatientId();
     this.timeSlotOrder = bookingAppointmentDto.getTimeSlotOrder();
     this.timeSlot = TimeSlot.get(timeSlotOrder);
-    this.dateSlot = DateUtil.getDate(bookingAppointmentDto.getDateSlot());
+    this.dateSlot = bookingAppointmentDto.getDateSlot();
     this.status = bookingAppointmentDto.getStatus();
     this.statusCode = bookingAppointmentDto.getStatusCode();
     this.statusDescription = bookingAppointmentDto.getDescription();
