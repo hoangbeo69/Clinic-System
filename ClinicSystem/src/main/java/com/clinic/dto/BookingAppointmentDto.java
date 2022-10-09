@@ -10,10 +10,16 @@ import com.clinic.model.AppointmentStatus;
 import com.clinic.util.DateUtil;
 import java.sql.Timestamp;
 import java.util.Date;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author nguye
  */
+@Data
+@Getter
+@Setter
 public class BookingAppointmentDto {
 
   private Long id;
@@ -44,253 +50,11 @@ public class BookingAppointmentDto {
   private Long roomId;
   private String roomName;
   private String roomDescription;
-
   private String guardianFullname;
   private String guardianPhoneNumber;
 
-  public String getGuardianFullname() {
-    return guardianFullname;
-  }
-
-  public void setGuardianFullname(String guardianFullname) {
-    this.guardianFullname = guardianFullname;
-  }
-
-  public String getGuardianPhoneNumber() {
-    return guardianPhoneNumber;
-  }
-
-  public void setGuardianPhoneNumber(String guardianPhoneNumber) {
-    this.guardianPhoneNumber = guardianPhoneNumber;
-  }
-
-  public Long getRoomId() {
-    return roomId;
-  }
-
-  public void setRoomId(Long roomId) {
-    this.roomId = roomId;
-  }
-
-  public String getRoomName() {
-    return roomName;
-  }
-
-  public void setRoomName(String roomName) {
-    this.roomName = roomName;
-  }
-
-  public String getRoomDescription() {
-    return roomDescription;
-  }
-
-  public void setRoomDescription(String roomDescription) {
-    this.roomDescription = roomDescription;
-  }
-
   public BookingAppointmentDto() {
   }
-
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-  public String getTimeSlot() {
-    return timeSlot;
-  }
-
-  public void setTimeSlot(String timeSlot) {
-    this.timeSlot = timeSlot;
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public String getFullName() {
-    return fullName;
-  }
-
-  public void setFullName(String fullName) {
-    this.fullName = fullName;
-  }
-
-  public String getPhoneNumber() {
-    return phoneNumber;
-  }
-
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getSex() {
-    return sex;
-  }
-
-  public void setSex(String sex) {
-    this.sex = sex;
-  }
-
-  public String getDob() {
-    return dob;
-  }
-
-  public void setDob(String dob) {
-    this.dob = dob;
-  }
-
-  public Long getDoctorId() {
-    return doctorId;
-  }
-
-  public void setDoctorId(Long doctorId) {
-    this.doctorId = doctorId;
-  }
-
-  public Long getMedicalRecordId() {
-    return medicalRecordId;
-  }
-
-  public void setMedicalRecordId(Long medicalRecordId) {
-    this.medicalRecordId = medicalRecordId;
-  }
-
-  public Integer getTimeSlotOrder() {
-    return timeSlotOrder;
-  }
-
-  public void setTimeSlotOrder(Integer timeSlotOrder) {
-    this.timeSlotOrder = timeSlotOrder;
-  }
-
-  public Date getDateSlot() {
-    return dateSlot;
-  }
-
-  public void setDateSlot(Date dateSlot) {
-    this.dateSlot = dateSlot;
-  }
-
-  public AppointmentStatus getStatus() {
-    return status;
-  }
-
-  public void setStatus(AppointmentStatus status) {
-    this.status = status;
-  }
-
-  public Integer getStatusCode() {
-    return statusCode;
-  }
-
-  public void setStatusCode(Integer statusCode) {
-    this.statusCode = statusCode;
-  }
-
-  public String getStatusDescription() {
-    return statusDescription;
-  }
-
-  public void setStatusDescription(String statusDescription) {
-    this.statusDescription = statusDescription;
-  }
-
-  public String getAppointmentCode() {
-    return appointmentCode;
-  }
-
-  public void setAppointmentCode(String appointmentCode) {
-    this.appointmentCode = appointmentCode;
-  }
-
-  public Long getBookingSlotId() {
-    return bookingSlotId;
-  }
-
-  public void setBookingSlotId(Long bookingSlotId) {
-    this.bookingSlotId = bookingSlotId;
-  }
-
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public String getUpdateBy() {
-    return updateBy;
-  }
-
-  public void setUpdateBy(String updateBy) {
-    this.updateBy = updateBy;
-  }
-
-  public Timestamp getCreatedDate() {
-    return createdDate;
-  }
-
-  public void setCreatedDate(Timestamp createdDate) {
-    this.createdDate = createdDate;
-  }
-
-  public Timestamp getUpdatedDate() {
-    return updatedDate;
-  }
-
-  public void setUpdatedDate(Timestamp updatedDate) {
-    this.updatedDate = updatedDate;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public Long getPatientId() {
-    return patientId;
-  }
-
-  public void setPatientId(Long patientId) {
-    this.patientId = patientId;
-  }
-
 
   public void setAppointment(Appointment appointment) {
     this.id = appointment.getId();

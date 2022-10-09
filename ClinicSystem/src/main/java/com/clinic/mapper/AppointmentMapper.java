@@ -26,7 +26,7 @@ public class AppointmentMapper implements RowMapper<Appointment> {
       appointment.setBookingSlotId(rs.getLong("BookingSlotId"));
       appointment.setPatientId(rs.getLong("PatientId"));
       appointment.setStatus(AppointmentStatus.get(rs.getInt("Status")));
-      appointment.setDataSlot(new Date(rs.getDate("DateSlot").getTime()));
+      appointment.setDateSlot(new Date(rs.getDate("DateSlot").getTime()));
       appointment.setTimeSlot(TimeSlot.get(rs.getInt("TimeSlot")));
       appointment.setStatusDescription(rs.getString("StatusDescription"));
       appointment.setCreatedBy(rs.getString("CreatedBy"));

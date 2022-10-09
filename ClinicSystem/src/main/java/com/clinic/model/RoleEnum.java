@@ -11,7 +11,7 @@ package com.clinic.model;
 public enum RoleEnum {
     ADMIN, MANAGER, USER, ANONYMOUS;
 
-    private RoleEnum() {
+    RoleEnum() {
     }
 
     public static RoleEnum get(String roleName) {

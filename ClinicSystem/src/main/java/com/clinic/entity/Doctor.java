@@ -6,12 +6,18 @@
 package com.clinic.entity;
 
 import java.util.Date;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.ObjectUtils;
 
 /**
  *
  * @author Admin
  */
+@Data
+@Getter
+@Setter
 public class Doctor extends Account{    
     private String specialization;
 

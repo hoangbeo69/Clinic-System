@@ -53,7 +53,7 @@
                     <!-- form-group// -->
                     <div class="form-group input-group">
                         <input name="guardianFullname" class="form-control"
-                               placeholder="Tên người giám hộ(nếu có)" type="email">
+                               placeholder="Tên người giám hộ(nếu có)" type="text">
                     </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">

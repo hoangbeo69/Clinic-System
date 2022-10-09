@@ -16,7 +16,7 @@ public enum AccountStatus {
 
     private int statusCode;
 
-    private AccountStatus(Integer statusCode) {
+     AccountStatus(Integer statusCode) {
         this.statusCode = statusCode;
     }
 

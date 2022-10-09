@@ -30,8 +30,8 @@ public enum TimeSlot {
   SEVENTEEN("17H - 17H30", 17),
   EIGHTEEN("17H30 - 18H", 18);
 
-  private String timeValue;
-  private Integer slotOrder;
+  private final String timeValue;
+  private final Integer slotOrder;
 
   private TimeSlot(String timeValue, Integer slotOrder) {
     this.timeValue = timeValue;

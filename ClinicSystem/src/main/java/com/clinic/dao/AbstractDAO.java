@@ -16,35 +16,14 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ResourceBundle;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class AbstractDAO<T> implements GenericDao<T> {
 
-  Logger logger = Logger.getLogger(AbstractDAO.class.toString());
-  private final String serverName = "localhost";
-  private final String dbName = "ClinicSystem";
-  private final String portNumber = "1433";
-  private final String instance = "";
-  private final String userID = "sa";
-  private final String password = "123456";
-
-  public Connection getConnection() {
-    try {
-      String url =
-          "jdbc:sqlserver://" + serverName + ":" + portNumber + "\\" + instance + ";databaseName=" +
-              dbName;
-      if (instance == null || instance.trim().isEmpty()) {
-        url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + dbName;
-      }
-      Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-      return DriverManager.getConnection(url, userID, password);
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(AbstractDAO.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    return null;
+  public Connection getConnection() throws SQLException {
+    return DBUtils.getInstance().getConnection();
   }
 
   @Override
@@ -248,7 +227,7 @@ public class AbstractDAO<T> implements GenericDao<T> {
     try {
       for (int count = 0; count < parameters.length; count++) {
         Object parameter = parameters[count];
-        logger.info("Parameters : " + parameter);
+        log.info("Parameters : " + parameter);
         int index = count + 1;
         if (parameter instanceof Long) {
           statement.setLong(index, (Long) parameter);

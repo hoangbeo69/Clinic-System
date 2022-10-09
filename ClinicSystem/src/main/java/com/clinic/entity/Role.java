@@ -4,11 +4,16 @@
  */
 package com.clinic.entity;
 
-import com.clinic.model.RoleEnum;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author nguye
  */
+@Data
+@Getter
+@Setter
 public class Role {
 
   private Long id;
@@ -21,35 +26,7 @@ public class Role {
     this.description = description;
   }
 
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
   public Role() {
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(RoleEnum role) {
-    this.name = role.name();
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
 }

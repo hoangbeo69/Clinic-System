@@ -7,10 +7,16 @@ package com.clinic.entity;
 import com.clinic.model.BookingStatus;
 import com.clinic.model.TimeSlot;
 import java.util.Date;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author nguye
  */
+@Data
+@Getter
+@Setter
 public class BookingSlot {
 
   private Long id;
@@ -26,63 +32,18 @@ public class BookingSlot {
     return status;
   }
 
+  public BookingSlot() {
+  }
+
   public void setStatus(BookingStatus status) {
     this.status = status;
     this.statusCode = status.getStatusCode();
   }
 
-  public Integer getStatusCode() {
-    return statusCode;
-  }
-
-  public void setStatusCode(Integer statusCode) {
-    this.statusCode = statusCode;
-  }
-
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public Long getRoomId() {
-    return roomId;
-  }
-
-  public void setRoomId(Long roomId) {
-    this.roomId = roomId;
-  }
-
-  public Date getDateSlot() {
-    return dateSlot;
-  }
-
-  public void setDateSlot(Date dateSlot) {
-    this.dateSlot = dateSlot;
-  }
-
-  public TimeSlot getTimeSlot() {
-    return timeSlot;
-  }
 
   public void setTimeSlot(TimeSlot timeSlot) {
     this.timeSlot = timeSlot;
     this.timeSlotOrder = timeSlot.getSlotOrder();
-  }
-
-  public Integer getTimeSlotOrder() {
-    return timeSlotOrder;
-  }
-
-  public Long getDoctorId() {
-    return doctorId;
-  }
-
-  public void setDoctorId(Long doctorId) {
-    this.doctorId = doctorId;
   }
 
 }

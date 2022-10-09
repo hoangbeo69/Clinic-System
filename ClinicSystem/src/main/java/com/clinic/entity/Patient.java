@@ -8,11 +8,17 @@ package com.clinic.entity;
 import com.clinic.dto.BookingAppointmentDto;
 import com.clinic.util.DateUtil;
 import java.util.Date;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.ObjectUtils;
 /**
  *
  * @author Long
  */
+@Data
+@Getter
+@Setter
 public class Patient extends Account {
 
     private String insuranceCode;
@@ -66,45 +72,4 @@ public class Patient extends Account {
     public Patient() {
         super();
     }
-
-    public void setInsuranceCode(String insuranceCode) {
-        this.insuranceCode = insuranceCode;
-    }
-
-    public void setIdentityCard(String identityCard) {
-        this.identityCard = identityCard;
-    }
-
-    public String getInsuranceCode() {
-        return insuranceCode;
-    }
-
-    public String getIdentityCard() {
-        return identityCard;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getGuardianFullname() {
-        return guardianFullname;
-    }
-
-    public void setGuardianFullname(String guardianFullname) {
-        this.guardianFullname = guardianFullname;
-    }
-
-    public String getGuardianPhoneNumber() {
-        return guardianPhoneNumber;
-    }
-
-    public void setGuardianPhoneNumber(String guardianPhoneNumber) {
-        this.guardianPhoneNumber = guardianPhoneNumber;
-    }
-
 }

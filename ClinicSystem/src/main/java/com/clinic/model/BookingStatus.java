@@ -12,9 +12,9 @@ import java.util.Arrays;
  */
 public enum BookingStatus {
     AVAILABLE(0), BOOKED(1);
-    private Integer statusCode;
+    private final Integer statusCode;
 
-    private BookingStatus(Integer statusCode) {
+     BookingStatus(Integer statusCode) {
         this.statusCode = statusCode;
     }
 

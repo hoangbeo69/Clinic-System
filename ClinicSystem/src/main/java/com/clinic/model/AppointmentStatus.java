@@ -12,15 +12,15 @@ import java.util.Arrays;
  */
 public enum AppointmentStatus {
     PENDING(0),
-    STAFFCONFIRM(1),
+    CONFIRMINFO(1),
     CONFIRMBOOKING(2),
-    DOCTORCONFIRM(3),
+    CONFIRMDOCTOR(3),
     RETURNRESULT(4),
     COMPLETE(5);
 
-    private Integer statusCode;
+    private final Integer statusCode;
 
-    private AppointmentStatus(Integer statusCode) {
+     AppointmentStatus(Integer statusCode) {
         this.statusCode = statusCode;
     }
 

@@ -7,10 +7,16 @@ package com.clinic.entity;
 import com.clinic.model.MedicalReport;
 import com.clinic.util.GsonUtil;
 import java.sql.Timestamp;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author nguye
  */
+@Data
+@Getter
+@Setter
 public class MedicalHistory {
 
   private Long id;
@@ -36,66 +42,6 @@ public class MedicalHistory {
   }
 
   public MedicalHistory() {
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public Long getPatientId() {
-    return patientId;
-  }
-
-  public void setPatientId(Long patientId) {
-    this.patientId = patientId;
-  }
-
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public String getUpdateBy() {
-    return updateBy;
-  }
-
-  public void setUpdateBy(String updateBy) {
-    this.updateBy = updateBy;
-  }
-
-  public Timestamp getCreatedDate() {
-    return createdDate;
-  }
-
-  public void setCreatedDate(Timestamp createdDate) {
-    this.createdDate = createdDate;
-  }
-
-  public Timestamp getUpdatedDate() {
-    return updatedDate;
-  }
-
-  public void setUpdatedDate(Timestamp updatedDate) {
-    this.updatedDate = updatedDate;
-  }
-
-  public String getMedicalJson() {
-    return medicalJson;
-  }
-
-  public void setMedicalJson(String medicalJson) {
-    this.medicalJson = medicalJson;
-  }
-
-  public MedicalReport getMedicalReport() {
-    return medicalReport;
   }
 
   public void setMedicalReport(MedicalReport medicalReport) {

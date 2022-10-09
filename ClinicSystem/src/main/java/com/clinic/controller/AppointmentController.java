@@ -1,14 +1,10 @@
 package com.clinic.controller;
 
 import com.clinic.dto.BookingAppointmentDto;
-import com.clinic.entity.Doctor;
-import com.clinic.model.TimeSlot;
 import com.clinic.service.AppointmentBookingService;
 import com.clinic.service.AppointmentBookingServiceImpl;
-import com.clinic.util.FormUtil;
-import com.clinic.util.HttpUtil;
 import java.io.IOException;
-import java.sql.Timestamp;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,16 +45,34 @@ public class AppointmentController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-
+    RequestDispatcher dispatcher = null;
     if (StringUtils.isNotEmpty(request.getParameter("id"))) {
       Long id = Long.parseLong(request.getParameter("id"));
       BookingAppointmentDto bookingAppointmentDto = appointmentBookingService.findById(id);
-      HttpUtil.setMessageResponse(request);
-      request.setAttribute("TIMESLOTS", TimeSlot.values());
-      request.setAttribute("appointment", bookingAppointmentDto);
-      HttpUtil.setMessageResponse(request);
+      switch (bookingAppointmentDto.getStatus()) {
+        case PENDING:
+          dispatcher = getServletContext().getRequestDispatcher("/appointment/confirmInfo");
+          break;
+        case CONFIRMINFO:
+          dispatcher = getServletContext().getRequestDispatcher("/appointment/confirmBooking");
+          break;
+        case CONFIRMBOOKING:
+          dispatcher = getServletContext().getRequestDispatcher("/appointment/confirmDoctor");
+          break;
+        case CONFIRMDOCTOR:
+          dispatcher = getServletContext().getRequestDispatcher("/appointment/returnResult");
+          break;
+        case RETURNRESULT:
+          dispatcher = getServletContext().getRequestDispatcher("/appointment/complete");
+          break;
+        case COMPLETE:
+          dispatcher = getServletContext().getRequestDispatcher("/appointment/review");
+          break;
+      }
+    } else {
+      dispatcher = getServletContext().getRequestDispatcher("/appointment/pending");
     }
-    request.getRequestDispatcher("/views/appointment-information.jsp").forward(request, response);
+    dispatcher.forward(request, response);
   }
 
   /**
@@ -71,21 +85,6 @@ public class AppointmentController extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    BookingAppointmentDto bookingAppointmentDto = FormUtil.toModel(BookingAppointmentDto.class,
-        request);
-//        bookingAppointmentDto.setCreatedBy(((UserDetail) SessionUtil.getInstance().getValue(request, "USERMODEL")).getUsername());
-
-    bookingAppointmentDto.setCreatedDate(new Timestamp(System.currentTimeMillis()));
-    boolean result = appointmentBookingService.booking(bookingAppointmentDto);
-    if (result) {
-      response.sendRedirect(
-          request.getContextPath() + "/appointment/detail?id=" + bookingAppointmentDto.getId() +
-              "&message=booking_success&alert" + "=success");
-    } else {
-      response.sendRedirect(
-          request.getContextPath() + "/appointment/detail?id=" + bookingAppointmentDto.getId() +
-              "&message=booking_notsuccess" + "&alert" + "=danger");
-    }
   }
 
   /**

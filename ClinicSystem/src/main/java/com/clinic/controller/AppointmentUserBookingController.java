@@ -5,6 +5,7 @@
 package com.clinic.controller;
 
 import com.clinic.dto.BookingAppointmentDto;
+import com.clinic.model.AppointmentStatus;
 import com.clinic.model.TimeSlot;
 import com.clinic.service.AppointmentBookingService;
 import com.clinic.service.AppointmentBookingServiceImpl;
@@ -69,8 +70,7 @@ public class AppointmentUserBookingController extends HttpServlet {
     response.setContentType("application/json");
     BookingAppointmentDto bookingAppointmentDto = FormUtil.toModel(BookingAppointmentDto.class,
         request);
-//        bookingAppointmentDto.setCreatedBy(((UserDetail) SessionUtil.getInstance().getValue(request, "USERMODEL")).getUsername());
-
+    bookingAppointmentDto.setStatus(AppointmentStatus.PENDING);
     bookingAppointmentDto.setCreatedDate(new Timestamp(System.currentTimeMillis()));
     boolean result = appointmentBookingService.booking(bookingAppointmentDto);
     if (result) {

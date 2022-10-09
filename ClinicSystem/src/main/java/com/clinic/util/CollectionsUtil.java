@@ -13,7 +13,7 @@ import java.util.Collection;
 public class CollectionsUtil {
     public static boolean isEmpty(Collection collection){
         if(null == collection){
-            return false;
+            return true;
         }
         return collection.isEmpty();
     }

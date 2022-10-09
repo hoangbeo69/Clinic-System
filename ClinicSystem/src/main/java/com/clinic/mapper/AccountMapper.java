@@ -16,7 +16,6 @@ public class AccountMapper implements RowMapper<Account> {
 
   @Override
   public Account mapRow(ResultSet rs) {
-    //TODO need to implement later
     Account user = new Account();
     try {
       user.setId(rs.getLong("id"));

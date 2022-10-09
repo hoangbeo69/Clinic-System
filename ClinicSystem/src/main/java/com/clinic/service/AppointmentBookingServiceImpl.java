@@ -11,6 +11,8 @@ import com.clinic.dto.BookingSlotDto;
 import com.clinic.entity.Appointment;
 import com.clinic.entity.BookingSlot;
 import com.clinic.entity.Patient;
+import com.clinic.util.CollectionsUtil;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -50,6 +52,9 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
     List<Appointment> appointments = appointmentService.findAll();
     List<Long> listPatientId = appointments.stream().map(Appointment::getPatientId)
         .collect(Collectors.toList());
+    if(CollectionsUtil.isEmpty(listPatientId)){
+      return new ArrayList<>();
+    }
     Map<Long, Patient> patients = (Map<Long, Patient>) patientService.getMapPatientByListId(
         listPatientId);
     return appointments.stream().map(e->{
