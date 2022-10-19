@@ -17,4 +17,8 @@ public interface AppointmentBookingService {
   List<BookingAppointmentDto> findAll();
 
   BookingAppointmentDto findById(Long id);
+
+  boolean confirmBooking(BookingAppointmentDto bookingAppointmentDto);
+
+  boolean confirmInfo(BookingAppointmentDto bookingAppointmentDto);
 }

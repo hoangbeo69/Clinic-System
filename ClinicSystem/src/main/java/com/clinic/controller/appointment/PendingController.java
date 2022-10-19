@@ -5,6 +5,10 @@ import com.clinic.model.TimeSlot;
 import com.clinic.model.UserDetail;
 import com.clinic.service.AppointmentBookingService;
 import com.clinic.service.AppointmentBookingServiceImpl;
+import com.clinic.service.DoctorService;
+import com.clinic.service.DoctorServiceImpl;
+import com.clinic.service.RoomService;
+import com.clinic.service.RoomServiceImpl;
 import com.clinic.util.FormUtil;
 import com.clinic.util.SessionUtil;
 import java.sql.Timestamp;
@@ -17,15 +21,22 @@ import java.io.IOException;
 public class PendingController extends HttpServlet {
 
   private AppointmentBookingService appointmentBookingService;
+  private RoomService roomService;
+  private DoctorService doctorService;
+
 
   public PendingController() {
     appointmentBookingService = new AppointmentBookingServiceImpl();
+    roomService = new RoomServiceImpl();
+    doctorService = new DoctorServiceImpl();
   }
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setAttribute("TIMESLOTS", TimeSlot.values());
+    request.setAttribute("ROOMS",roomService.findAll());
+    request.setAttribute("DOCTORS",doctorService.findAll());
     request.getRequestDispatcher("/views/appointment-pending.jsp").forward(request, response);
 
   }
@@ -41,11 +52,11 @@ public class PendingController extends HttpServlet {
     boolean result = appointmentBookingService.booking(bookingAppointmentDto);
     if (result) {
       response.sendRedirect(
-          request.getContextPath() + "/appointment/detail?id=" + bookingAppointmentDto.getId() +
+          request.getContextPath() + "/appointment/pending?id=" + bookingAppointmentDto.getId() +
               "&message=booking_success&alert" + "=success");
     } else {
       response.sendRedirect(
-          request.getContextPath() + "/appointment/detail?id=" + bookingAppointmentDto.getId() +
+          request.getContextPath() + "/appointment/pending?id=" + bookingAppointmentDto.getId() +
               "&message=booking_notsuccess" + "&alert" + "=danger");
     }
   }

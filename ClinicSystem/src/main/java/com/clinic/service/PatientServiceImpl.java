@@ -65,8 +65,18 @@ public class PatientServiceImpl implements PatientService {
   }
 
   @Override
-  public boolean udpate(Patient patient) {
-    return false;
+  public boolean update(Patient patient) {
+    if (patient == null || patient.getId() == null) {
+      return false;
+    }
+    Long id = patientDao.update(patient);
+    return id != null;
+  }
+
+  @Override
+  public boolean update(BookingAppointmentDto bookingAppointmentDto) {
+    Patient patient = new Patient(bookingAppointmentDto);
+    return update(patient);
   }
 
 }

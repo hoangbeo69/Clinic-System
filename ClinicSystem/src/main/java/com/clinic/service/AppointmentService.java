@@ -18,4 +18,6 @@ public interface AppointmentService {
   List<Appointment> findAll();
 
   Appointment findById(Long id);
+
+  boolean update(BookingAppointmentDto bookingAppointmentDto);
 }

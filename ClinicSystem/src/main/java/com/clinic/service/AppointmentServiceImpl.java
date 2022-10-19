@@ -45,4 +45,9 @@ public class AppointmentServiceImpl implements AppointmentService {
     return appointmentDao.findById(id);
   }
 
+  @Override
+  public boolean update(BookingAppointmentDto bookingAppointmentDto) {
+    return false;
+  }
+
 }

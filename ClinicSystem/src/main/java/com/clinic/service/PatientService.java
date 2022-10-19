@@ -24,6 +24,7 @@ public interface PatientService {
 
   Patient findById(Long patientId);
 
-  boolean udpate(Patient patient);
+  boolean update(Patient patient);
 
+  boolean update(BookingAppointmentDto bookingAppointmentDto);
 }

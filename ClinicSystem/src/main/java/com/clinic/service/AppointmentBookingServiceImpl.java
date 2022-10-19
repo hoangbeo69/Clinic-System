@@ -25,15 +25,17 @@ import org.apache.commons.lang3.ObjectUtils;
  */
 public class AppointmentBookingServiceImpl implements AppointmentBookingService {
 
-  private PatientService patientService;
+  private PatientService     patientService;
   private AppointmentService appointmentService;
+  private BookingSlotDao     bookingSlotDao;
 
-  private BookingSlotDao bookingSlotDao;
+  private BookingSlotService bookingSlotService;
 
   public AppointmentBookingServiceImpl() {
     patientService = new PatientServiceImpl();
     appointmentService = new AppointmentServiceImpl();
     bookingSlotDao = new BookingSlotDaoImpl();
+    bookingSlotService = new BookingSlotServiceImpl();
   }
 
   @Override
@@ -50,9 +52,10 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
   @Override
   public List<BookingAppointmentDto> findAll() {
     List<Appointment> appointments = appointmentService.findAll();
-    List<Long> listPatientId = appointments.stream().map(Appointment::getPatientId)
+    List<Long> listPatientId = appointments.stream()
+        .map(Appointment::getPatientId)
         .collect(Collectors.toList());
-    if(CollectionsUtil.isEmpty(listPatientId)){
+    if (CollectionsUtil.isEmpty(listPatientId)) {
       return new ArrayList<>();
     }
     Map<Long, Patient> patients = (Map<Long, Patient>) patientService.getMapPatientByListId(
@@ -75,8 +78,8 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
         bookingAppointmentDto.setAppointment(appointment);
       }
     }
-    if(appointment == null){
-      return  null;
+    if (appointment == null) {
+      return null;
     }
 
     Long bookingSlotId = appointment.getBookingSlotId();
@@ -96,6 +99,46 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
     }
 
     return bookingAppointmentDto;
+  }
+
+  @Override
+  public boolean confirmBooking(BookingAppointmentDto bookingAppointmentDto) {
+    if (bookingAppointmentDto == null || bookingAppointmentDto.getId() == null) {
+      return false;
+    }
+    BookingSlot bookingSlot = bookingSlotService.confirmBooking(bookingAppointmentDto);
+    if (bookingSlot != null) {
+      return true;
+    }
+    return false;
+  }
+
+  @Override
+  public boolean confirmInfo(BookingAppointmentDto bookingAppointmentDto) {
+    boolean isUpdateSuccess = false;
+    if (bookingAppointmentDto == null) {
+      return false;
+    }
+    if (bookingAppointmentDto.getId() == null) {
+      Long id = patientService.createNew(bookingAppointmentDto);
+      if (ObjectUtils.isNotEmpty(id)) {
+        bookingAppointmentDto.setPatientId(id);
+        Long appointmentId = appointmentService.createNew(bookingAppointmentDto);
+        isUpdateSuccess = ObjectUtils.isNotEmpty(appointmentId);
+      }
+    } else {
+      Long patientId = bookingAppointmentDto.getPatientId();
+      if (patientId == null) {
+        patientId = patientService.createNew(bookingAppointmentDto);
+      } else {
+        isUpdateSuccess = patientService.update(bookingAppointmentDto);
+      }
+      bookingAppointmentDto.setPatientId(patientId);
+      if (isUpdateSuccess) {
+        isUpdateSuccess = appointmentService.update(bookingAppointmentDto);
+      }
+    }
+    return isUpdateSuccess;
   }
 
 }

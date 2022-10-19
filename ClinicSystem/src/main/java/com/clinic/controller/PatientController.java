@@ -74,7 +74,7 @@ public class PatientController extends HttpServlet {
     Patient patient = FormUtil.toModel(Patient.class, request);
     boolean result = false;
     if (ObjectUtils.isNotEmpty(patient.getId())) {
-      result = patientService.udpate(patient);
+      result = patientService.update(patient);
       if (result) {
         response.sendRedirect(
             request.getContextPath() + "/patient/detail?id=" + patient.getId() + "&message" +

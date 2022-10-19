@@ -4,6 +4,7 @@
  */
 package com.clinic.entity;
 
+import com.clinic.dto.BookingAppointmentDto;
 import com.clinic.model.BookingStatus;
 import com.clinic.model.TimeSlot;
 import java.util.Date;
@@ -19,20 +20,27 @@ import lombok.Setter;
 @Setter
 public class BookingSlot {
 
-  private Long id;
-  private Long roomId;
-  private Date dateSlot;
-  private TimeSlot timeSlot;
-  private Integer timeSlotOrder;
-  private Long doctorId;
+  private Long          id;
+  private Long          roomId;
+  private Date          dateSlot;
+  private TimeSlot      timeSlot;
+  private Integer       timeSlotOrder;
+  private Long          doctorId;
   private BookingStatus status;
-  private Integer statusCode;
+  private Integer       statusCode;
 
   public BookingStatus getStatus() {
     return status;
   }
 
   public BookingSlot() {
+  }
+
+  public BookingSlot(BookingAppointmentDto bookingAppointmentDto) {
+    this.roomId = bookingAppointmentDto.getRoomId();
+    this.dateSlot = bookingAppointmentDto.getDateSlot();
+    this.timeSlotOrder = bookingAppointmentDto.getTimeSlotOrder();
+    this.doctorId = bookingAppointmentDto.getDoctorId();
   }
 
   public void setStatus(BookingStatus status) {
@@ -45,5 +53,6 @@ public class BookingSlot {
     this.timeSlot = timeSlot;
     this.timeSlotOrder = timeSlot.getSlotOrder();
   }
+
 
 }

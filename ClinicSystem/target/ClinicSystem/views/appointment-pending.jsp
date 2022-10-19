@@ -43,7 +43,7 @@
                                     ${message}
                             </div>
                         </c:if>
-                        <form action="<%=request.getContextPath()%>/appointment"
+                        <form action="<%=request.getContextPath()%>/appointment/confirmInfo"
                               method="post">
                             <!-- <h6>Mã bệnh nhân</h6>
                             <div class="form-group input-group">
@@ -96,31 +96,6 @@
                                        name="guardianPhoneNumber" id="guardianPhoneNumber"
                                        placeholder="" value="${appointment.guardianPhoneNumber}">
                             </div>
-                            <div class="form-group">
-                                <label for="dateSlot">Date Slot</label>
-                                <input type="date" name="dateSlot" class="form-control" id=
-                                        "dateSlot"
-                                       placeholder="DD/MM/YYYY" value="<fmt:formatDate
-                                       pattern='YYYY-MM-DD' value='${appointment.dateSlot}' />">
-                            </div>
-
-                            <!-- form-group// -->
-                            <div class="form-group">
-                                <label for="timeSlotOrder">Time Slot</label>
-                                <select class="form-control" name="timeSlotOrder"
-                                        id="timeSlotOrder">
-                                    <c:forEach var="TIMESLOT" items="${TIMESLOTS}">
-
-                                        <:c:if
-                                                test="${TIMESLOT.slotOrder} == ${appointment.timeSlotOrder}">
-                                            <option value="${TIMESLOT.slotOrder}" selected
-                                            >${TIMESLOT.timeValue}</option>
-                                        </:c:if>
-                                        <option value="${TIMESLOT.slotOrder}">${TIMESLOT.timeValue}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-
                             <!-- form-group end.// -->
                             <div class="form-group input-group">
                         <textarea class="form-control" cols="61" name="description">
@@ -129,7 +104,7 @@
                             <!-- form-group// -->
                             <!-- form-group// -->
                             <div class="form-group input-group">
-                                <button type="submit" class="btn btn-primary">Starting</button>
+                                <button type="submit" class="btn btn-primary">Confirm Info</button>
                                 <button style="margin-left: 355px" type="reset"
                                         class="btn btn-danger">Cancel
                                 </button>

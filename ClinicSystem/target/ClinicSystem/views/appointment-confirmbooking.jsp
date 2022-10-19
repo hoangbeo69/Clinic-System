@@ -43,59 +43,13 @@
                                     ${message}
                             </div>
                         </c:if>
-                        <form action="<%=request.getContextPath()%>/appointment"
+                        <form action="<%=request.getContextPath()%>/appointment/"
                               method="post">
                             <!-- <h6>Mã bệnh nhân</h6>
                             <div class="form-group input-group">
                                     <input name="" class="form-control" placeholder=""
                                             type="text">
                             </div> -->
-
-                            <div class="form-group">
-                                <label for="fullName">FullName</label>
-                                <input type="text" required="" class="form-control"
-                                       name="fullName"
-                                       id="fullName" placeholder=""
-                                       value="${appointment.fullName}">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="dob">Date Of Birth</label>
-                                <input type="date" name="dob" class="form-control" id=
-                                        "dob"
-                                       placeholder="DD/MM/YYYY" value="<fmt:formatDate
-                                       pattern='YYYY-MM-DD' value='${appointment.dob}' />">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" required="" class="form-control"
-                                       name="email" id="email"
-                                       placeholder="" value="${appointment.email}">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="sex">Sex</label>
-                                <select class="form-control" name="sex" id="sex">
-                                    <option selected="selected">Other</option>
-                                    <option value="male" selected="">Nam</option>
-                                    <option value="female">Nữ</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="guardianFullname">Guardian Fullname</label>
-                                <input type="text" required="" class="form-control"
-                                       name="guardianFullname" id="guardianFullname"
-                                       placeholder="" value="${appointment.guardianFullname}">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="guardianPhoneNumber">Guardian Phone Number</label>
-                                <input type="text" required="" class="form-control"
-                                       name="guardianPhoneNumber" id="guardianPhoneNumber"
-                                       placeholder="" value="${appointment.guardianPhoneNumber}">
-                            </div>
                             <div class="form-group">
                                 <label for="dateSlot">Date Slot</label>
                                 <input type="date" name="dateSlot" class="form-control" id=
@@ -129,7 +83,8 @@
                             <!-- form-group// -->
                             <!-- form-group// -->
                             <div class="form-group input-group">
-                                <button type="submit" class="btn btn-primary">Starting</button>
+                                <button type="submit" class="btn btn-primary">Confirm
+                                    Booking</button>
                                 <button style="margin-left: 355px" type="reset"
                                         class="btn btn-danger">Cancel
                                 </button>
