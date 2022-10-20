@@ -50,7 +50,7 @@ public class ConfirmBookingController extends HttpServlet {
     boolean result = appointmentBookingService.confirmBooking(bookingAppointmentDto);
     if (result) {
       response.sendRedirect(request.getContextPath() +
-                            "/appointment/confirmDoctor?message=booking_success&alert=success");
+                            "/appointment/confirmDoctor");
     } else {
       response.sendRedirect(request.getContextPath() +
                             "/appointment/confirmBooking?message=booking_notsuccess&alert=danger");

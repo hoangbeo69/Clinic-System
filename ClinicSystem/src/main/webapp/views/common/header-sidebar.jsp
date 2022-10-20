@@ -54,7 +54,7 @@
                             class="pcoded-mtext">Account Management</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/home" class="nav-link "><span
+                    <a href="<%=request.getContextPath()%>/room" class="nav-link "><span
                             class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
                             class="pcoded-mtext">Room</span></a>
                 </li>
@@ -147,7 +147,7 @@
                                                 class="n-time text-muted"><i
                                                 class="icon feather icon-clock m-r-10"></i>10 min</span>
                                         </p>
-                                        <p>Prchace New Theme and make payment</p>
+                                        <p>Purchace New Theme and make payment</p>
                                     </div>
                                 </div>
                             </li>

@@ -22,11 +22,11 @@ public class FormUtil {
       ConvertUtils.register(converter, Date.class);
       BeanUtils.populate(object, request.getParameterMap());
     } catch (InstantiationException e) {
-      System.out.println(e);
+      e.printStackTrace();
     } catch (IllegalAccessException e) {
-      System.out.println(e);
+      e.printStackTrace();
     } catch (InvocationTargetException e) {
-      System.out.println(e);
+      e.printStackTrace();
     }
     return object;
   }

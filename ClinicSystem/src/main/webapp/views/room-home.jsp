@@ -1,15 +1,10 @@
-<%-- 
-    Document   : Home
-    Created on : Sep 13, 2022, 9:23:37 PM
-    Author     : Long
---%>
-
-<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <header>
-    <title>Doctor Infomation</title>
+    <title>Room Home</title>
     <jsp:include page="common/header.jsp"/>
 </header>
 <body class="">
@@ -24,13 +19,13 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Doctor record</h5>
+                            <h5 class="m-b-10">Room record</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i
                                     class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Doctor record</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Room</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Room Record</a></li>
                         </ul>
                     </div>
                 </div>
@@ -38,7 +33,7 @@
         </div>
         <!-- [ Main Content ] start -->
         <div class="row">
-            <div class="col-xl-12">
+            <div class="col-md-12">
                 <div class="card table-card">
                     <div class="card-header">
                         <c:if test="${not empty messageResponse.message}">
@@ -48,43 +43,38 @@
                         </c:if>
                         <a class="btn  btn-primary" title="Add New"
                            data-toggle="tooltip"
-                           href="<%=request.getContextPath()%>/doctor/detail">
+                           href="<%=request.getContextPath()%>/room/detail">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </a>
                     </div>
                     <div class="card-body py-3 px-4">
                         <div class="table-responsive">
-                            <table class="table table-hover mb-0" id="doctors-table">
+                            <table class="table table-hover mb-0" id="room-table">
                                 <thead>
                                 <tr>
                                     <th>Index</th>
-                                    <th>Username</th>
-                                    <th>Specialization</th>
-                                    <th>Full Name</th>
-                                    <th>Phone Number</th>
-                                    <th>Email</th>
-                                    <th>Date Of Birth</th>
+                                    <th>Id</th>
+                                    <th>RoomName</th>
+                                    <th>Description</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="doctor" items="${doctors}" varStatus="loop">
+                                <c:forEach var="room" items="${ROOMS}"
+                                           varStatus="loop">
                                     <tr>
                                         <td>${loop.count}</td>
-                                        <td>${doctor.username}</td>
-                                        <td>${doctor.specialization}</td>
-                                        <td>${doctor.fullName}</td>
-                                        <td>${doctor.phoneNumber}</td>
-                                        <td>${doctor.email}</td>
-                                        <td>${doctor.dob}</td>
+                                        <td>${room.id}</td>
+                                        <td>${room.roomName}</td>
+                                        <td>${room.description}</td>
                                         <td>
-                                            <c:url var="singleURL" value="doctor/detail">
-                                                <c:param name="id" value="${doctor.id}"/>
+                                            <c:url var="singleURL" value="room/detail">
+                                                <c:param name="id" value="${room.id}"/>
                                             </c:url>
                                             <a class="btn btn-info" title="Detail"
                                                data-toggle="tooltip"
                                                href="<c:url value="${singleURL}"/>">
-                                                <i class="feather icon-edit" aria-hidden="true"></i>
+                                                <i class="feather icon-info" aria-hidden="true"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -100,12 +90,10 @@
         <!-- [ Main Content ] end -->
     </div>
 </div>
-
 <jsp:include page="common/footer.jsp"/>
-
 <script>
   $(document).ready(function () {
-    $('#doctors-table').DataTable({
+    $('#room-table').DataTable({
       lengthMenu: [
         [5, 10, 25, -1],
         [5, 10, 25, "All"]
@@ -114,6 +102,7 @@
 
   });
 </script>
+<%@ include file="user/formUserDetail.jsp" %>
 </body>
 
 </html>
