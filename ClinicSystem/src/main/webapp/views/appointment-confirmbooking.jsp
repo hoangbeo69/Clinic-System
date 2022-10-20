@@ -24,7 +24,8 @@
                             <li class="breadcrumb-item"><a href="index.html"><i
                                     class="feather icon-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Appointment Comfirm Booking</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Appointment Comfirm Booking</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -42,7 +43,7 @@
                                     ${message}
                             </div>
                         </c:if>
-                        <form action="<%=request.getContextPath()%>/appointment/"
+                        <form action="<%=request.getContextPath()%>/appointment/confirmBooking"
                               method="post">
                             <!-- <h6>Mã bệnh nhân</h6>
                             <div class="form-group input-group">
@@ -64,12 +65,14 @@
                                         id="timeSlotOrder">
                                     <c:forEach var="TIMESLOT" items="${TIMESLOTS}">
 
-                                        <:c:if
-                                                test="${TIMESLOT.slotOrder} == ${appointment.timeSlotOrder}">
-                                            <option value="${TIMESLOT.slotOrder}" selected
-                                            >${TIMESLOT.timeValue}</option>
-                                        </:c:if>
-                                        <option value="${TIMESLOT.slotOrder}">${TIMESLOT.timeValue}</option>
+                                        <c:if test="${TIMESLOT.slotOrder ==  appointment.timeSlotOrder}">
+                                            <option value="${TIMESLOT.slotOrder}"
+                                                    selected>${TIMESLOT.timeValue}</option>
+                                        </c:if>
+                                        <c:if test="${TIMESLOT.slotOrder !=
+                                         appointment.timeSlotOrder}">
+                                            <option value="${TIMESLOT.slotOrder}">${TIMESLOT.timeValue}</option>
+                                        </c:if>
                                     </c:forEach>
                                 </select>
                             </div>
@@ -81,26 +84,28 @@
                                         id="doctorId">
                                     <c:forEach var="DOCTOR" items="${DOCTORS}">
 
-                                        <:c:if
-                                                test="${DOCTOR.id} == ${appointment.doctorId}">
-                                            <option value="${DOCTOR.id}" selected
-                                            >${DOCTOR.fullName}</option>
-                                        </:c:if>
-                                        <option value="${DOCTOR.id}">${DOCTOR.fullName}</option>
+                                        <c:if test="${DOCTOR.id == appointment.doctorId}">
+                                            <option value="${DOCTOR.id}"
+                                                    selected>${DOCTOR.fullName}</option>
+                                        </c:if>
+                                        <c:if test="${DOCTOR.id !=  appointment.doctorId}">
+                                            <option value="${DOCTOR.id}">${DOCTOR.fullName}</option>
+                                        </c:if>
                                     </c:forEach>
                                 </select>
                             </div>
 
                             <!-- form-group end.// -->
-                            <div class="form-group input-group">
-                        <textarea class="form-control" cols="61" name="description">
-                            </textarea>
+                            <div class="form-group">
+                        <textarea class="form-control" cols="61" name="description"
+                                  id="description"></textarea>
                             </div>
                             <!-- form-group// -->
                             <!-- form-group// -->
                             <div class="form-group input-group">
                                 <button type="submit" class="btn btn-primary">Confirm
-                                    Booking</button>
+                                    Booking
+                                </button>
                                 <button style="margin-left: 355px" type="reset"
                                         class="btn btn-danger">Cancel
                                 </button>

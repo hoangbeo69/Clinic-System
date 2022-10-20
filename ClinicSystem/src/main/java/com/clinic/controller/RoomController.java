@@ -1,18 +1,11 @@
 package com.clinic.controller;
 
-import com.clinic.dao.AccountDao;
-import com.clinic.dao.AccountDaoImpl;
-import com.clinic.dao.DoctorDao;
-import com.clinic.dao.DoctorDaoImpl;
-import com.clinic.dto.BookingAppointmentDto;
-import com.clinic.entity.Doctor;
-import com.clinic.service.DoctorService;
-import com.clinic.service.DoctorServiceImpl;
+import com.clinic.entity.Room;
+import com.clinic.service.RoomService;
+import com.clinic.service.RoomServiceImpl;
 import com.clinic.util.FormUtil;
 import com.clinic.util.HttpUtil;
-import com.clinic.util.StringUtil;
 import java.io.IOException;
-import java.sql.Timestamp;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,14 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
+@WebServlet(name = "RoomController", urlPatterns = {"/room/detail"})
+public class RoomController extends HttpServlet {
 
-@WebServlet(name = "DoctorController", urlPatterns = {"/doctor/detail"})
-public class DoctorController extends HttpServlet {
+  private RoomService roomService;
 
-  private DoctorService doctorService;
-
-  public DoctorController() {
-    this.doctorService = new DoctorServiceImpl();
+  public RoomController() {
+    this.roomService = new RoomServiceImpl();
   }
 
 
@@ -59,11 +51,11 @@ public class DoctorController extends HttpServlet {
       throws ServletException, IOException {
     if (StringUtils.isNotEmpty(request.getParameter("id"))) {
       Long id = Long.parseLong(request.getParameter("id"));
-      Doctor doctor = doctorService.findById(id);
-      request.setAttribute("doctor", doctor);
+      Room room = roomService.findById(id);
+      request.setAttribute("room", room);
       HttpUtil.setMessageResponse(request);
     }
-    request.getRequestDispatcher("/views/doctor-information.jsp").forward(request, response);
+    request.getRequestDispatcher("/views/room-information.jsp").forward(request, response);
   }
 
   /**
@@ -76,32 +68,31 @@ public class DoctorController extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    request.setCharacterEncoding("UTF-8");
-    response.setContentType("application/json");
-    Doctor doctor = FormUtil.toModel(Doctor.class, request);
-    boolean result = false;
-    if (ObjectUtils.isNotEmpty(doctor.getId()) && doctor.getId() != 0) {
-      result = doctorService.udpate(doctor);
-      if (result) {
-        response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?id=" + doctor.getId() + "&message" +
-            "=updatedoctor_success&alert" + "=success");
-      } else {
-        response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?id=" + doctor.getId() + "&message" +
-            "=updatedoctor_notsuccess&alert=danger");
-      }
-    } else {
-      Long id = doctorService.createNew(doctor);
-      if (id != null) {
-        response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?id=" + id + "&message=newdoctor_success&alert" +
-            "=success");
-      } else {
-        response.sendRedirect(request.getContextPath() + "/doctor/detail?id=" + id +
-                              "&message=newdoctor_notsuccess&alert" + "=danger");
-      }
-    }
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        Room room = FormUtil.toModel(Room.class, request);
+        boolean result = false;
+        if (ObjectUtils.isNotEmpty(room.getId()) && room.getId() != 0) {
+          result = roomService.update(room);
+          if (result) {
+            response.sendRedirect(
+                request.getContextPath() + "/room/detail?id=" + room.getId() + "&message" +
+                "=updateroom_success&alert" + "=success");
+          } else {
+            response.sendRedirect(
+                request.getContextPath() + "/room/detail?id=" + room.getId() + "&message" +
+                "=updateroom_notsuccess&alert=danger");
+          }
+        } else {
+          Long id = roomService.createNew(room);
+          if (id != null) {
+            response.sendRedirect(
+                request.getContextPath() + "/room/detail?id=" + id + "&message=newroom_success&alert=success");
+          } else {
+            response.sendRedirect(request.getContextPath() + "/room/detail?id=" + id +
+                                  "&message=newroom_notsuccess&alert=danger");
+          }
+        }
 
   }
 
@@ -113,5 +104,4 @@ public class DoctorController extends HttpServlet {
   public String getServletInfo() {
     return "Short description";
   }// </editor-fold>
-
 }

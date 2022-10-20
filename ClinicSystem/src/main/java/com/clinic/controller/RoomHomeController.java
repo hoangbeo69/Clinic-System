@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.clinic.controller;
 
 import com.clinic.entity.Doctor;
-import com.clinic.service.DoctorService;
-import com.clinic.service.DoctorServiceImpl;
+import com.clinic.entity.Room;
+import com.clinic.service.RoomService;
+import com.clinic.service.RoomServiceImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,14 +14,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebServlet(name = "RoomHomeController", urlPatterns = {"/room"})
+public class RoomHomeController extends HttpServlet {
 
-@WebServlet(name = "DoctorHomeController", urlPatterns = {"/doctor"})
-public class DoctorHomeController extends HttpServlet {
+  private RoomService roomService;
 
-  private DoctorService doctorService;
-
-  public DoctorHomeController() {
-    doctorService = new DoctorServiceImpl();
+  public RoomHomeController() {
+    roomService = new RoomServiceImpl();
   }
 
   /**
@@ -47,9 +41,9 @@ public class DoctorHomeController extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     try {
-      List<Doctor> doctors = doctorService.findAll();
-      request.setAttribute("doctors", doctors);
-      request.getRequestDispatcher("/views/doctor-home.jsp").forward(request, response);
+      List<Room> rooms = roomService.findAll();
+      request.setAttribute("ROOMS", rooms);
+      request.getRequestDispatcher("/views/room-home.jsp").forward(request, response);
     } catch (Exception ex) {
       Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
     }

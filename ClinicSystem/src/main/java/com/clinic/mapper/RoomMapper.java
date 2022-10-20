@@ -20,7 +20,7 @@ public class RoomMapper implements RowMapper<Room> {
     try {
       room.setId(rs.getLong("id"));
       room.setDescription(rs.getString("Description"));
-      room.setRoomName("RoomName");
+      room.setRoomName(rs.getString("RoomName"));
       return room;
     } catch (SQLException throwables) {
       return null;

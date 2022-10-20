@@ -10,6 +10,7 @@ import com.clinic.service.DoctorServiceImpl;
 import com.clinic.service.RoomService;
 import com.clinic.service.RoomServiceImpl;
 import com.clinic.util.FormUtil;
+import com.clinic.util.HttpUtil;
 import java.sql.Timestamp;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -36,6 +37,7 @@ public class ConfirmBookingController extends HttpServlet {
     request.setAttribute("TIMESLOTS", TimeSlot.values());
     request.setAttribute("ROOMS", roomService.findAll());
     request.setAttribute("DOCTORS", doctorService.findAll());
+    HttpUtil.setMessageResponse(request);
     request.getRequestDispatcher("/views/appointment-confirmbooking.jsp")
         .forward(request, response);
   }
@@ -50,7 +52,7 @@ public class ConfirmBookingController extends HttpServlet {
     boolean result = appointmentBookingService.confirmBooking(bookingAppointmentDto);
     if (result) {
       response.sendRedirect(request.getContextPath() +
-                            "/appointment/confirmDoctor?message=booking_success&alert=success");
+                            "/appointment/confirmDoctor");
     } else {
       response.sendRedirect(request.getContextPath() +
                             "/appointment/confirmBooking?message=booking_notsuccess&alert=danger");
