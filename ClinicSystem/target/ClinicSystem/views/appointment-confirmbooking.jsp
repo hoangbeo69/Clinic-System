@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <header>
     <title>Appointment Infomation</title>
     <jsp:include page="common/header.jsp"/>
@@ -71,6 +70,23 @@
                                             >${TIMESLOT.timeValue}</option>
                                         </:c:if>
                                         <option value="${TIMESLOT.slotOrder}">${TIMESLOT.timeValue}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+
+                            <!-- form-group// -->
+                            <div class="form-group">
+                                <label for="doctorId">Doctor</label>
+                                <select class="form-control" name="timeSlotOrder"
+                                        id="doctorId">
+                                    <c:forEach var="DOCTOR" items="${DOCTORS}">
+
+                                        <:c:if
+                                                test="${DOCTOR.id} == ${appointment.doctorId}">
+                                            <option value="${DOCTOR.id}" selected
+                                            >${DOCTOR.fullName}</option>
+                                        </:c:if>
+                                        <option value="${DOCTOR.id}">${DOCTOR.fullName}</option>
                                     </c:forEach>
                                 </select>
                             </div>

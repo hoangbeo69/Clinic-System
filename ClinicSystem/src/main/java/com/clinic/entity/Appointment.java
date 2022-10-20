@@ -22,23 +22,23 @@ import lombok.Setter;
 @Setter
 public class Appointment {
 
-  private Long id;
-  private Long doctorId;
-  private Long medicalRecordId;
-  private Long patientId;
-  private TimeSlot timeSlot;
-  private Integer timeSlotOrder;
-  private Date dateSlot;
+  private Long              id;
+  private Long              doctorId;
+  private Long              medicalRecordId;
+  private Long              patientId;
+  private TimeSlot          timeSlot;
+  private Integer           timeSlotOrder;
+  private Date              dateSlot;
   private AppointmentStatus status;
-  private Integer statusCode;
-  private String statusDescription;
-  private String appointmentCode;
-  private Long bookingSlotId;
-  private String createdBy;
-  private String updateBy;
-  private Timestamp createdDate;
-  private Timestamp updatedDate;
-  private String description;
+  private Integer           statusCode;
+  private String            statusDescription;
+  private String            appointmentCode;
+  private Long              bookingSlotId;
+  private String            createdBy;
+  private String            updateBy;
+  private Timestamp         createdDate;
+  private Timestamp         updatedDate;
+  private String            description;
 
   public Appointment(BookingAppointmentDto bookingAppointmentDto) {
     this.id = bookingAppointmentDto.getId();
@@ -50,7 +50,7 @@ public class Appointment {
     this.dateSlot = bookingAppointmentDto.getDateSlot();
     this.status = bookingAppointmentDto.getStatus();
     this.statusCode = bookingAppointmentDto.getStatusCode();
-    this.setStatus(AppointmentStatus.get(this.statusCode));
+    this.setStatus(bookingAppointmentDto.getStatus());
     this.description = bookingAppointmentDto.getDescription();
     this.appointmentCode = bookingAppointmentDto.getAppointmentCode();
     this.bookingSlotId = bookingAppointmentDto.getBookingSlotId();

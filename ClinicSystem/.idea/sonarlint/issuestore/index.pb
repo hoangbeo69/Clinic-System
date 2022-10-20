@@ -5,10 +5,6 @@ a
 1src/main/webapp/resources/vendor/jquery/jquery.js,6\4\6458a84569a31b4ed6b1586730c08f06a6a97f13
 Y
 )src/main/java/com/clinic/dao/RoleDao.java,4\b\4b510a24ae5353b299b245db35d2168fb413e60c
-V
-&src/main/webapp/views/WellcomePage.jsp,f\b\fb94f4988eb8f141c20e1f7c2ba93fc3931aa0f1
-W
-'src/main/webapp/views/common/footer.jsp,4\0\40977e8cdd74a01cb53eb833c0af269190ab2e4a
 R
 "src/main/webapp/views/UserHome.jsp,3\f\3f0e9bb7f0a6160a15c56920d717a4ad0b5f0a2b
 S
@@ -19,14 +15,10 @@ R
 "src/main/webapp/views/schedule.jsp,8\0\8088eff54d9d4a58aed4a527f5883d6987b37162
 ]
 -src/main/java/com/clinic/dao/RoomDaoImpl.java,5\1\513041a178cd95c41e41b21976ab5dd2509b1f95
-W
-'src/main/webapp/views/common/header.jsp,4\6\46fa3b4bf0e740dfaf603706687dd803cc148ea2
 ]
 -src/main/java/com/clinic/util/StringUtil.java,7\5\75feed2d86caf88e3f6f3a53408c3238848e9fd5
 [
 +src/main/java/com/clinic/util/GsonUtil.java,0\b\0b95b2da2c6cb569c81f6c309e4c8a4a2d7c5be5
-_
-/src/main/webapp/views/common/header-sidebar.jsp,f\7\f7d8a7adcab3f063fc9ae4372432d6de4e90d09e
 ]
 -src/main/webapp/views/user/formUserDetail.jsp,4\5\455670f0dcbef859d5469e3a6f2da1a5d658d7fa
 X

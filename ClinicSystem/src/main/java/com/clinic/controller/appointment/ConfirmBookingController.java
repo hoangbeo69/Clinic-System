@@ -5,6 +5,10 @@ import com.clinic.model.AppointmentStatus;
 import com.clinic.model.TimeSlot;
 import com.clinic.service.AppointmentBookingService;
 import com.clinic.service.AppointmentBookingServiceImpl;
+import com.clinic.service.DoctorService;
+import com.clinic.service.DoctorServiceImpl;
+import com.clinic.service.RoomService;
+import com.clinic.service.RoomServiceImpl;
 import com.clinic.util.FormUtil;
 import java.sql.Timestamp;
 import javax.servlet.*;
@@ -16,15 +20,22 @@ import java.io.IOException;
 public class ConfirmBookingController extends HttpServlet {
 
   private AppointmentBookingService appointmentBookingService;
+  private RoomService               roomService;
+  private DoctorService             doctorService;
+
 
   public ConfirmBookingController() {
-    this.appointmentBookingService = new AppointmentBookingServiceImpl();
+    appointmentBookingService = new AppointmentBookingServiceImpl();
+    roomService = new RoomServiceImpl();
+    doctorService = new DoctorServiceImpl();
   }
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setAttribute("TIMESLOTS", TimeSlot.values());
+    request.setAttribute("ROOMS", roomService.findAll());
+    request.setAttribute("DOCTORS", doctorService.findAll());
     request.getRequestDispatcher("/views/appointment-confirmbooking.jsp")
         .forward(request, response);
   }

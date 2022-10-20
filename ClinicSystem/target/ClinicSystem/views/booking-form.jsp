@@ -79,7 +79,8 @@
 
                     <!-- form-group end.// -->
                     <div class="form-group input-group">
-                        <textarea class="form-control" cols="61" name="description">
+                        <textarea class="form-control" cols="61" name="description"
+                                  id="description">
                             Vấn đề sức khoẻ cần khám</textarea>
                     </div>
                     <!-- form-group// -->

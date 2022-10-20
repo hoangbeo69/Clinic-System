@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <header>
     <title>Appointment Infomation</title>
@@ -43,10 +43,11 @@
                                     ${messageResponse.message}
                             </div>
                         </c:if>
-                        <button type="button" class="btn  btn-primary" data-toggle="modal"
-                                data-target="#formAppointment" data-whatever="@getbootstrap">
+                        <a class="btn  btn-primary" title="Add New"
+                           data-toggle="tooltip"
+                           href="<%=request.getContextPath()%>/appointment/detail">
                             <i class="fa fa-plus" aria-hidden="true"></i>
-                        </button>
+                        </a>
                     </div>
                     <div class="card-body py-3 px-4">
                         <div class="table-responsive">

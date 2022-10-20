@@ -42,7 +42,7 @@ public class AbstractDAO<T> implements GenericDao<T> {
       }
       return results;
     } catch (Exception e) {
-      System.out.println(e);
+      e.printStackTrace();
       return null;
     } finally {
       try {
