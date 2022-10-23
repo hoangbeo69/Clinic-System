@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <header>
     <title>Appointment Infomation</title>
@@ -25,7 +26,8 @@
                             <li class="breadcrumb-item"><a href="index.html"><i
                                     class="feather icon-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Appointment Return Result</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Appointment Return Result</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -43,94 +45,178 @@
                                     ${message}
                             </div>
                         </c:if>
-                        <form action="<%=request.getContextPath()%>/appointment"
+                        <form action="<%=request.getContextPath()%>/appointment/returnResult"
                               method="post">
-                            <!-- <h6>Mã bệnh nhân</h6>
-                            <div class="form-group input-group">
-                                    <input name="" class="form-control" placeholder=""
-                                            type="text">
-                            </div> -->
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label class="col-form-label">Mã bệnh
+                                                    nhân: </label> <span
+                                                    class=" col-form-label
+                                                    code-patient">${appointment.patientId}</span>
+                                            </div>
+                                            <div class="col-sm-8"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Họ tên: </label> <span
+                                                class="col-form-label
+                                                name-patient">${appointment.fullName}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Số điện
+                                                thoại: </label> <span
+                                                class=" col-form-label
+                                                phone-patient">${appointment.phoneNumber}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Giới tính: </label>
+                                            <span
+                                                    class="col-form-label
+                                                    gender-patient">${appointment.sex}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Ngày sinh:</label>
+                                            <span
+                                                    class="col-form-label
+                                                    birthday-patient">${appointment.dob}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Địa chỉ:</label> <span
+                                                class="col-form-label
+                                                address-patient">${appointment.address}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
 
-                            <div class="form-group">
-                                <label for="fullName">FullName</label>
-                                <input type="text" required="" class="form-control"
-                                       name="fullName"
-                                       id="fullName" placeholder=""
-                                       value="${appointment.fullName}">
-                            </div>
+                                        <div class="form-group form-inline">
+                                            <label class="col-form-label">Nhiệt độ
+                                                (°C): </label> <input
+                                                class="form-control temperature-patient ml-2"
+                                                id="temperature-patient"
+                                                style="width: 50px;">
+                                        </div>
 
-                            <div class="form-group">
-                                <label for="dob">Date Of Birth</label>
-                                <input type="date" name="dob" class="form-control" id=
-                                        "dob"
-                                       placeholder="DD/MM/YYYY" value="<fmt:formatDate
-                                       pattern='YYYY-MM-DD' value='${appointment.dob}' />">
-                            </div>
+                                    </div>
+                                    <div class="col-md-3">
 
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" required="" class="form-control"
-                                       name="email" id="email"
-                                       placeholder="" value="${appointment.email}">
-                            </div>
+                                        <div class="form-group form-inline">
+                                            <label class="col-form-label">Chiều cao
+                                                (cm):</label> <input
+                                                class="form-control height-patient ml-2"
+                                                id="height-patient" style="width: 50px;">
+                                        </div>
 
-                            <div class="form-group">
-                                <label for="sex">Sex</label>
-                                <select class="form-control" name="sex" id="sex">
-                                    <option selected="selected">Other</option>
-                                    <option value="male" selected="">Nam</option>
-                                    <option value="female">Nữ</option>
-                                </select>
-                            </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-inline">
+                                            <label class="col-form-label">Huyết áp
+                                                (mmHg):</label> <input
+                                                class="form-control blood-pressure-patient ml-2"
+                                                id="blood-pressure-patient"
+                                                style="width: 50px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group form-inline">
+                                            <label class="col-form-label">Cân nặng
+                                                (kg):</label> <input
+                                                class="form-control weight-patient ml-2"
+                                                id="weight-patient" style="width: 50px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Triệu
+                                                chứng:</label>
+                                            <div class="col-sm-9">
+														<textarea
+                                                                class="form-control symptom-patient"
+                                                                placeholder=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Chẩn đoán
+                                                đầu:</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control"
+                                                       id="search-name-first-diagnosis-patient"
+                                                       placeholder=""/>
+                                                <input type="hidden"
+                                                       id="search-name-first-diagnosis-patient-value"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Chẩn đoán
+                                                cuối:</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control"
+                                                       id="search-name-final-diagnosis-patient"
+                                                       placeholder=""/>
+                                                <input type="hidden"
+                                                       id="search-name-final-diagnosis-patient-value"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Bệnh kèm
+                                                theo:</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control"
+                                                       id="search-name-including-diseases-patient"
+                                                       placeholder=""/> <input type="hidden"
+                                                                               id="search-name-including-diseases-patient-value"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Kết
+                                                luận:</label>
+                                            <div class="col-sm-9">
+														<textarea class="form-control conclude-patient"
+                                                                placeholder=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <div class="form-group">
-                                <label for="guardianFullname">Guardian Fullname</label>
-                                <input type="text" required="" class="form-control"
-                                       name="guardianFullname" id="guardianFullname"
-                                       placeholder="" value="${appointment.guardianFullname}">
+                                </div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="guardianPhoneNumber">Guardian Phone Number</label>
-                                <input type="text" required="" class="form-control"
-                                       name="guardianPhoneNumber" id="guardianPhoneNumber"
-                                       placeholder="" value="${appointment.guardianPhoneNumber}">
-                            </div>
-                            <div class="form-group">
-                                <label for="dateSlot">Date Slot</label>
-                                <input type="date" name="dateSlot" class="form-control" id=
-                                        "dateSlot"
-                                       placeholder="DD/MM/YYYY" value="<fmt:formatDate
-                                       pattern='YYYY-MM-DD' value='${appointment.dateSlot}' />">
-                            </div>
-
                             <!-- form-group// -->
-                            <div class="form-group">
-                                <label for="timeSlotOrder">Time Slot</label>
-                                <select class="form-control" name="timeSlotOrder"
-                                        id="timeSlotOrder">
-                                    <c:forEach var="TIMESLOT" items="${TIMESLOTS}">
-
-                                        <:c:if
-                                                test="${TIMESLOT.slotOrder} == ${appointment.timeSlotOrder}">
-                                            <option value="${TIMESLOT.slotOrder}" selected
-                                            >${TIMESLOT.timeValue}</option>
-                                        </:c:if>
-                                        <option value="${TIMESLOT.slotOrder}">${TIMESLOT.timeValue}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-
-                            <!-- form-group end.// -->
-                            <div class="form-group input-group">
-                        <textarea class="form-control" cols="61" name="description">
-                            </textarea>
-                            </div>
                             <!-- form-group// -->
-                            <!-- form-group// -->
-                            <div class="form-group input-group">
+                            <div class="form-group ">
+                                <a class="btn btn-warning"
+                                   href="<%=request.getContextPath()%>/appointment/confirmDoctor?id=${appointment.id}">Back
+                                </a>
                                 <button type="submit" class="btn btn-primary">Starting</button>
-                                <button style="margin-left: 355px" type="reset"
+                                <button type="reset"
                                         class="btn btn-danger">Cancel
                                 </button>
                             </div>

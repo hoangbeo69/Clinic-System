@@ -37,6 +37,7 @@ public class AbstractDAO<T> implements GenericDao<T> {
       statement = connection.prepareStatement(sql);
       setParameter(statement, parameters);
       rs = statement.executeQuery();
+      log.info("QUERY : " + statement.toString());
       while (rs.next()) {
         results.add(rowMapper.mapRow(rs));
       }
@@ -73,15 +74,16 @@ public class AbstractDAO<T> implements GenericDao<T> {
       statement = connection.prepareStatement(sql);
       setParameter(statement, parameters);
       statement.executeUpdate();
+      log.info("UPDATE : " + statement.toString());
       connection.commit();
     } catch (SQLException e) {
       result = false;
-      System.out.println(e);
+      e.printStackTrace();
       if (connection != null) {
         try {
           connection.rollback();
         } catch (SQLException throwables) {
-          System.out.println(e);
+          e.printStackTrace();
         }
       }
     } finally {
@@ -111,6 +113,7 @@ public class AbstractDAO<T> implements GenericDao<T> {
       statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
       setParameter(statement, parameters);
       statement.executeUpdate();
+      log.info("INSERT : " + statement.toString());
       resultSet = statement.getGeneratedKeys();
       if (resultSet.next()) {
         id = resultSet.getLong(1);
@@ -118,12 +121,12 @@ public class AbstractDAO<T> implements GenericDao<T> {
       connection.commit();
       return id;
     } catch (SQLException e) {
-      System.out.println(e);
+      e.printStackTrace();
       if (connection != null) {
         try {
           connection.rollback();
         } catch (SQLException throwables) {
-          System.out.println(e);
+          e.printStackTrace();
         }
       }
       return null;
@@ -159,16 +162,17 @@ public class AbstractDAO<T> implements GenericDao<T> {
       connection.setAutoCommit(false);
       statement = connection.prepareStatement(sql);
       setParameter(statement, parameters);
+      log.info("DELETE : " + statement.toString());
       statement.executeUpdate();
       connection.commit();
     } catch (SQLException e) {
       result = false;
-      System.out.println(e);
+      e.printStackTrace();
       if (connection != null) {
         try {
           connection.rollback();
         } catch (SQLException throwables) {
-          System.out.println(e);
+          e.printStackTrace();
         }
       }
     } finally {
@@ -183,7 +187,7 @@ public class AbstractDAO<T> implements GenericDao<T> {
           resultSet.close();
         }
       } catch (SQLException throwables) {
-        System.out.println(throwables);
+        throwables.printStackTrace();
       }
     }
     return result;
@@ -199,11 +203,12 @@ public class AbstractDAO<T> implements GenericDao<T> {
       connection = getConnection();
       statement = connection.prepareStatement(sql);
       resultSet = statement.executeQuery(sql);
+      log.info("COUNT : " + statement.toString());
       if (resultSet.next()) {
         return count = resultSet.getInt(1);
       }
     } catch (SQLException e) {
-      System.out.println(e);
+      e.printStackTrace();
       return 0;
     } finally {
       try {
@@ -217,7 +222,7 @@ public class AbstractDAO<T> implements GenericDao<T> {
           resultSet.close();
         }
       } catch (SQLException throwables) {
-        System.out.println(throwables);
+        throwables.printStackTrace();
       }
     }
     return 0;
@@ -227,7 +232,6 @@ public class AbstractDAO<T> implements GenericDao<T> {
     try {
       for (int count = 0; count < parameters.length; count++) {
         Object parameter = parameters[count];
-        log.info("Parameters : " + parameter);
         int index = count + 1;
         if (parameter instanceof Long) {
           statement.setLong(index, (Long) parameter);
@@ -249,7 +253,7 @@ public class AbstractDAO<T> implements GenericDao<T> {
       }
 
     } catch (SQLException e) {
-      System.out.println(e);
+      e.printStackTrace();
     }
   }
 }

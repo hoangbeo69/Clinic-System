@@ -7,25 +7,26 @@ package com.clinic.model;
 import java.util.Arrays;
 
 /**
- *
  * @author nguye
  */
 public enum BookingStatus {
-    AVAILABLE(0), BOOKED(1);
-    private final Integer statusCode;
+  AVAILABLE(0),
+  BOOKED(1);
+  private final Integer statusCode;
 
-     BookingStatus(Integer statusCode) {
-        this.statusCode = statusCode;
-    }
+  BookingStatus(Integer statusCode) {
+    this.statusCode = statusCode;
+  }
 
-    public Integer getStatusCode() {
-        return statusCode;
-    }
+  public Integer getStatusCode() {
+    return statusCode;
+  }
 
-    public BookingStatus get(int statusCode) {
-        return Arrays.stream(BookingStatus.values())
-                .parallel()
-                .filter(e -> e.getStatusCode() == statusCode)
-                .findFirst().orElse(AVAILABLE);
-    }
+  public static BookingStatus get(int statusCode) {
+    return Arrays.stream(BookingStatus.values())
+        .parallel()
+        .filter(e->e.getStatusCode() == statusCode)
+        .findFirst()
+        .orElse(AVAILABLE);
+  }
 }

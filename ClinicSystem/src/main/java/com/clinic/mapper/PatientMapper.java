@@ -27,7 +27,7 @@ public class PatientMapper implements RowMapper<Patient> {
       patient.setAddress(rs.getString("Address"));
       patient.setUsername(rs.getString("Username"));
       patient.setFullName(rs.getString("Fullname"));
-      patient.setPhoneNumber(rs.getString("Phonenumber"));
+      patient.setPhoneNumber(rs.getString("PhoneNumber"));
       patient.setEmail(rs.getString("Email"));
       patient.setDob(new java.util.Date(rs.getDate("Dob").getTime()));
       patient.setStatus(AccountStatus.get(rs.getInt("Status")));

@@ -12,7 +12,10 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
+@Slf4j
 @WebServlet(name = "appointment/confirmInfo", value = "/appointment/confirmInfo")
 public class ConfirmInfoController extends HttpServlet {
 
@@ -25,6 +28,16 @@ public class ConfirmInfoController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+    BookingAppointmentDto bookingAppointmentDto = null;
+    if (StringUtils.isNotEmpty(request.getParameter("id"))) {
+      Long id = Long.parseLong(request.getParameter("id"));
+      bookingAppointmentDto = (BookingAppointmentDto) request.getAttribute("appointment");
+      if (bookingAppointmentDto == null) {
+        bookingAppointmentDto = appointmentBookingService.findById(id);
+      }
+    }
+    log.info(bookingAppointmentDto.toString());
+    request.setAttribute("appointment", bookingAppointmentDto);
     request.setAttribute("TIMESLOTS", TimeSlot.values());
     HttpUtil.setMessageResponse(request);
     request.getRequestDispatcher("/views/appointment-confirminfo.jsp").forward(request, response);
@@ -36,15 +49,17 @@ public class ConfirmInfoController extends HttpServlet {
       throws ServletException, IOException {
     BookingAppointmentDto bookingAppointmentDto = FormUtil.toModel(BookingAppointmentDto.class,
         request);
+    log.info(bookingAppointmentDto.toString());
     bookingAppointmentDto.setStatus(AppointmentStatus.CONFIRMINFO);
     bookingAppointmentDto.setCreatedDate(new Timestamp(System.currentTimeMillis()));
     boolean result = appointmentBookingService.confirmInfo(bookingAppointmentDto);
     if (result) {
-      response.sendRedirect(
-          request.getContextPath() + "/appointment/confirmInfo?message=booking_success&alert=success");
+      response.sendRedirect(request.getContextPath() + "/appointment/confirmBooking?id=" +
+                            bookingAppointmentDto.getId());
     } else {
-      response.sendRedirect(
-          request.getContextPath() + "/appointment/confirmInfo?message=booking_notsuccess&alert=danger");
+      response.sendRedirect(request.getContextPath() + "/appointment/confirmInfo?id=" +
+                            bookingAppointmentDto.getId() +
+                            "&message=booking_notsuccess&alert=danger");
     }
   }
 }

@@ -22,8 +22,8 @@ public class BookingSlotDaoImpl extends AbstractDAO implements BookingSlotDao {
     StringBuilder sql = new StringBuilder("INSERT INTO BookingSlot ");
     sql.append("(DoctorId,TimeSlot,DateSlot,RoomId,Status) Values ");
     sql.append("(?,?,?,?,?)");
-    return insert(sql.toString(), bookingSlot.getDoctorId(), bookingSlot.getTimeSlot(),
-        bookingSlot.getDateSlot(), bookingSlot.getRoomId(), bookingSlot.getStatus());
+    return insert(sql.toString(), bookingSlot.getDoctorId(), bookingSlot.getTimeSlotOrder(),
+        bookingSlot.getDateSlot(), bookingSlot.getRoomId(), bookingSlot.getStatusCode());
   }
 
   @Override

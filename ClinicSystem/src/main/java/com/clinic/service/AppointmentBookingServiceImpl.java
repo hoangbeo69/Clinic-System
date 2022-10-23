@@ -15,8 +15,6 @@ import com.clinic.util.CollectionsUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.ObjectUtils;
 
@@ -106,11 +104,11 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
     if (bookingAppointmentDto == null || bookingAppointmentDto.getId() == null) {
       return false;
     }
+    bookingAppointmentDto = com.clinic.util.ObjectUtils.merge(
+        findById(bookingAppointmentDto.getId()), bookingAppointmentDto);
     BookingSlot bookingSlot = bookingSlotService.confirmBooking(bookingAppointmentDto);
-    if (bookingSlot != null) {
-      return true;
-    }
-    return false;
+    bookingAppointmentDto.setBookingSlot(bookingSlotDao.findDtoById(bookingSlot.getId()));
+    return appointmentService.update(bookingAppointmentDto);
   }
 
   @Override
@@ -127,18 +125,25 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
         isUpdateSuccess = ObjectUtils.isNotEmpty(appointmentId);
       }
     } else {
+      bookingAppointmentDto = com.clinic.util.ObjectUtils.merge(
+          findById(bookingAppointmentDto.getId()), bookingAppointmentDto);
       Long patientId = bookingAppointmentDto.getPatientId();
       if (patientId == null) {
         patientId = patientService.createNew(bookingAppointmentDto);
       } else {
         isUpdateSuccess = patientService.update(bookingAppointmentDto);
       }
-      bookingAppointmentDto.setPatientId(patientId);
+      bookingAppointmentDto.setPatient(patientService.findById(patientId));
       if (isUpdateSuccess) {
         isUpdateSuccess = appointmentService.update(bookingAppointmentDto);
       }
     }
     return isUpdateSuccess;
+  }
+
+  @Override
+  public boolean confirmDoctor(BookingAppointmentDto bookingAppointmentDto) {
+    return appointmentService.update(bookingAppointmentDto);
   }
 
 }

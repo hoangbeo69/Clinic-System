@@ -10,6 +10,7 @@ import java.util.Date;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author ADMIN
@@ -17,6 +18,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
+@ToString
 public class Account {
 
   private Long id;

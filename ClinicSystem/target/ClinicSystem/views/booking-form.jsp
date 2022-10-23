@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="common/header.jsp"/>
@@ -29,6 +30,12 @@
                         <input name="phoneNumber" class="form-control"
                                placeholder="Số điện thoại(*)"
                                type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" required="" class="form-control"
+                               name="email" id="email"
+                               placeholder="emailAddress@example.com"">
                     </div>
                     <div class="form-group input-group">
                         <input name="fullName" class="form-control" placeholder="Họ và tên(*)"

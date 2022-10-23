@@ -71,7 +71,7 @@ public class PatientDaoImpl extends AbstractDAO implements PatientDao {
   public Long update(Patient patient) {
     StringBuilder sql = new StringBuilder("UPDATE Patient SET ");
     sql.append(
-        "(InsuranceCode = ? ,IdentityCard = ? ,Address = ? ,GuardianFullname = ? ,GuardianPhoneNumber = ? ) WHERE Id = ?");
+        "InsuranceCode = ? ,IdentityCard = ? ,Address = ? ,GuardianFullname = ? ,GuardianPhoneNumber = ?  WHERE Id = ?");
     boolean result = update(sql.toString(), patient.getInsuranceCode(), patient.getIdentityCard(),
         patient.getAddress(), patient.getGuardianFullname(), patient.getGuardianPhoneNumber(),
         patient.getId());
