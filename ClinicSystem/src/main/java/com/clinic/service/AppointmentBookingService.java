@@ -21,4 +21,6 @@ public interface AppointmentBookingService {
   boolean confirmBooking(BookingAppointmentDto bookingAppointmentDto);
 
   boolean confirmInfo(BookingAppointmentDto bookingAppointmentDto);
+
+  boolean confirmDoctor(BookingAppointmentDto bookingAppointmentDto);
 }

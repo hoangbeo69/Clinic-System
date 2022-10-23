@@ -21,7 +21,7 @@ public class AccountMapper implements RowMapper<Account> {
       user.setId(rs.getLong("id"));
       user.setUsername(rs.getString("Username"));
       user.setFullName(rs.getString("Fullname"));
-      user.setPhoneNumber(rs.getString("Phonenumber"));
+      user.setPhoneNumber(rs.getString("PhoneNumber"));
       user.setEmail(rs.getString("Email"));
       user.setDob(new java.util.Date(rs.getDate("Dob").getTime()));
       user.setStatus(AccountStatus.get(rs.getInt("Status")));

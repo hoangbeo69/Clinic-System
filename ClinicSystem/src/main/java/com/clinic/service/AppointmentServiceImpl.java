@@ -47,7 +47,12 @@ public class AppointmentServiceImpl implements AppointmentService {
 
   @Override
   public boolean update(BookingAppointmentDto bookingAppointmentDto) {
-    return false;
+    if (ObjectUtils.isEmpty(bookingAppointmentDto)) {
+      return false;
+    }
+    Appointment appointment = new Appointment(bookingAppointmentDto);
+    appointment.setUpdatedDate(new Timestamp(System.currentTimeMillis()));
+    return appointmentDao.update(appointment) != null;
   }
 
 }

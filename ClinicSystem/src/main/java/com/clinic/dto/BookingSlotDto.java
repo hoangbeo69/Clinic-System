@@ -12,14 +12,14 @@ import lombok.Setter;
 @Setter
 public class BookingSlotDto {
 
-  private Long id;
-  private Long roomId;
-  private Date dateSlot;
-  private TimeSlot timeSlot;
-  private Integer timeSlotOrder;
-  private Long doctorId;
+  private Long          id;
+  private Long          roomId;
+  private Date          dateSlot;
+  private TimeSlot      timeSlot;
+  private Integer       timeSlotOrder;
+  private Long          doctorId;
   private BookingStatus status;
-  private Integer statusCode;
-  private String roomName;
-  private String description;
+  private Integer       statusCode;
+  private String        roomName;
+  private String        description;
 }

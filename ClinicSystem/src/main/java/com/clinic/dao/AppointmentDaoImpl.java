@@ -36,7 +36,7 @@ public class AppointmentDaoImpl extends AbstractDAO implements AppointmentDao {
     boolean result = update(sql.toString(), appointment.getPatientId(), appointment.getDoctorId(),
         appointment.getMedicalRecordId(), appointment.getTimeSlotOrder(), appointment.getDateSlot(),
         appointment.getStatusCode(), appointment.getStatusDescription(), appointment.getCreatedBy(),
-        appointment.getUpdateBy(), appointment.getBookingSlotId(), appointment.getUpdatedDate(),
+        appointment.getCreatedDate(),appointment.getUpdateBy(), appointment.getBookingSlotId(), appointment.getUpdatedDate(),
         appointment.getId());
     return result ? appointment.getId() : null;
   }

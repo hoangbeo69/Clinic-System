@@ -5,6 +5,7 @@
 package com.clinic.mapper;
 
 import com.clinic.entity.BookingSlot;
+import com.clinic.model.BookingStatus;
 import com.clinic.model.TimeSlot;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,9 +21,10 @@ public class BookingSlotMapper implements RowMapper<BookingSlot> {
     try {
       bookingSlot.setId(rs.getLong(1));
       bookingSlot.setDoctorId(rs.getLong("DoctorId"));
-      bookingSlot.setDateSlot(rs.getDate("MedicalRecordId"));
-      bookingSlot.setTimeSlot(TimeSlot.get(rs.getInt("BookingSlotId")));
-      bookingSlot.setStatusCode(rs.getInt("Status"));
+      bookingSlot.setTimeSlot(TimeSlot.get(rs.getInt("TimeSlot")));
+      bookingSlot.setDateSlot(rs.getDate("DateSlot"));
+      bookingSlot.setRoomId(rs.getLong("RoomId"));
+      bookingSlot.setStatus(BookingStatus.get(rs.getInt("Status")));
 
       return bookingSlot;
     } catch (SQLException throwables) {

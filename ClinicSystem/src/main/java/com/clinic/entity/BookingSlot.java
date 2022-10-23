@@ -40,6 +40,7 @@ public class BookingSlot {
     this.roomId = bookingAppointmentDto.getRoomId();
     this.dateSlot = bookingAppointmentDto.getDateSlot();
     this.timeSlotOrder = bookingAppointmentDto.getTimeSlotOrder();
+    this.timeSlot = TimeSlot.get(bookingAppointmentDto.getTimeSlotOrder());
     this.doctorId = bookingAppointmentDto.getDoctorId();
   }
 

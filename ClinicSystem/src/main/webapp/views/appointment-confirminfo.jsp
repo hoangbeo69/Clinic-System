@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <header>
     <title>Appointment Infomation</title>
@@ -25,7 +26,8 @@
                             <li class="breadcrumb-item"><a href="index.html"><i
                                     class="feather icon-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Appointment Comfirm Info</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Appointment Comfirm Info</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -43,8 +45,9 @@
                                     ${message}
                             </div>
                         </c:if>
-                        <form action="<%=request.getContextPath()%>/appointment"
+                        <form action="<%=request.getContextPath()%>/appointment/confirmInfo"
                               method="post">
+                            <input type="hidden" id="id" name="id" value="${appointment.id}">
                             <!-- <h6>Mã bệnh nhân</h6>
                             <div class="form-group input-group">
                                     <input name="" class="form-control" placeholder=""
@@ -61,12 +64,19 @@
 
                             <div class="form-group">
                                 <label for="dob">Date Of Birth</label>
-                                <input type="date" name="dob" class="form-control" id=
+                                <input type="date" required name="dob" class="form-control" id=
                                         "dob"
                                        placeholder="DD/MM/YYYY" value="<fmt:formatDate
                                        pattern='YYYY-MM-DD' value='${appointment.dob}' />">
                             </div>
-
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-phone"></i>
+                                </span>
+                                </div>
+                                <input type="text" required name="phoneNumber" class="form-control"
+                                       value="${appointment.phoneNumber}">
+                            </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" required="" class="form-control"
@@ -85,54 +95,29 @@
 
                             <div class="form-group">
                                 <label for="guardianFullname">Guardian Fullname</label>
-                                <input type="text" required="" class="form-control"
+                                <input type="text" class="form-control"
                                        name="guardianFullname" id="guardianFullname"
                                        placeholder="" value="${appointment.guardianFullname}">
                             </div>
 
                             <div class="form-group">
                                 <label for="guardianPhoneNumber">Guardian Phone Number</label>
-                                <input type="text" required="" class="form-control"
+                                <input type="text" class="form-control"
                                        name="guardianPhoneNumber" id="guardianPhoneNumber"
                                        placeholder="" value="${appointment.guardianPhoneNumber}">
                             </div>
-                            <div class="form-group">
-                                <label for="dateSlot">Date Slot</label>
-                                <input type="date" name="dateSlot" class="form-control" id=
-                                        "dateSlot"
-                                       placeholder="DD/MM/YYYY" value="<fmt:formatDate
-                                       pattern='YYYY-MM-DD' value='${appointment.dateSlot}' />">
-                            </div>
-
-                            <!-- form-group// -->
-                            <div class="form-group">
-                                <label for="timeSlotOrder">Time Slot</label>
-                                <select class="form-control" name="timeSlotOrder"
-                                        id="timeSlotOrder">
-                                    <c:forEach var="TIMESLOT" items="${TIMESLOTS}">
-
-                                        <:c:if
-                                                test="${TIMESLOT.slotOrder} == ${appointment.timeSlotOrder}">
-                                            <option value="${TIMESLOT.slotOrder}" selected
-                                            >${TIMESLOT.timeValue}</option>
-                                        </:c:if>
-                                        <option value="${TIMESLOT.slotOrder}">${TIMESLOT.timeValue}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
 
                             <!-- form-group end.// -->
-                            <div class="form-group input-group">
-                        <textarea class="form-control" cols="61" name="description">
-                            </textarea>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" cols="61" name="description"
+                                          id="description">${appointment.description}</textarea>
                             </div>
                             <!-- form-group// -->
                             <!-- form-group// -->
-                            <div class="form-group input-group">
-                                <button type="submit" class="btn btn-primary">Starting</button>
-                                <button style="margin-left: 355px" type="reset"
-                                        class="btn btn-danger">Cancel
-                                </button>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Confirm Info</button>
+                                <button type="reset" class="btn btn-danger">Cancel</button>
                             </div>
                         </form>
                     </div>

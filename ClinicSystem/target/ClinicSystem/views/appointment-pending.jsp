@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <header>
     <title>Appointment Infomation</title>
@@ -45,6 +46,7 @@
                         </c:if>
                         <form action="<%=request.getContextPath()%>/appointment/confirmInfo"
                               method="post">
+                            <input type="hidden" id="id" name="id" value="${appointment.id}">
                             <!-- <h6>Mã bệnh nhân</h6>
                             <div class="form-group input-group">
                                     <input name="" class="form-control" placeholder=""
@@ -97,18 +99,22 @@
                                        placeholder="" value="${appointment.guardianPhoneNumber}">
                             </div>
                             <!-- form-group end.// -->
-                            <div class="form-group input-group">
-                        <textarea class="form-control" cols="61" name="description">
-                            </textarea>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" cols="61" name="description"
+                                          id="description"></textarea>
                             </div>
+                            <input type="hidden" id="id" name="id" value="${appointment.id}">
                             <!-- form-group// -->
                             <!-- form-group// -->
-                            <div class="form-group input-group">
-                                <button type="submit" class="btn btn-primary">Confirm Info</button>
-                                <button style="margin-left: 355px" type="reset"
-                                        class="btn btn-danger">Cancel
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Create New
+                                    Appointment
                                 </button>
+                                <button type="reset" class="btn btn-danger">Cancel</button>
                             </div>
+
+
                         </form>
                     </div>
                 </div>
