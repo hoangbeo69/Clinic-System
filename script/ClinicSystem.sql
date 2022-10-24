@@ -35,7 +35,7 @@ CREATE TABLE `account` (
   `Status` int NOT NULL DEFAULT '1',
   `Sex` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'admin                                                                                                                                                                                                                                                          ','admin                                                                                                                                                                                                                                                          ','Administrator                                                                                                                                                                                                                                                  ','012345678                                                                                                                                                                                                                                                      ','admin@example.com                                                                                                                                                                                                                                              ','2022-02-01',0,NULL),(75,NULL,NULL,'Minh Hoàng','0966069027',NULL,'2022-01-29',1,'male');
+INSERT INTO `account` VALUES (1,'admin                                                                                                                                                                                                                                                          ','admin                                                                                                                                                                                                                                                          ','Administrator                                                                                                                                                                                                                                                  ','012345678                                                                                                                                                                                                                                                      ','admin@example.com                                                                                                                                                                                                                                              ','2022-02-01',0,NULL),(75,NULL,NULL,'Minh Hoàng','0966069027',NULL,'2022-01-29',1,'male'),(76,NULL,NULL,'Nga ÄoÃ n Thá»',NULL,'nguyenminhoang2799@gmail.com','2022-01-19',1,'male'),(77,NULL,NULL,'Nga ÄoÃ n Thá»',NULL,'nguyenminhoang2799@gmail.com','2022-01-21',1,'male'),(78,NULL,NULL,'Nga Đoàn Thị','0984186278',NULL,'2022-01-03',1,'female'),(79,NULL,NULL,'Nga Đoàn Thị','0984186278',NULL,'2022-01-03',1,'female'),(80,'caoduy1','123456','Nga Đoàn Thị','0984186278','nguyenminhoang2799@gmail.com','1999-01-18',1,NULL),(81,NULL,NULL,'Hải Ly','0966069027','nguyenminhhoang@example.com','1990-01-29',1,'female'),(82,NULL,NULL,'Háº£i Ly','0966069027','nguyenminhhoang@example.com','1990-01-29',1,'male'),(83,NULL,NULL,'Háº£i Ly','0966069027','nguyenminhhoang@example.com','1990-01-29',1,'male'),(84,NULL,NULL,'Háº£i Ly','0966069027','nguyenminhhoang@example.com','1990-01-29',1,'male'),(85,NULL,NULL,'Háº£i Ly','0966069027','nguyenminhhoang@example.com','1990-01-29',1,'male'),(86,NULL,NULL,'Háº£i Ly','0966069027','nguyenminhhoang@example.com','1990-01-29',1,'male'),(87,NULL,NULL,'Háº£i Ly','0966069027','nguyenminhhoang@example.com','1990-01-29',1,'male'),(88,NULL,NULL,'Minh Hoàng','0966069027','nguyenminhoang2799@gmail.com','2022-01-05',1,'female'),(89,'caoduy1','123456','Minh HoaÌng','0966069027','nguyenminhoang2799@gmail.com','2022-01-22',1,NULL),(90,'hoangnm39@fsoft.com.vn','123456','Minh HoaÌng','0966069027','nguyenminhoang2799@gmail.com',NULL,1,NULL),(91,'caoduy1','123456','Nga ÄoÃ n Thá»','0984186278','nguyenminhoang2799@gmail.com',NULL,1,NULL),(92,'HoangNM39','123456','Minh HoaÌng','0966069027','nguyenminhoang2799@gmail.com',NULL,1,NULL);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,10 +73,8 @@ CREATE TABLE `appointment` (
   `Description` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `BookingSlotId` (`BookingSlotId`),
-  KEY `MedicalRecordId` (`MedicalRecordId`),
-  CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`BookingSlotId`) REFERENCES `bookingslot` (`Id`),
-  CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`MedicalRecordId`) REFERENCES `medicalhistory` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `MedicalRecordId` (`MedicalRecordId`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +83,7 @@ CREATE TABLE `appointment` (
 
 LOCK TABLES `appointment` WRITE;
 /*!40000 ALTER TABLE `appointment` DISABLE KEYS */;
-INSERT INTO `appointment` VALUES (1,75,NULL,NULL,16,'2022-01-29',3,'                            Vấn đề sức khoẻ cần khám',NULL,NULL,'2022-10-09 00:00:00',NULL,NULL,'2022-10-09 00:00:00',NULL);
+INSERT INTO `appointment` VALUES (1,75,0,3,NULL,'2022-01-29',4,'                            Vấn đề sức khoẻ cần khám',NULL,NULL,NULL,NULL,0,'2022-10-09 00:00:00',NULL),(2,77,0,0,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,0,'2022-10-24 00:00:00',NULL),(3,78,NULL,NULL,17,'2022-01-03',0,NULL,NULL,NULL,'2022-10-20 00:00:00',NULL,NULL,'2022-10-20 00:00:00',NULL),(4,79,NULL,NULL,17,'2022-01-03',0,NULL,NULL,NULL,'2022-10-20 00:00:00',NULL,NULL,'2022-10-20 00:00:00',NULL),(5,81,80,2,7,'2022-01-04',5,NULL,NULL,NULL,NULL,NULL,21,'2022-10-24 00:00:00',NULL),(6,82,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,'2022-10-23 00:00:00',NULL,NULL,'2022-10-23 00:00:00',NULL),(7,83,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,'2022-10-23 00:00:00',NULL,NULL,'2022-10-23 00:00:00',NULL),(8,84,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,'2022-10-23 00:00:00',NULL,NULL,'2022-10-23 00:00:00',NULL),(9,88,80,0,3,'2022-01-28',3,NULL,NULL,NULL,NULL,NULL,24,'2022-10-23 00:00:00',NULL);
 /*!40000 ALTER TABLE `appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +104,7 @@ CREATE TABLE `bookingslot` (
   PRIMARY KEY (`Id`),
   KEY `RoomId` (`RoomId`),
   CONSTRAINT `bookingslot_ibfk_1` FOREIGN KEY (`RoomId`) REFERENCES `room` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,6 +113,7 @@ CREATE TABLE `bookingslot` (
 
 LOCK TABLES `bookingslot` WRITE;
 /*!40000 ALTER TABLE `bookingslot` DISABLE KEYS */;
+INSERT INTO `bookingslot` VALUES (1,0,NULL,'2022-01-04',NULL,1),(2,0,NULL,'2022-01-04',NULL,1),(3,0,NULL,'2022-01-04',NULL,1),(4,0,NULL,'2022-01-04',NULL,1),(5,0,NULL,NULL,NULL,1),(6,0,NULL,'2022-01-04',NULL,1),(7,0,3,'2022-01-24',NULL,1),(8,0,0,'2022-01-04',NULL,1),(9,0,14,'2022-01-05',NULL,1),(10,0,4,'2022-01-04',3,1),(11,0,5,'2022-01-04',1,1),(12,0,0,'2022-01-04',1,1),(13,0,2,'2022-01-04',4,1),(14,80,4,'2022-01-04',3,1),(15,80,3,'2022-01-04',1,1),(16,80,5,'2022-01-04',1,1),(17,80,7,'2022-01-04',1,1),(18,80,0,'2022-01-28',1,1),(19,80,7,'2022-01-04',1,1),(20,80,7,'2022-01-04',1,1),(21,80,7,'2022-01-04',1,1),(22,80,0,'2022-01-28',1,1),(23,80,3,'2022-01-28',1,1),(24,80,3,'2022-01-28',1,1);
 /*!40000 ALTER TABLE `bookingslot` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,6 +138,7 @@ CREATE TABLE `doctor` (
 
 LOCK TABLES `doctor` WRITE;
 /*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
+INSERT INTO `doctor` VALUES (80,'Heart');
 /*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +158,7 @@ CREATE TABLE `medicalhistory` (
   `MedicalJson` longtext,
   `PatientId` bigint DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -167,6 +167,7 @@ CREATE TABLE `medicalhistory` (
 
 LOCK TABLES `medicalhistory` WRITE;
 /*!40000 ALTER TABLE `medicalhistory` DISABLE KEYS */;
+INSERT INTO `medicalhistory` VALUES (1,'admin                                                                                                                                                                                                                                                          ','2022-10-24 00:00:00',NULL,NULL,'{}',NULL),(2,'admin                                                                                                                                                                                                                                                          ','2022-10-24 00:00:00',NULL,NULL,'{\"bodyTemperature\":\"12\",\"height\":\"12\",\"bloodPressure\":\"12\",\"weight\":\"12\",\"symptom\":\"12\",\"earlyDiagnosis\":\"123\",\"finalDiagnosis\":\"123\",\"conclusion\":\"123\"}',NULL),(3,'admin                                                                                                                                                                                                                                                          ','2022-10-24 00:00:00',NULL,NULL,'{\"bodyTemperature\":\"213\",\"height\":\"123\",\"bloodPressure\":\"123\",\"weight\":\"123\",\"symptom\":\"123\",\"earlyDiagnosis\":\"12\",\"finalDiagnosis\":\"321\",\"diagnosisDisease\":\"123\",\"conclusion\":\"1231\"}',NULL);
 /*!40000 ALTER TABLE `medicalhistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +196,7 @@ CREATE TABLE `patient` (
 
 LOCK TABLES `patient` WRITE;
 /*!40000 ALTER TABLE `patient` DISABLE KEYS */;
-INSERT INTO `patient` VALUES (75,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `patient` VALUES (75,NULL,NULL,NULL,NULL,NULL),(76,NULL,NULL,NULL,NULL,NULL),(77,NULL,NULL,NULL,'Minh HoaÌng','0966069027'),(78,NULL,NULL,NULL,NULL,NULL),(79,NULL,NULL,NULL,NULL,NULL),(81,NULL,NULL,NULL,'Minh HoÃÂ ng','09824556'),(82,NULL,NULL,NULL,NULL,NULL),(83,NULL,NULL,NULL,NULL,NULL),(84,NULL,NULL,NULL,NULL,NULL),(85,NULL,NULL,NULL,NULL,NULL),(86,NULL,NULL,NULL,NULL,NULL),(87,NULL,NULL,NULL,NULL,NULL),(88,NULL,NULL,'Số 8 Ngách 19 Ngõ 68 Triều Khúc','Nga Đoàn Thị','0984186278');
 /*!40000 ALTER TABLE `patient` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,7 +237,7 @@ CREATE TABLE `room` (
   `RoomName` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `Description` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,6 +246,7 @@ CREATE TABLE `room` (
 
 LOCK TABLES `room` WRITE;
 /*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` VALUES (1,'Room 1','Room 1'),(2,'Room 2','Room 2'),(3,'Room 3','Room 3'),(4,'Room 4','Room 4');
 /*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -284,4 +286,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-10 21:27:37
+-- Dump completed on 2022-10-24 11:38:19
