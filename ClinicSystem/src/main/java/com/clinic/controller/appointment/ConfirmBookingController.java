@@ -1,8 +1,11 @@
 package com.clinic.controller.appointment;
 
 import com.clinic.dto.BookingAppointmentDto;
+import com.clinic.entity.MedicalHistory;
 import com.clinic.model.AppointmentStatus;
+import com.clinic.model.MedicalReport;
 import com.clinic.model.TimeSlot;
+import com.clinic.model.UserDetail;
 import com.clinic.service.AppointmentBookingService;
 import com.clinic.service.AppointmentBookingServiceImpl;
 import com.clinic.service.DoctorService;
@@ -11,6 +14,7 @@ import com.clinic.service.RoomService;
 import com.clinic.service.RoomServiceImpl;
 import com.clinic.util.FormUtil;
 import com.clinic.util.HttpUtil;
+import com.clinic.util.SessionUtil;
 import java.io.IOException;
 import java.sql.Timestamp;
 import javax.servlet.ServletException;

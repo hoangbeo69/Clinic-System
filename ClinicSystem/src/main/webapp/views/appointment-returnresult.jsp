@@ -112,8 +112,9 @@
                                             <label class="col-form-label">Nhiệt độ
                                                 (°C): </label> <input
                                                 class="form-control temperature-patient ml-2"
-                                                id="temperature-patient"
-                                                style="width: 50px;">
+                                                id="temperature-patient" name="bodyTemperature"
+                                                style="width: 100px;"
+                                                value="${medicalReport.bodyTemperature}">
                                         </div>
 
                                     </div>
@@ -123,7 +124,8 @@
                                             <label class="col-form-label">Chiều cao
                                                 (cm):</label> <input
                                                 class="form-control height-patient ml-2"
-                                                id="height-patient" style="width: 50px;">
+                                                id="height-patient" name="height" style="width: 100px;"
+                                                value="${medicalReport.height}">
                                         </div>
 
                                     </div>
@@ -132,8 +134,9 @@
                                             <label class="col-form-label">Huyết áp
                                                 (mmHg):</label> <input
                                                 class="form-control blood-pressure-patient ml-2"
-                                                id="blood-pressure-patient"
-                                                style="width: 50px;">
+                                                id="blood-pressure-patient" name="bloodPressure"
+                                                style="width: 100px;"
+                                                value="${medicalReport.bloodPressure}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -141,7 +144,8 @@
                                             <label class="col-form-label">Cân nặng
                                                 (kg):</label> <input
                                                 class="form-control weight-patient ml-2"
-                                                id="weight-patient" style="width: 50px;">
+                                                id="weight-patient" name="weight" style="width: 100px;"
+                                                value="${medicalReport.weight}">
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +158,8 @@
                                             <div class="col-sm-9">
 														<textarea
                                                                 class="form-control symptom-patient"
-                                                                placeholder=""></textarea>
+                                                                placeholder=""
+                                                                name="symptom">${medicalReport.symptom}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -165,9 +170,7 @@
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
                                                        id="search-name-first-diagnosis-patient"
-                                                       placeholder=""/>
-                                                <input type="hidden"
-                                                       id="search-name-first-diagnosis-patient-value"/>
+                                                       placeholder="" name="earlyDiagnosis" value="${medicalReport.earlyDiagnosis}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -178,9 +181,7 @@
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
                                                        id="search-name-final-diagnosis-patient"
-                                                       placeholder=""/>
-                                                <input type="hidden"
-                                                       id="search-name-final-diagnosis-patient-value"/>
+                                                       placeholder="" name="finalDiagnosis" value="${medicalReport.finalDiagnosis}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -191,8 +192,7 @@
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control"
                                                        id="search-name-including-diseases-patient"
-                                                       placeholder=""/> <input type="hidden"
-                                                                               id="search-name-including-diseases-patient-value"/>
+                                                       placeholder="" name="diagnosisDisease" value="${medicalReport.diagnosisDisease}"/>
                                             </div>
                                         </div>
                                     </div>
@@ -203,7 +203,9 @@
                                             <div class="col-sm-9">
 														<textarea
                                                                 class="form-control conclude-patient"
-                                                                placeholder=""></textarea>
+                                                                placeholder="" name="conclusion"
+                                                                id ="conclusion"
+                                                        >${medicalReport.conclusion}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -212,11 +214,15 @@
                             </div>
                             <!-- form-group// -->
                             <!-- form-group// -->
+                            <input type="hidden" name="patientId" value="${appointment.patientId}">
+                            <input type="hidden" name="id" value="${medicalHistory.id}">
+                            <input type="hidden" name="appointmentId" value="${appointment.id}">
                             <div class="form-group ">
                                 <a class="btn btn-warning"
                                    href="<%=request.getContextPath()%>/appointment/confirmDoctor?id=${appointment.id}">Back
                                 </a>
-                                <button type="submit" class="btn btn-primary">Starting</button>
+                                <button type="submit" class="btn btn-info">Save</button>
+                                <button type="submit" class="btn btn-primary">Complete</button>
                                 <button type="reset"
                                         class="btn btn-danger">Cancel
                                 </button>

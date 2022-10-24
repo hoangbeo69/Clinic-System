@@ -5,6 +5,7 @@
 package com.clinic.service;
 
 import com.clinic.dto.BookingAppointmentDto;
+import com.clinic.entity.MedicalHistory;
 import java.util.List;
 
 /**
@@ -23,4 +24,8 @@ public interface AppointmentBookingService {
   boolean confirmInfo(BookingAppointmentDto bookingAppointmentDto);
 
   boolean confirmDoctor(BookingAppointmentDto bookingAppointmentDto);
+
+  boolean returnResult(Long appointmentId, MedicalHistory medicalHistory);
+
+  boolean complete(BookingAppointmentDto bookingAppointmentDto);
 }

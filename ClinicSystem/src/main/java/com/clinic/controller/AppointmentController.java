@@ -64,10 +64,10 @@ public class AppointmentController extends HttpServlet {
           dispatcher = getServletContext().getRequestDispatcher("/appointment/returnResult");
           break;
         case RETURNRESULT:
-          dispatcher = getServletContext().getRequestDispatcher("/appointment/complete");
+          dispatcher = getServletContext().getRequestDispatcher("/appointment/review");
           break;
         case COMPLETE:
-          dispatcher = getServletContext().getRequestDispatcher("/appointment/review");
+          dispatcher = getServletContext().getRequestDispatcher("/appointment/complete");
           break;
       }
     } else {

@@ -55,4 +55,9 @@ public class AppointmentServiceImpl implements AppointmentService {
     return appointmentDao.update(appointment) != null;
   }
 
+  @Override
+  public boolean update(Appointment appointment) {
+    return appointmentDao.update(appointment) != null;
+  }
+
 }

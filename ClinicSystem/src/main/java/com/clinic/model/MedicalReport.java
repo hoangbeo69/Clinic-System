@@ -8,6 +8,7 @@ import java.io.Serializable;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author nguye
@@ -15,12 +16,14 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
+@ToString
 public class MedicalReport implements Serializable {
 
   private String bodyTemperature;
   private String height;
   private String bloodPressure;
   private String weight;
+  private String symptom;
   private String earlyDiagnosis;
   private String finalDiagnosis;
   private String diagnosisDisease;

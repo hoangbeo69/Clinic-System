@@ -10,7 +10,9 @@ import com.clinic.dto.BookingAppointmentDto;
 import com.clinic.dto.BookingSlotDto;
 import com.clinic.entity.Appointment;
 import com.clinic.entity.BookingSlot;
+import com.clinic.entity.MedicalHistory;
 import com.clinic.entity.Patient;
+import com.clinic.model.AppointmentStatus;
 import com.clinic.util.CollectionsUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +31,14 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
 
   private BookingSlotService bookingSlotService;
 
+  private MedicalHistoryService medicalHistoryService;
+
   public AppointmentBookingServiceImpl() {
     patientService = new PatientServiceImpl();
     appointmentService = new AppointmentServiceImpl();
     bookingSlotDao = new BookingSlotDaoImpl();
     bookingSlotService = new BookingSlotServiceImpl();
+    medicalHistoryService = new MedicalHistoryServiceImpl();
   }
 
   @Override
@@ -143,6 +148,27 @@ public class AppointmentBookingServiceImpl implements AppointmentBookingService 
 
   @Override
   public boolean confirmDoctor(BookingAppointmentDto bookingAppointmentDto) {
+    return appointmentService.update(bookingAppointmentDto);
+  }
+
+  @Override
+  public boolean returnResult(Long appointmentId, MedicalHistory medicalHistory) {
+    Appointment appointment = appointmentService.findById(appointmentId);
+    Long medicalHistoryId = medicalHistory.getId();
+    if (medicalHistoryId == null) {
+      medicalHistoryId = medicalHistoryService.save(medicalHistory);
+      appointment.setMedicalRecordId(medicalHistoryId);
+    } else {
+      medicalHistory.setId(appointment.getMedicalRecordId());
+      medicalHistoryService.update(medicalHistory);
+    }
+    appointment.setStatus(AppointmentStatus.RETURNRESULT);
+    return appointmentService.update(appointment);
+
+  }
+
+  @Override
+  public boolean complete(BookingAppointmentDto bookingAppointmentDto) {
     return appointmentService.update(bookingAppointmentDto);
   }
 

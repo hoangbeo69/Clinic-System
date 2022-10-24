@@ -20,4 +20,6 @@ public interface AppointmentService {
   Appointment findById(Long id);
 
   boolean update(BookingAppointmentDto bookingAppointmentDto);
+
+  boolean update(Appointment appointment);
 }
