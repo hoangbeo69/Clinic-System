@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en">
 
 <header>
     <title>Appointment Infomation</title>
@@ -74,7 +75,8 @@
                                         <td>${appointment.fullName}</td>
                                         <td>${appointment.phoneNumber}</td>
                                         <td>${appointment.email}</td>
-                                        <td>${appointment.dateSlot}</td>
+                                        <td><fmt:formatDate
+                                                pattern='YYYY-MM-DD' value='${appointment.dateSlot}' /></td>
                                         <td>${appointment.timeSlot}</td>
                                         <td>${appointment.description}</td>
                                         <td>${appointment.status.name()}</td>

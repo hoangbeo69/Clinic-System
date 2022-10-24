@@ -5,6 +5,7 @@
 package com.clinic.service;
 
 import com.clinic.entity.Account;
+import com.clinic.model.UserDetail;
 import java.util.List;
 
 /**
@@ -21,4 +22,6 @@ public interface AccountService {
   Account saveAccount(Account user);
 
   boolean deleteAccountById(Long id);
+
+  UserDetail findByUserDetailNameAndPassword(String username, String password);
 }

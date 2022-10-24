@@ -38,6 +38,7 @@ public class CompleteController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+    request.setCharacterEncoding("UTF-8");
     BookingAppointmentDto bookingAppointmentDto = null;
     if (StringUtils.isNotEmpty(request.getParameter("id"))) {
       Long id = Long.parseLong(request.getParameter("id"));

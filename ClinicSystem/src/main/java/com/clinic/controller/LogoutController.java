@@ -5,6 +5,7 @@
  */
 package com.clinic.controller;
 
+import com.clinic.util.SessionUtil;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,9 +29,8 @@ public class LogoutController extends HttpServlet {
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
-    HttpSession session = request.getSession();
-    session.removeAttribute("acc");
-    response.sendRedirect("LoginController");
+    SessionUtil.getInstance().removeValue(request,"USERMODEL");
+    response.sendRedirect("login");
 
   }
 

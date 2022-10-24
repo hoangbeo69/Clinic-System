@@ -6,12 +6,15 @@ package com.clinic.model;
 
 import com.clinic.entity.Account;
 import com.clinic.entity.Role;
+import com.clinic.util.StringUtil;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author nguye
@@ -19,6 +22,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
+@ToString
 public class UserDetail {
 
   private Long          id;
@@ -31,6 +35,7 @@ public class UserDetail {
   private AccountStatus status;
   private Integer       statusCode;
   private List<Role>    roles;
+  private String        strRole;
 
   public UserDetail() {
   }
@@ -51,6 +56,8 @@ public class UserDetail {
       roles = new ArrayList<>();
     }
     roles.add(role);
+    List<String> rolesString = roles.stream().map(Role::getName).collect(Collectors.toList());
+    this.strRole = StringUtil.arrayStrToDelimitedString(rolesString, ",");
   }
 
   public void addRoles(List<Role> roles) {
@@ -58,6 +65,7 @@ public class UserDetail {
       roles = new ArrayList<>();
     }
     roles.addAll(roles);
+    this.strRole = roles.get(0).getName();
   }
 
 }

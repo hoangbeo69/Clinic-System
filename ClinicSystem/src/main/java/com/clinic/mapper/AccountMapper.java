@@ -6,6 +6,7 @@ package com.clinic.mapper;
 
 import com.clinic.entity.Account;
 import com.clinic.model.AccountStatus;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -23,7 +24,10 @@ public class AccountMapper implements RowMapper<Account> {
       user.setFullName(rs.getString("Fullname"));
       user.setPhoneNumber(rs.getString("PhoneNumber"));
       user.setEmail(rs.getString("Email"));
-      user.setDob(new java.util.Date(rs.getDate("Dob").getTime()));
+      Date date = rs.getDate("Dob");
+      if(date!=null){
+        user.setDob(new java.util.Date(date.getTime()));
+      }
       user.setStatus(AccountStatus.get(rs.getInt("Status")));
       user.setSex(rs.getString("Sex"));
       return user;
