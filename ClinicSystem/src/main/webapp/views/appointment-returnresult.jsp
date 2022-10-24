@@ -201,7 +201,8 @@
                                             <label class="col-sm-3 col-form-label">Kết
                                                 luận:</label>
                                             <div class="col-sm-9">
-														<textarea class="form-control conclude-patient"
+														<textarea
+                                                                class="form-control conclude-patient"
                                                                 placeholder=""></textarea>
                                             </div>
                                         </div>

@@ -10,7 +10,7 @@ import org.apache.commons.lang3.ObjectUtils;
 
 public class DoctorServiceImpl implements DoctorService {
 
-  private DoctorDao doctorDao;
+  private DoctorDao  doctorDao;
   private AccountDao accountDao;
 
   public DoctorServiceImpl() {
@@ -56,6 +56,6 @@ public class DoctorServiceImpl implements DoctorService {
       doctor.setId(id);
       id = doctorDao.update(doctor);
     }
-    return ObjectUtils.isNotEmpty(id) ? true: false;
+    return ObjectUtils.isNotEmpty(id) ? true : false;
   }
 }

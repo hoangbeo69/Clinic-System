@@ -7,7 +7,6 @@ package com.clinic.entity;
 import com.clinic.dto.BookingAppointmentDto;
 import com.clinic.model.AppointmentStatus;
 import com.clinic.model.TimeSlot;
-import com.clinic.util.DateUtil;
 import java.sql.Timestamp;
 import java.util.Date;
 import lombok.Data;

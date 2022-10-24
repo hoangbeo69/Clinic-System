@@ -1,6 +1,5 @@
 package com.clinic.dao;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,8 +7,8 @@ import java.util.ResourceBundle;
 
 public class DBUtils {
 
-  private static DBUtils instance;
-  private Connection connection;
+  private static DBUtils    instance;
+  private        Connection connection;
 
   /**
    *
@@ -33,13 +32,6 @@ public class DBUtils {
   }
 
   /**
-   *
-   */
-  public Connection getConnection() {
-    return connection;
-  }
-
-  /**
    * Create new instance which connects with the database.
    * @return DBUtils
    * @throws SQLException if connection false.
@@ -49,5 +41,12 @@ public class DBUtils {
       instance = new DBUtils();
     }
     return instance;
+  }
+
+  /**
+   *
+   */
+  public Connection getConnection() {
+    return connection;
   }
 }

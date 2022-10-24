@@ -5,9 +5,6 @@
 package com.clinic.util;
 
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 import java.util.ResourceBundle;
 
 /**
@@ -16,6 +13,7 @@ import java.util.ResourceBundle;
 public class PropertiesService {
 
   static ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
+
   public static String get(String key) {
     return resourceBundle.getString(key);
   }

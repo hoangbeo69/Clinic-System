@@ -16,7 +16,7 @@ import lombok.Setter;
 @Setter
 public class Room {
 
-  private Long id;
+  private Long   id;
   private String roomName;
   private String description;
 

@@ -5,22 +5,24 @@
 package com.clinic.model;
 
 /**
- *
  * @author nguye
  */
 public enum RoleEnum {
-    ADMIN, MANAGER, USER, ANONYMOUS;
+  ADMIN,
+  MANAGER,
+  USER,
+  ANONYMOUS;
 
-    RoleEnum() {
-    }
+  RoleEnum() {
+  }
 
-    public static RoleEnum get(String roleName) {
-        for (RoleEnum role : RoleEnum.values()) {
-            if (role.name().equals(roleName)) {
-                return role;
-            }
-        }
-        return null;
+  public static RoleEnum get(String roleName) {
+    for (RoleEnum role : RoleEnum.values()) {
+      if (role.name().equals(roleName)) {
+        return role;
+      }
     }
+    return null;
+  }
 
 }

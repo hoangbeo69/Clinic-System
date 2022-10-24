@@ -29,10 +29,6 @@ public class BookingSlot {
   private BookingStatus status;
   private Integer       statusCode;
 
-  public BookingStatus getStatus() {
-    return status;
-  }
-
   public BookingSlot() {
   }
 
@@ -42,6 +38,10 @@ public class BookingSlot {
     this.timeSlotOrder = bookingAppointmentDto.getTimeSlotOrder();
     this.timeSlot = TimeSlot.get(bookingAppointmentDto.getTimeSlotOrder());
     this.doctorId = bookingAppointmentDto.getDoctorId();
+  }
+
+  public BookingStatus getStatus() {
+    return status;
   }
 
   public void setStatus(BookingStatus status) {

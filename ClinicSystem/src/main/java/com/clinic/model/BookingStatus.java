@@ -18,15 +18,15 @@ public enum BookingStatus {
     this.statusCode = statusCode;
   }
 
-  public Integer getStatusCode() {
-    return statusCode;
-  }
-
   public static BookingStatus get(int statusCode) {
     return Arrays.stream(BookingStatus.values())
         .parallel()
         .filter(e->e.getStatusCode() == statusCode)
         .findFirst()
         .orElse(AVAILABLE);
+  }
+
+  public Integer getStatusCode() {
+    return statusCode;
   }
 }

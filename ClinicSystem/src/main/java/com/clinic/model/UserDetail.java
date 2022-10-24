@@ -21,16 +21,16 @@ import lombok.Setter;
 @Setter
 public class UserDetail {
 
-  private Long id;
-  private String username;
-  private String password;
-  private String fullName;
-  private String phoneNumber;
-  private String email;
-  private Date dob;
+  private Long          id;
+  private String        username;
+  private String        password;
+  private String        fullName;
+  private String        phoneNumber;
+  private String        email;
+  private Date          dob;
   private AccountStatus status;
-  private Integer statusCode;
-  private List<Role> roles;
+  private Integer       statusCode;
+  private List<Role>    roles;
 
   public UserDetail() {
   }

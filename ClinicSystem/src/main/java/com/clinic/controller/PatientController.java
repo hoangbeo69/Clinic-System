@@ -78,11 +78,11 @@ public class PatientController extends HttpServlet {
       if (result) {
         response.sendRedirect(
             request.getContextPath() + "/patient/detail?id=" + patient.getId() + "&message" +
-                "=updatedoctor_success&alert" + "=success");
+            "=updatedoctor_success&alert" + "=success");
       } else {
         response.sendRedirect(
             request.getContextPath() + "/patient/detail?id=" + patient.getId() + "&message" +
-                "=updatedoctor_notsuccess&alert=danger");
+            "=updatedoctor_notsuccess&alert=danger");
       }
     }
   }

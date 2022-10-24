@@ -44,7 +44,7 @@ public class AccountDaoImpl extends AbstractDAO implements AccountDao {
     StringBuilder sql = new StringBuilder("UPDATE Account ");
     sql.append(
         "SET USERNAME = ?, PASSWORD = ?, FULLNAME = ?, PHONENUMBER = ? , EMAIL = ? , DOB = ?, SEX" +
-            " = ? WHERE ID = ?");
+        " = ? WHERE ID = ?");
     boolean result = update(sql.toString(), user.getUsername(), user.getPassword(),
         user.getFullName(), user.getPhoneNumber(), user.getEmail(), user.getDob(), user.getSex(),
         user.getId());

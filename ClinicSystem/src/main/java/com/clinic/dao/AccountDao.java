@@ -7,6 +7,7 @@ package com.clinic.dao;
 import com.clinic.entity.Account;
 import com.clinic.model.UserDetail;
 import java.util.List;
+
 /**
  * @author nguye
  */

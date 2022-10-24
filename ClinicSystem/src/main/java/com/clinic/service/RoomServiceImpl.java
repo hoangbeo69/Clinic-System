@@ -2,7 +2,6 @@ package com.clinic.service;
 
 import com.clinic.dao.RoomDao;
 import com.clinic.dao.RoomDaoImpl;
-import com.clinic.entity.Doctor;
 import com.clinic.entity.Room;
 import java.util.List;
 
@@ -35,6 +34,6 @@ public class RoomServiceImpl implements RoomService {
 
   @Override
   public Long createNew(Room room) {
-    return  roomDao.save(room);
+    return roomDao.save(room);
   }
 }

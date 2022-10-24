@@ -1,18 +1,11 @@
 package com.clinic.controller;
 
-import com.clinic.dao.AccountDao;
-import com.clinic.dao.AccountDaoImpl;
-import com.clinic.dao.DoctorDao;
-import com.clinic.dao.DoctorDaoImpl;
-import com.clinic.dto.BookingAppointmentDto;
 import com.clinic.entity.Doctor;
 import com.clinic.service.DoctorService;
 import com.clinic.service.DoctorServiceImpl;
 import com.clinic.util.FormUtil;
 import com.clinic.util.HttpUtil;
-import com.clinic.util.StringUtil;
 import java.io.IOException;
-import java.sql.Timestamp;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -94,9 +87,8 @@ public class DoctorController extends HttpServlet {
     } else {
       Long id = doctorService.createNew(doctor);
       if (id != null) {
-        response.sendRedirect(
-            request.getContextPath() + "/doctor/detail?id=" + id + "&message=newdoctor_success&alert" +
-            "=success");
+        response.sendRedirect(request.getContextPath() + "/doctor/detail?id=" + id +
+                              "&message=newdoctor_success&alert" + "=success");
       } else {
         response.sendRedirect(request.getContextPath() + "/doctor/detail?id=" + id +
                               "&message=newdoctor_notsuccess&alert" + "=danger");

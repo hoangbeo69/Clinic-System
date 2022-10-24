@@ -7,28 +7,29 @@ package com.clinic.model;
 import java.util.Arrays;
 
 /**
- *
  * @author nguye
  */
 public enum AccountStatus {
 
-    ACTIVE(0), INACTIVE(1);
+  ACTIVE(0),
+  INACTIVE(1);
 
-    private int statusCode;
+  private int statusCode;
 
-     AccountStatus(Integer statusCode) {
-        this.statusCode = statusCode;
-    }
+  AccountStatus(Integer statusCode) {
+    this.statusCode = statusCode;
+  }
 
-    public int getStatusCode() {
-        return statusCode;
-    }
+  public static AccountStatus get(int statusCode) {
 
-    public static AccountStatus get(int statusCode) {
+    return Arrays.stream(AccountStatus.values())
+        .parallel()
+        .filter(e->e.getStatusCode() == statusCode)
+        .findFirst()
+        .orElse(INACTIVE);
+  }
 
-        return Arrays.stream(AccountStatus.values())
-                .parallel()
-                .filter(e -> e.getStatusCode() == statusCode)
-                .findFirst().orElse(INACTIVE);
-    }
+  public int getStatusCode() {
+    return statusCode;
+  }
 }

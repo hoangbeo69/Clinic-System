@@ -44,26 +44,26 @@ public class ResetPasswordController extends HttpServlet {
     String subject = "Reset password";
     String newPassword = "Asd123@";
 
-//        Patient patient = patientDao.getPatientByEmail(request.getParameter("resetEmail"));
-//        if (patient != null) {
-//            sendTo = patient.getEmail();
-//            try {
-//                SendEMail.send(sendTo, subject, newPassword, sendFrom, passwordFrom);
-//
-////                accountDao.resetPassword(newPassword, sendTo);
-//
-//                request.setAttribute("alert", "        <script>\n"
-//                        + "            swal(\"Send success!!\", \"\", \"success\");\n"
-//                        + "        </script>");
-//            } catch (MessagingException ex) {
-//                Logger.getLogger(ResetPasswordController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        } else {
-//            request.setAttribute("alert", "");
-//            request.setAttribute("alert", "        <script>\n"
-//                    + "            swal(\"Send fail!\", \"\", \"error\");\n"
-//                    + "        </script>");
-//        }
+    //        Patient patient = patientDao.getPatientByEmail(request.getParameter("resetEmail"));
+    //        if (patient != null) {
+    //            sendTo = patient.getEmail();
+    //            try {
+    //                SendEMail.send(sendTo, subject, newPassword, sendFrom, passwordFrom);
+    //
+    ////                accountDao.resetPassword(newPassword, sendTo);
+    //
+    //                request.setAttribute("alert", "        <script>\n"
+    //                        + "            swal(\"Send success!!\", \"\", \"success\");\n"
+    //                        + "        </script>");
+    //            } catch (MessagingException ex) {
+    //                Logger.getLogger(ResetPasswordController.class.getName()).log(Level.SEVERE, null, ex);
+    //            }
+    //        } else {
+    //            request.setAttribute("alert", "");
+    //            request.setAttribute("alert", "        <script>\n"
+    //                    + "            swal(\"Send fail!\", \"\", \"error\");\n"
+    //                    + "        </script>");
+    //        }
 
     request.getRequestDispatcher("/views/login.jsp").forward(request, response);
   }

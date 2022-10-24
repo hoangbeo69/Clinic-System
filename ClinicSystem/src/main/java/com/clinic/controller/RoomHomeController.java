@@ -1,6 +1,5 @@
 package com.clinic.controller;
 
-import com.clinic.entity.Doctor;
 import com.clinic.entity.Room;
 import com.clinic.service.RoomService;
 import com.clinic.service.RoomServiceImpl;

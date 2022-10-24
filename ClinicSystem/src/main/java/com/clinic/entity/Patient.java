@@ -6,7 +6,6 @@
 package com.clinic.entity;
 
 import com.clinic.dto.BookingAppointmentDto;
-import com.clinic.util.DateUtil;
 import java.util.Date;
 import lombok.Data;
 import lombok.Getter;
@@ -62,6 +61,10 @@ public class Patient extends Account {
     this.guardianPhoneNumber = appointmentDto.getGuardianPhoneNumber();
   }
 
+  public Patient() {
+    super();
+  }
+
   public void setPatientInfo(Patient patient) {
     if (ObjectUtils.isNotEmpty(patient)) {
       this.insuranceCode = patient.getInsuranceCode();
@@ -70,9 +73,5 @@ public class Patient extends Account {
       this.guardianFullname = patient.getGuardianFullname();
       this.guardianPhoneNumber = patient.getGuardianPhoneNumber();
     }
-  }
-
-  public Patient() {
-    super();
   }
 }

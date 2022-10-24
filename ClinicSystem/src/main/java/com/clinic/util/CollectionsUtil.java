@@ -7,14 +7,14 @@ package com.clinic.util;
 import java.util.Collection;
 
 /**
- *
  * @author nguye
  */
 public class CollectionsUtil {
-    public static boolean isEmpty(Collection collection){
-        if(null == collection){
-            return true;
-        }
-        return collection.isEmpty();
+
+  public static boolean isEmpty(Collection collection) {
+    if (null == collection) {
+      return true;
     }
+    return collection.isEmpty();
+  }
 }

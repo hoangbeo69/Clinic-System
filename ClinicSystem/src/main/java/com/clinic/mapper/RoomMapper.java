@@ -5,7 +5,6 @@
 package com.clinic.mapper;
 
 import com.clinic.entity.Room;
-import com.clinic.mapper.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

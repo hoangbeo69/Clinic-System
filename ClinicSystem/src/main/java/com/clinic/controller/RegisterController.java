@@ -49,16 +49,16 @@ public class RegisterController extends HttpServlet {
       request.setAttribute("mess", mess);
       request.getRequestDispatcher("/views/register.jsp").forward(request, response);
     } else {
-//      UserDAO userdao = new UserDAO();
-//      Account a = accountDao.findByEmailOrUsername(username);
-//      if (a == null) {
-//        userdao.register(username, password);
-//        request.setAttribute("mess", "Register successfully");
-//        request.getRequestDispatcher("view/register.jsp").forward(request, response);
-//      } else {
-//        request.setAttribute("mess", "Account already exists");
-//        request.getRequestDispatcher("view/register.jsp").forward(request, response);
-//      }
+      //      UserDAO userdao = new UserDAO();
+      //      Account a = accountDao.findByEmailOrUsername(username);
+      //      if (a == null) {
+      //        userdao.register(username, password);
+      //        request.setAttribute("mess", "Register successfully");
+      //        request.getRequestDispatcher("view/register.jsp").forward(request, response);
+      //      } else {
+      //        request.setAttribute("mess", "Account already exists");
+      //        request.getRequestDispatcher("view/register.jsp").forward(request, response);
+      //      }
     }
   }
 }

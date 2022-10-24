@@ -42,9 +42,9 @@ public class ManagerInfoController extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     int id = Integer.parseInt(request.getParameter("accountId"));
-//    UserDAO dao = new UserDAO();
-//    Manager m = dao.getManagerInfo(id);
-//    request.setAttribute("m", m);
+    //    UserDAO dao = new UserDAO();
+    //    Manager m = dao.getManagerInfo(id);
+    //    request.setAttribute("m", m);
     request.getRequestDispatcher("/views/ManagerInfo.jsp").forward(request, response);
   }
 

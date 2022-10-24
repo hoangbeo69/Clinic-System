@@ -32,12 +32,12 @@ public class AppointmentDaoImpl extends AbstractDAO implements AppointmentDao {
     StringBuilder sql = new StringBuilder("UPDATE Appointment ");
     sql.append(
         "SET PatientId = ? ,DoctorId = ?,MedicalRecordId = ?,TimeSlot = ? ,DateSlot = ? ,Status = ? ,StatusDescription = ? ,CreatedBy = ? ," +
-            "CreatedDate = ? ,UpdateBy = ? ,BookingSlotId = ? ,UpdateDate = ? WHERE Id = ?");
+        "CreatedDate = ? ,UpdateBy = ? ,BookingSlotId = ? ,UpdateDate = ? WHERE Id = ?");
     boolean result = update(sql.toString(), appointment.getPatientId(), appointment.getDoctorId(),
         appointment.getMedicalRecordId(), appointment.getTimeSlotOrder(), appointment.getDateSlot(),
         appointment.getStatusCode(), appointment.getStatusDescription(), appointment.getCreatedBy(),
-        appointment.getCreatedDate(),appointment.getUpdateBy(), appointment.getBookingSlotId(), appointment.getUpdatedDate(),
-        appointment.getId());
+        appointment.getCreatedDate(), appointment.getUpdateBy(), appointment.getBookingSlotId(),
+        appointment.getUpdatedDate(), appointment.getId());
     return result ? appointment.getId() : null;
   }
 

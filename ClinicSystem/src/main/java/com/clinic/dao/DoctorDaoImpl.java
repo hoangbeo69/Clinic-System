@@ -6,9 +6,7 @@ package com.clinic.dao;
 
 import com.clinic.entity.Account;
 import com.clinic.entity.Doctor;
-import com.clinic.entity.Patient;
 import com.clinic.mapper.DoctorMapper;
-import com.clinic.mapper.PatientMapper;
 import com.clinic.util.CollectionsUtil;
 import java.util.List;
 import org.apache.commons.lang3.ObjectUtils;
@@ -54,11 +52,9 @@ public class DoctorDaoImpl extends AbstractDAO implements DoctorDao {
 
   @Override
   public Long update(Doctor doctor) {
-    StringBuilder sql = new StringBuilder(
-        "UPDATE Doctor SET Specialization = ? WHERE Id = ?");
-    boolean result = update(sql.toString(),doctor.getSpecialization(),
-        doctor.getId());
-    return result ? doctor.getId():null;
+    StringBuilder sql = new StringBuilder("UPDATE Doctor SET Specialization = ? WHERE Id = ?");
+    boolean result = update(sql.toString(), doctor.getSpecialization(), doctor.getId());
+    return result ? doctor.getId() : null;
   }
 
   private Doctor getDoctorOnlyById(Long id) {

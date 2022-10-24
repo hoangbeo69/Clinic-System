@@ -11,18 +11,20 @@ import com.clinic.service.RoomService;
 import com.clinic.service.RoomServiceImpl;
 import com.clinic.util.FormUtil;
 import com.clinic.util.SessionUtil;
-import java.sql.Timestamp;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.Timestamp;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "appointment/pending", value = "/appointment/pending")
 public class PendingController extends HttpServlet {
 
   private AppointmentBookingService appointmentBookingService;
-  private RoomService roomService;
-  private DoctorService doctorService;
+  private RoomService               roomService;
+  private DoctorService             doctorService;
 
 
   public PendingController() {
@@ -35,8 +37,8 @@ public class PendingController extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setAttribute("TIMESLOTS", TimeSlot.values());
-    request.setAttribute("ROOMS",roomService.findAll());
-    request.setAttribute("DOCTORS",doctorService.findAll());
+    request.setAttribute("ROOMS", roomService.findAll());
+    request.setAttribute("DOCTORS", doctorService.findAll());
     request.getRequestDispatcher("/views/appointment-pending.jsp").forward(request, response);
 
   }
@@ -53,11 +55,11 @@ public class PendingController extends HttpServlet {
     if (result) {
       response.sendRedirect(
           request.getContextPath() + "/appointment/pending?id=" + bookingAppointmentDto.getId() +
-              "&message=booking_success&alert" + "=success");
+          "&message=booking_success&alert" + "=success");
     } else {
       response.sendRedirect(
           request.getContextPath() + "/appointment/pending?id=" + bookingAppointmentDto.getId() +
-              "&message=booking_notsuccess" + "&alert" + "=danger");
+          "&message=booking_notsuccess" + "&alert" + "=danger");
     }
   }
 }

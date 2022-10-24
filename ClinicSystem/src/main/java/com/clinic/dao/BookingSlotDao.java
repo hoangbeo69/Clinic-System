@@ -9,20 +9,19 @@ import com.clinic.entity.BookingSlot;
 import java.util.List;
 
 /**
- *
  * @author nguye
  */
 public interface BookingSlotDao extends GenericDao {
 
-    Long save(BookingSlot bookingSlot);
+  Long save(BookingSlot bookingSlot);
 
-    Long update(BookingSlot bookingSlot);
+  Long update(BookingSlot bookingSlot);
 
-    BookingSlot findById(Long id);
+  BookingSlot findById(Long id);
 
-    boolean delete(Long id);
+  boolean delete(Long id);
 
-    List<BookingSlot> findAll();
+  List<BookingSlot> findAll();
 
-    BookingSlotDto findDtoById(Long id);
+  BookingSlotDto findDtoById(Long id);
 }

@@ -13,28 +13,30 @@ import lombok.ToString;
 import org.apache.commons.lang3.ObjectUtils;
 
 /**
- *
  * @author Admin
  */
 @Data
 @Getter
 @Setter
 @ToString
-public class Doctor extends Account{    
-    private String specialization;
+public class Doctor extends Account {
 
-    public Doctor(Long id, String username, String password, String fullName, String phoneNumber, String email, Date dob) {
-        super(id, username, password, fullName, phoneNumber, email, dob);
-    }
-    public void setDoctorInfor(Doctor  doctor){
-        if(ObjectUtils.isNotEmpty(doctor)){
-            this.specialization = doctor.getSpecialization();
-        }
-    }
+  private String specialization;
 
-    public Doctor() {
-        super();
+  public Doctor(Long id, String username, String password, String fullName, String phoneNumber,
+      String email, Date dob) {
+    super(id, username, password, fullName, phoneNumber, email, dob);
+  }
+
+  public Doctor() {
+    super();
+  }
+
+  public void setDoctorInfor(Doctor doctor) {
+    if (ObjectUtils.isNotEmpty(doctor)) {
+      this.specialization = doctor.getSpecialization();
     }
+  }
 
 
 }

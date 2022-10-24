@@ -7,11 +7,10 @@ package com.clinic.service;
 import com.clinic.model.UserDetail;
 
 /**
- *
  * @author nguye
  */
 public interface UserDetailService {
 
-    UserDetail login(String username, String password);
-    
+  UserDetail login(String username, String password);
+
 }

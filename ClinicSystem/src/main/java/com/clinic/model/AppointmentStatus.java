@@ -7,32 +7,32 @@ package com.clinic.model;
 import java.util.Arrays;
 
 /**
- *
  * @author nguye
  */
 public enum AppointmentStatus {
-    PENDING(0),
-    CONFIRMINFO(1),
-    CONFIRMBOOKING(2),
-    CONFIRMDOCTOR(3),
-    RETURNRESULT(4),
-    COMPLETE(5);
+  PENDING(0),
+  CONFIRMINFO(1),
+  CONFIRMBOOKING(2),
+  CONFIRMDOCTOR(3),
+  RETURNRESULT(4),
+  COMPLETE(5);
 
-    private final Integer statusCode;
+  private final Integer statusCode;
 
-     AppointmentStatus(Integer statusCode) {
-        this.statusCode = statusCode;
-    }
+  AppointmentStatus(Integer statusCode) {
+    this.statusCode = statusCode;
+  }
 
-    public Integer getStatusCode() {
-        return statusCode;
-    }
-    
-    public static AppointmentStatus get(int statusCode){
-                return Arrays.stream(AppointmentStatus.values())
-                .parallel()
-                .filter(e -> e.getStatusCode() == statusCode)
-                .findFirst().orElse(PENDING);
-    }
+  public static AppointmentStatus get(int statusCode) {
+    return Arrays.stream(AppointmentStatus.values())
+        .parallel()
+        .filter(e->e.getStatusCode() == statusCode)
+        .findFirst()
+        .orElse(PENDING);
+  }
+
+  public Integer getStatusCode() {
+    return statusCode;
+  }
 
 }

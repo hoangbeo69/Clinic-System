@@ -17,7 +17,7 @@ import lombok.Setter;
 @Setter
 public class Manager {
 
-  private int AccountID;
+  private int    AccountID;
   private String Name;
   private String Phone;
   private String Address;

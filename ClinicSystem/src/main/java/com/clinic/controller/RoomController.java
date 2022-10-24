@@ -68,31 +68,31 @@ public class RoomController extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json");
-        Room room = FormUtil.toModel(Room.class, request);
-        boolean result = false;
-        if (ObjectUtils.isNotEmpty(room.getId()) && room.getId() != 0) {
-          result = roomService.update(room);
-          if (result) {
-            response.sendRedirect(
-                request.getContextPath() + "/room/detail?id=" + room.getId() + "&message" +
-                "=updateroom_success&alert" + "=success");
-          } else {
-            response.sendRedirect(
-                request.getContextPath() + "/room/detail?id=" + room.getId() + "&message" +
-                "=updateroom_notsuccess&alert=danger");
-          }
-        } else {
-          Long id = roomService.createNew(room);
-          if (id != null) {
-            response.sendRedirect(
-                request.getContextPath() + "/room/detail?id=" + id + "&message=newroom_success&alert=success");
-          } else {
-            response.sendRedirect(request.getContextPath() + "/room/detail?id=" + id +
-                                  "&message=newroom_notsuccess&alert=danger");
-          }
-        }
+    request.setCharacterEncoding("UTF-8");
+    response.setContentType("application/json");
+    Room room = FormUtil.toModel(Room.class, request);
+    boolean result = false;
+    if (ObjectUtils.isNotEmpty(room.getId()) && room.getId() != 0) {
+      result = roomService.update(room);
+      if (result) {
+        response.sendRedirect(
+            request.getContextPath() + "/room/detail?id=" + room.getId() + "&message" +
+            "=updateroom_success&alert" + "=success");
+      } else {
+        response.sendRedirect(
+            request.getContextPath() + "/room/detail?id=" + room.getId() + "&message" +
+            "=updateroom_notsuccess&alert=danger");
+      }
+    } else {
+      Long id = roomService.createNew(room);
+      if (id != null) {
+        response.sendRedirect(request.getContextPath() + "/room/detail?id=" + id +
+                              "&message=newroom_success&alert=success");
+      } else {
+        response.sendRedirect(request.getContextPath() + "/room/detail?id=" + id +
+                              "&message=newroom_notsuccess&alert=danger");
+      }
+    }
 
   }
 

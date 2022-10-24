@@ -1,6 +1,5 @@
 package com.clinic.service;
 
-import com.clinic.entity.Doctor;
 import com.clinic.entity.Room;
 import java.util.List;
 

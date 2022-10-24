@@ -33,28 +33,42 @@
                     <label>Management</label>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/appointment" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Appointment</span></a>
+                    <a href="<%=request.getContextPath()%>/appointment" class="nav-link "><span
+                            class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
+                            class="pcoded-mtext">Appointment</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/doctors" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Information</span></a>
+                    <a href="<%=request.getContextPath()%>/doctors" class="nav-link "><span
+                            class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
+                            class="pcoded-mtext">Information</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/staffs" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Staffs</span></a>
+                    <a href="<%=request.getContextPath()%>/staffs" class="nav-link "><span
+                            class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
+                            class="pcoded-mtext">Staffs</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/patients" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Patient</span></a>
+                    <a href="<%=request.getContextPath()%>/patients" class="nav-link "><span
+                            class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
+                            class="pcoded-mtext">Patient</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/users" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Account Management</span></a>
+                    <a href="<%=request.getContextPath()%>/users" class="nav-link "><span
+                            class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
+                            class="pcoded-mtext">Account Management</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/room" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Room</span></a>
+                    <a href="<%=request.getContextPath()%>/room" class="nav-link "><span
+                            class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
+                            class="pcoded-mtext">Room</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-calendar-days"></i></span><span class="pcoded-mtext">Schedule</span></a>
+                    <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i
+                            class="fa-solid fa-calendar-days"></i></span><span class="pcoded-mtext">Schedule</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-notes-medical"></i></span><span class="pcoded-mtext">Medical Records</span></a>
+                    <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i
+                            class="fa-solid fa-notes-medical"></i></span><span class="pcoded-mtext">Medical Records</span></a>
                 </li>
             </ul>
 
@@ -82,7 +96,8 @@
             <li class="nav-item">
                 <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
                 <div class="search-bar">
-                    <input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
+                    <input type="text" class="form-control border-0 shadow-none"
+                           placeholder="Search hear">
                     <button type="button" class="close" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -110,9 +125,13 @@
                             </li>
                             <li class="notification">
                                 <div class="media">
-                                    <img class="img-radius" src="../resources/assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                    <img class="img-radius"
+                                         src="../resources/assets/images/user/avatar-1.jpg"
+                                         alt="Generic placeholder image">
                                     <div class="media-body">
-                                        <p><strong>John Doe</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
+                                        <p><strong>John Doe</strong><span class="n-time text-muted"><i
+                                                class="icon feather icon-clock m-r-10"></i>5 min</span>
+                                        </p>
                                         <p>New ticket Added</p>
                                     </div>
                                 </div>
@@ -122,27 +141,42 @@
                             </li>
                             <li class="notification">
                                 <div class="media">
-                                    <img class="img-radius" src="../resources/assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                    <img class="img-radius"
+                                         src="../resources/assets/images/user/avatar-2.jpg"
+                                         alt="Generic placeholder image">
                                     <div class="media-body">
-                                        <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>10 min</span></p>
+                                        <p><strong>Joseph William</strong><span
+                                                class="n-time text-muted"><i
+                                                class="icon feather icon-clock m-r-10"></i>10 min</span>
+                                        </p>
                                         <p>Prchace New Theme and make payment</p>
                                     </div>
                                 </div>
                             </li>
                             <li class="notification">
                                 <div class="media">
-                                    <img class="img-radius" src="../resources/assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                    <img class="img-radius"
+                                         src="../resources/assets/images/user/avatar-1.jpg"
+                                         alt="Generic placeholder image">
                                     <div class="media-body">
-                                        <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>12 min</span></p>
+                                        <p><strong>Sara Soudein</strong><span
+                                                class="n-time text-muted"><i
+                                                class="icon feather icon-clock m-r-10"></i>12 min</span>
+                                        </p>
                                         <p>currently login</p>
                                     </div>
                                 </div>
                             </li>
                             <li class="notification">
                                 <div class="media">
-                                    <img class="img-radius" src="../resources/assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                    <img class="img-radius"
+                                         src="../resources/assets/images/user/avatar-2.jpg"
+                                         alt="Generic placeholder image">
                                     <div class="media-body">
-                                        <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                        <p><strong>Joseph William</strong><span
+                                                class="n-time text-muted"><i
+                                                class="icon feather icon-clock m-r-10"></i>30 min</span>
+                                        </p>
                                         <p>Prchace New Theme and make payment</p>
                                     </div>
                                 </div>
@@ -161,17 +195,25 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
                         <div class="pro-head">
-                            <img src="../resources/assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                            <img src="../resources/assets/images/user/avatar-1.jpg"
+                                 class="img-radius" alt="User-Profile-Image">
                             <span>John Doe</span>
                             <a href="auth-signin.html" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
                             </a>
                         </div>
                         <ul class="pro-body">
-                            <li><a href="<%=request.getContextPath()%>/doctorhome" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                            <li><a href="<%=request.getContextPath()%>/changePasswordController" class="dropdown-item"><i class="fa-solid fa-gear"></i> Change password</a></li>
-                            <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
-                            <li><a href="<%=request.getContextPath()%>/logout" class="dropdown-item"><i class="feather icon-lock"></i> Logout</a></li>
+                            <li><a href="<%=request.getContextPath()%>/doctorhome"
+                                   class="dropdown-item"><i class="feather icon-user"></i>
+                                Profile</a></li>
+                            <li><a href="<%=request.getContextPath()%>/changePasswordController"
+                                   class="dropdown-item"><i class="fa-solid fa-gear"></i> Change
+                                password</a></li>
+                            <li><a href="email_inbox.html" class="dropdown-item"><i
+                                    class="feather icon-mail"></i> My Messages</a></li>
+                            <li><a href="<%=request.getContextPath()%>/logout"
+                                   class="dropdown-item"><i class="feather icon-lock"></i>
+                                Logout</a></li>
                         </ul>
                     </div>
                 </div>

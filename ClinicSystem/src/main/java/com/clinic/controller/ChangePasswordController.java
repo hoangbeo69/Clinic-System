@@ -38,22 +38,22 @@ public class ChangePasswordController extends HttpServlet {
       throws ServletException, IOException {
     String newPassword = request.getParameter("new_password");
     String confirmPassword = request.getParameter("confirm_repassword");
-//        UserDAO userDAO = new UserDAO();
-//        HttpSession session = request.getSession();
-//        Account account = (Account)session.getAttribute("acc");
-//        if((newPassword.equals(confirmPassword))){
-//            userDAO.changePassword(newPassword, account.getUsername());
-//            request.setAttribute("mess", "Your password changed successfully.");
-//            request.getRequestDispatcher("views/login.jsp").forward(request, response);
-//        }else if (newPassword.equals("")||confirmPassword.equals("")){
-//            request.setAttribute("username", account.getUsername());
-//            request.setAttribute("mess", "New password and confirm password, both are required.");
-//            request.getRequestDispatcher("view/changePassword.jsp").forward(request, response);
-//        }else{
-//            request.setAttribute("username", account.getUsername());
-//            request.setAttribute("mess", "New password and confirm password does not match.");
-//            request.getRequestDispatcher("view/changePassword.jsp").forward(request, response);
-//        }
+    //        UserDAO userDAO = new UserDAO();
+    //        HttpSession session = request.getSession();
+    //        Account account = (Account)session.getAttribute("acc");
+    //        if((newPassword.equals(confirmPassword))){
+    //            userDAO.changePassword(newPassword, account.getUsername());
+    //            request.setAttribute("mess", "Your password changed successfully.");
+    //            request.getRequestDispatcher("views/login.jsp").forward(request, response);
+    //        }else if (newPassword.equals("")||confirmPassword.equals("")){
+    //            request.setAttribute("username", account.getUsername());
+    //            request.setAttribute("mess", "New password and confirm password, both are required.");
+    //            request.getRequestDispatcher("view/changePassword.jsp").forward(request, response);
+    //        }else{
+    //            request.setAttribute("username", account.getUsername());
+    //            request.setAttribute("mess", "New password and confirm password does not match.");
+    //            request.getRequestDispatcher("view/changePassword.jsp").forward(request, response);
+    //        }
 
   }
 

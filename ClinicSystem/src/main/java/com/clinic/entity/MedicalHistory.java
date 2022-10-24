@@ -19,13 +19,13 @@ import lombok.Setter;
 @Setter
 public class MedicalHistory {
 
-  private Long id;
-  private Long patientId;
-  private String createdBy;
-  private String updateBy;
-  private Timestamp createdDate;
-  private Timestamp updatedDate;
-  private String medicalJson;
+  private Long          id;
+  private Long          patientId;
+  private String        createdBy;
+  private String        updateBy;
+  private Timestamp     createdDate;
+  private Timestamp     updatedDate;
+  private String        medicalJson;
   private MedicalReport medicalReport;
 
   public MedicalHistory(Long id, Long patientId, String createdBy, String updateBy,

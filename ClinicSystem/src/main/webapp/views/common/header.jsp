@@ -8,6 +8,9 @@
 <link href="<c:url value='/resources/assets/css/style.css'/>" rel="stylesheet"/>
 <link href="<c:url value='/resources/assets/css/plugins/prism-coy.css'/>" rel="stylesheet"/>
 <!-- Custom styles for this template-->
-<link href="<c:url value="/resources/css/svg-icon-animate.css"/> " rel="stylesheet" type="text/css"/>
-<link href="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.min.css" />" rel="stylesheet"/>
-<link href="<c:url value="/resources/vendor/datatables/dataTables.checkboxes.css"/>" rel="stylesheet"/>
+<link href="<c:url value="/resources/css/svg-icon-animate.css"/> " rel="stylesheet"
+      type="text/css"/>
+<link href="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.min.css" />"
+      rel="stylesheet"/>
+<link href="<c:url value="/resources/vendor/datatables/dataTables.checkboxes.css"/>"
+      rel="stylesheet"/>

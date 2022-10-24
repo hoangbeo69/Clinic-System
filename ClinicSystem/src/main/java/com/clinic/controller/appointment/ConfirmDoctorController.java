@@ -10,10 +10,12 @@ import com.clinic.service.DoctorServiceImpl;
 import com.clinic.service.RoomService;
 import com.clinic.service.RoomServiceImpl;
 import com.clinic.util.HttpUtil;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -60,10 +62,10 @@ public class ConfirmDoctorController extends HttpServlet {
     BookingAppointmentDto bookingAppointmentDto = appointmentBookingService.findById(id);
     bookingAppointmentDto.setStatus(AppointmentStatus.CONFIRMDOCTOR);
     boolean result = appointmentBookingService.confirmDoctor(bookingAppointmentDto);
-    if(result){
+    if (result) {
       response.sendRedirect(request.getContextPath() + "/appointment/returnResult?id=" +
                             bookingAppointmentDto.getId());
-    }else {
+    } else {
       response.sendRedirect(request.getContextPath() + "/appointment/confirmDoctor?id=" +
                             bookingAppointmentDto.getId() +
                             "&message=booking_notsuccess&alert=danger");

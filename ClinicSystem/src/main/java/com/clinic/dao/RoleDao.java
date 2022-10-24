@@ -9,12 +9,11 @@ import com.clinic.entity.Role;
 import java.util.List;
 
 /**
- *
  * @author nguye
  */
-public interface RoleDao extends GenericDao{
+public interface RoleDao extends GenericDao {
 
-    List<Role> findAll();
-    
-    List<Role> findRoleByAccountId(Long accountId);
+  List<Role> findAll();
+
+  List<Role> findRoleByAccountId(Long accountId);
 }

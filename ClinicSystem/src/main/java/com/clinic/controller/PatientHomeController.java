@@ -5,10 +5,6 @@
  */
 package com.clinic.controller;
 
-import com.clinic.dao.AccountDao;
-import com.clinic.dao.AccountDaoImpl;
-import com.clinic.dao.PatientDao;
-import com.clinic.dao.PatientDaoImpl;
 import com.clinic.entity.Patient;
 import com.clinic.service.PatientService;
 import com.clinic.service.PatientServiceImpl;

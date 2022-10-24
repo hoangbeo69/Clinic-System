@@ -6,7 +6,6 @@ package com.clinic.dao;
 
 import com.clinic.mapper.RowMapper;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +15,6 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.ResourceBundle;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

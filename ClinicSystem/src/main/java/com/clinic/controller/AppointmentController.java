@@ -49,7 +49,7 @@ public class AppointmentController extends HttpServlet {
     if (StringUtils.isNotEmpty(request.getParameter("id"))) {
       Long id = Long.parseLong(request.getParameter("id"));
       BookingAppointmentDto bookingAppointmentDto = appointmentBookingService.findById(id);
-      request.setAttribute("appointment",bookingAppointmentDto);
+      request.setAttribute("appointment", bookingAppointmentDto);
       switch (bookingAppointmentDto.getStatus()) {
         case PENDING:
           dispatcher = getServletContext().getRequestDispatcher("/appointment/confirmInfo");

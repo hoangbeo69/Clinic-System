@@ -17,7 +17,7 @@ public class FormUtil {
     T object = null;
     try {
       object = tClass.newInstance(); //khởi tạo đối tượng
-      DateConverter converter = new DateConverter( null );
+      DateConverter converter = new DateConverter(null);
       converter.setPattern("yyyy-mm-dd");
       ConvertUtils.register(converter, Date.class);
       BeanUtils.populate(object, request.getParameterMap());

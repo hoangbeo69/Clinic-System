@@ -16,7 +16,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -33,6 +32,20 @@ public class HomeFilter implements Filter {
   private FilterConfig filterConfig = null;
 
   public HomeFilter() {
+  }
+
+  public static String getStackTrace(Throwable t) {
+    String stackTrace = null;
+    try {
+      StringWriter sw = new StringWriter();
+      PrintWriter pw = new PrintWriter(sw);
+      t.printStackTrace(pw);
+      pw.close();
+      sw.close();
+      stackTrace = sw.getBuffer().toString();
+    } catch (Exception ex) {
+    }
+    return stackTrace;
   }
 
   private void doBeforeProcessing(ServletRequest request, ServletResponse response)
@@ -214,20 +227,6 @@ public class HomeFilter implements Filter {
       } catch (Exception ex) {
       }
     }
-  }
-
-  public static String getStackTrace(Throwable t) {
-    String stackTrace = null;
-    try {
-      StringWriter sw = new StringWriter();
-      PrintWriter pw = new PrintWriter(sw);
-      t.printStackTrace(pw);
-      pw.close();
-      sw.close();
-      stackTrace = sw.getBuffer().toString();
-    } catch (Exception ex) {
-    }
-    return stackTrace;
   }
 
   public void log(String msg) {

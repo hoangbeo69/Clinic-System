@@ -30,12 +30,23 @@ public enum TimeSlot {
   SEVENTEEN("17H - 17H30", 17),
   EIGHTEEN("17H30 - 18H", 18);
 
-  private final String timeValue;
+  private final String  timeValue;
   private final Integer slotOrder;
 
   private TimeSlot(String timeValue, Integer slotOrder) {
     this.timeValue = timeValue;
     this.slotOrder = slotOrder;
+  }
+
+  public static TimeSlot get(Integer slotOrder) {
+    if (slotOrder == null) {
+      return NOTFOUUND;
+    }
+    return Arrays.stream(TimeSlot.values())
+        .parallel()
+        .filter(e->e.getSlotOrder() == slotOrder)
+        .findFirst()
+        .orElse(NOTFOUUND);
   }
 
   public String getTimeValue() {
@@ -44,14 +55,6 @@ public enum TimeSlot {
 
   public Integer getSlotOrder() {
     return slotOrder;
-  }
-
-  public static TimeSlot get(Integer slotOrder) {
-    if (slotOrder == null) {
-      return NOTFOUUND;
-    }
-    return Arrays.stream(TimeSlot.values()).parallel().filter(e->e.getSlotOrder() == slotOrder)
-        .findFirst().orElse(NOTFOUUND);
   }
 
 }

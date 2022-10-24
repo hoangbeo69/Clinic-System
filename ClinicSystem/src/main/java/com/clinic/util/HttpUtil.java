@@ -8,7 +8,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,20 +21,6 @@ public class HttpUtil {
 
   public HttpUtil(String value) {
     this.value = value;
-  }
-
-  public <T> T toModel(Class<T> tClass) {
-    ObjectMapper objectMapper = new ObjectMapper().disable(
-            DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-        .disable(MapperFeature.DEFAULT_VIEW_INCLUSION);
-    try {
-      return objectMapper.readValue(value, tClass);
-    } catch (JsonProcessingException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-    return null;
   }
 
   public static HttpUtil of(BufferedReader reader) {
@@ -62,5 +47,19 @@ public class HttpUtil {
       request.setAttribute("message", PropertiesService.get(message));
       request.setAttribute("alert", alert);
     }
+  }
+
+  public <T> T toModel(Class<T> tClass) {
+    ObjectMapper objectMapper = new ObjectMapper().disable(
+            DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+        .disable(MapperFeature.DEFAULT_VIEW_INCLUSION);
+    try {
+      return objectMapper.readValue(value, tClass);
+    } catch (JsonProcessingException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+    return null;
   }
 }

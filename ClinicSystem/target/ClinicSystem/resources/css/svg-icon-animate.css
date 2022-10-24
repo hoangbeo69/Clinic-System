@@ -1,236 +1,236 @@
 .svg-box {
-    display:inline-block;
-    position: relative;
-    width:150px;
+  display: inline-block;
+  position: relative;
+  width: 150px;
 }
 
 .green-stroke {
-    stroke:#7CB342;
+  stroke: #7CB342;
 }
 
 .red-stroke {
-    stroke: #FF6245;
+  stroke: #FF6245;
 }
 
 .yellow-stroke {
-    stroke: #FFC107;
+  stroke: #FFC107;
 }
 
 
 .circular circle.path {
-    stroke-dasharray: 330;
-    stroke-dashoffset: 0;
-    stroke-linecap: round;
-    opacity: 0.4;
-    animation: 0.7s draw-circle ease-out;
+  stroke-dasharray: 330;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  opacity: 0.4;
+  animation: 0.7s draw-circle ease-out;
 }
 
 /*------- Checkmark ---------*/
-.checkmark{
-    stroke-width: 6.25;
-    stroke-linecap: round;
-    position:absolute;
-    top: 56px;
-    left: 49px;
-    width: 52px;
-    height: 40px;
+.checkmark {
+  stroke-width: 6.25;
+  stroke-linecap: round;
+  position: absolute;
+  top: 56px;
+  left: 49px;
+  width: 52px;
+  height: 40px;
 }
 
 .checkmark path {
-    animation: 1s draw-check ease-out;
+  animation: 1s draw-check ease-out;
 }
 
 @keyframes draw-circle {
-    0% {
-        stroke-dasharray: 0,330;
-        stroke-dashoffset: 0;
-        opacity: 1;
-    }
+  0% {
+    stroke-dasharray: 0, 330;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
 
-    80% {
-        stroke-dasharray: 330,330;
-        stroke-dashoffset: 0;
-        opacity: 1;
-    }
+  80% {
+    stroke-dasharray: 330, 330;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
 
-    100%{
-        opacity: 0.4;
-    }
+  100% {
+    opacity: 0.4;
+  }
 }
 
 @keyframes draw-check {
-    0% {
-        stroke-dasharray: 49,80;
-        stroke-dashoffset: 48;
-        opacity: 0;
-    }
+  0% {
+    stroke-dasharray: 49, 80;
+    stroke-dashoffset: 48;
+    opacity: 0;
+  }
 
-    50% {
-        stroke-dasharray: 49,80;
-        stroke-dashoffset: 48;
-        opacity: 1;
-    }
+  50% {
+    stroke-dasharray: 49, 80;
+    stroke-dashoffset: 48;
+    opacity: 1;
+  }
 
-    100% {
-        stroke-dasharray: 130,80;
-        stroke-dashoffset: 48;
-    }
+  100% {
+    stroke-dasharray: 130, 80;
+    stroke-dashoffset: 48;
+  }
 }
 
 /*---------- Cross ----------*/
 
 .cross {
-    stroke-width:6.25;
-    stroke-linecap: round;
-    position: absolute;
-    top: 54px;
-    left: 54px;
-    width: 40px;
-    height: 40px;
+  stroke-width: 6.25;
+  stroke-linecap: round;
+  position: absolute;
+  top: 54px;
+  left: 54px;
+  width: 40px;
+  height: 40px;
 }
 
 .cross .first-line {
-    animation: 0.7s draw-first-line ease-out;
+  animation: 0.7s draw-first-line ease-out;
 }
 
 .cross .second-line {
-    animation: 0.7s draw-second-line ease-out;
+  animation: 0.7s draw-second-line ease-out;
 }
 
 @keyframes draw-first-line {
-    0% {
-        stroke-dasharray: 0,56;
-        stroke-dashoffset: 0;
-    }
+  0% {
+    stroke-dasharray: 0, 56;
+    stroke-dashoffset: 0;
+  }
 
-    50% {
-        stroke-dasharray: 0,56;
-        stroke-dashoffset: 0;
-    }
+  50% {
+    stroke-dasharray: 0, 56;
+    stroke-dashoffset: 0;
+  }
 
-    100% {
-        stroke-dasharray: 56,330;
-        stroke-dashoffset: 0;
-    }
+  100% {
+    stroke-dasharray: 56, 330;
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes draw-second-line {
-    0% {
-        stroke-dasharray: 0,55;
-        stroke-dashoffset: 1;
-    }
+  0% {
+    stroke-dasharray: 0, 55;
+    stroke-dashoffset: 1;
+  }
 
-    50% {
-        stroke-dasharray: 0,55;
-        stroke-dashoffset: 1;
-    }
+  50% {
+    stroke-dasharray: 0, 55;
+    stroke-dashoffset: 1;
+  }
 
-    100% {
-        stroke-dasharray: 55,0;
-        stroke-dashoffset: 70;
-    }
+  100% {
+    stroke-dasharray: 55, 0;
+    stroke-dashoffset: 70;
+  }
 }
 
 .alert-sign {
-    stroke-width:6.25;
-    stroke-linecap: round;
-    position: absolute;
-    top: 40px;
-    left: 68px;
-    width: 15px;
-    height: 70px;
-    animation: 0.5s alert-sign-bounce cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  stroke-width: 6.25;
+  stroke-linecap: round;
+  position: absolute;
+  top: 40px;
+  left: 68px;
+  width: 15px;
+  height: 70px;
+  animation: 0.5s alert-sign-bounce cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .alert-sign .dot {
-    stroke:none;
-    fill: #FFC107;
+  stroke: none;
+  fill: #FFC107;
 }
 
 @keyframes alert-sign-bounce {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
 
-    50% {
-        transform: scale(0);
-        opacity: 1;
-    }
+  50% {
+    transform: scale(0);
+    opacity: 1;
+  }
 
-    100% {
-        transform: scale(1);
-    }
+  100% {
+    transform: scale(1);
+  }
 }
 
 
 .switch-button {
-    background: #4e73df;
-    border-radius: 22px;
-    overflow: hidden;
-    width: 160px;
-    text-align: center;
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: #fff;
-    position: relative;
-    padding-right: 80px;
-    position: relative;
+  background: #4e73df;
+  border-radius: 22px;
+  overflow: hidden;
+  width: 160px;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+  position: relative;
+  padding-right: 80px;
+  position: relative;
 }
 
 .switch-button:before {
-    content: "Update";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    pointer-events: none;
+  content: "Update";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .switch-button-checkbox {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 2;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
 }
 
-.switch-button-checkbox:checked+.switch-button-label:before {
-    transform: translateX(80px);
-    transition: transform 300ms linear;
+.switch-button-checkbox:checked + .switch-button-label:before {
+  transform: translateX(80px);
+  transition: transform 300ms linear;
 }
 
-.switch-button-checkbox+.switch-button-label {
-    position: relative;
-    padding: 10px 0;
-    display: block;
-    user-select: none;
-    pointer-events: none;
-    margin-bottom:0px
+.switch-button-checkbox + .switch-button-label {
+  position: relative;
+  padding: 10px 0;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  margin-bottom: 0px
 }
 
-.switch-button-checkbox+.switch-button-label:before {
-    content: "";
-    background: rgb(54, 185, 204) !important;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-radius: 22px;
-    transform: translateX(0);
-    transition: transform 300ms;
+.switch-button-checkbox + .switch-button-label:before {
+  content: "";
+  background: rgb(54, 185, 204) !important;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 22px;
+  transform: translateX(0);
+  transition: transform 300ms;
 }
 
-.switch-button-checkbox+.switch-button-label .switch-button-label-span {
-    position: relative;
+.switch-button-checkbox + .switch-button-label .switch-button-label-span {
+  position: relative;
 }

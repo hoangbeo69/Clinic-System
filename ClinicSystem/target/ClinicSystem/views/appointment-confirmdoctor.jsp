@@ -97,21 +97,24 @@
                                 <label for="guardianFullname">Guardian Fullname</label>
                                 <input type="text" required="" class="form-control"
                                        name="guardianFullname" id="guardianFullname"
-                                       placeholder="" value="${appointment.guardianFullname}" disabled>
+                                       placeholder="" value="${appointment.guardianFullname}"
+                                       disabled>
                             </div>
 
                             <div class="form-group">
                                 <label for="guardianPhoneNumber">Guardian Phone Number</label>
                                 <input type="text" required="" class="form-control"
                                        name="guardianPhoneNumber" id="guardianPhoneNumber"
-                                       placeholder="" value="${appointment.guardianPhoneNumber}" disabled>
+                                       placeholder="" value="${appointment.guardianPhoneNumber}"
+                                       disabled>
                             </div>
 
                             <!-- form-group end.// -->
                             <div class="form-group">
                                 <label for="description">Description</label>
                                 <textarea class="form-control" cols="61" name="description"
-                                          id="description" disabled>${appointment.description}</textarea>
+                                          id="description"
+                                          disabled>${appointment.description}</textarea>
                             </div>
 
                             <div class="form-group">
@@ -119,7 +122,8 @@
                                 <input type="date" name="dateSlot" class="form-control" id=
                                         "dateSlot"
                                        placeholder="DD/MM/YYYY" value="<fmt:formatDate
-                                       pattern='YYYY-MM-DD' value='${appointment.dateSlot}' />" disabled>
+                                       pattern='YYYY-MM-DD' value='${appointment.dateSlot}' />"
+                                       disabled>
                             </div>
 
                             <!-- form-group// -->

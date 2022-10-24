@@ -21,16 +21,16 @@ import lombok.ToString;
 @ToString
 public class Account {
 
-  private Long id;
-  private String username;
-  private String password;
-  private String fullName;
-  private String phoneNumber;
-  private String email;
-  private String sex;
-  private Date dob;
+  private Long          id;
+  private String        username;
+  private String        password;
+  private String        fullName;
+  private String        phoneNumber;
+  private String        email;
+  private String        sex;
+  private Date          dob;
   private AccountStatus status;
-  private Integer statusCode;
+  private Integer       statusCode;
 
 
   public Account(Long id, String username, String password, String fullName, String phoneNumber,
@@ -45,6 +45,9 @@ public class Account {
     this.sex = sex;
   }
 
+  public Account() {
+  }
+
   public void setAccountInfo(Account account) {
     this.id = account.getId();
     this.username = account.getUsername();
@@ -55,9 +58,6 @@ public class Account {
     this.status = account.getStatus();
     this.statusCode = this.status.getStatusCode();
     this.sex = account.getSex();
-  }
-
-  public Account() {
   }
 
   public void setStatus(AccountStatus status) {

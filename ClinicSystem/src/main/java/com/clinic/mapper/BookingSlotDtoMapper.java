@@ -1,7 +1,6 @@
 package com.clinic.mapper;
 
 import com.clinic.dto.BookingSlotDto;
-import com.clinic.entity.BookingSlot;
 import com.clinic.model.TimeSlot;
 import java.sql.Date;
 import java.sql.ResultSet;
