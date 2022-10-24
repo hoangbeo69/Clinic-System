@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <header>
     <title>Appointment Infomation</title>
     <jsp:include page="common/header.jsp"/>
@@ -222,7 +221,8 @@
                                    href="<%=request.getContextPath()%>/appointment/confirmDoctor?id=${appointment.id}">Back
                                 </a>
                                 <button type="submit" class="btn btn-info">Save</button>
-                                <button type="submit" class="btn btn-primary">Complete</button>
+                                <button type="submit" class="btn btn-primary">Confirm
+                                    Review</button>
                                 <button type="reset"
                                         class="btn btn-danger">Cancel
                                 </button>

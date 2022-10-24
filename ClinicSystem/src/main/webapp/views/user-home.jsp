@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <header>
@@ -35,31 +36,11 @@
             <div class="col-xl-12">
                 <div class="card table-card">
                     <div class="card-header">
-                        <h5>Projects</h5>
-                        <div class="card-header-right">
-                            <div class="btn-group card-option">
-                                <button type="button" class="btn dropdown-toggle"
-                                        data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                    <i class="feather icon-more-horizontal"></i>
-                                </button>
-                                <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                    <li class="dropdown-item full-card"><a href="#!"><span><i
-                                            class="feather icon-maximize"></i> maximize</span><span
-                                            style="display:none"><i
-                                            class="feather icon-minimize"></i> Restore</span></a>
-                                    </li>
-                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i
-                                            class="feather icon-minus"></i> collapse</span><span
-                                            style="display:none"><i class="feather icon-plus"></i> expand</span></a>
-                                    </li>
-                                    <li class="dropdown-item reload-card"><a href="#!"><i
-                                            class="feather icon-refresh-cw"></i> reload</a></li>
-                                    <li class="dropdown-item close-card"><a href="#!"><i
-                                            class="feather icon-trash"></i> remove</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <a class="btn  btn-primary" title="Add New"
+                           data-toggle="tooltip"
+                           href="<%=request.getContextPath()%>/user/detail">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </a>
                     </div>
                     <div class="card-body py-3 px-4">
                         <div class="table-responsive">
@@ -83,10 +64,10 @@
                                         <td>${user.fullName}</td>
                                         <td>${user.phoneNumber}</td>
                                         <td>${user.email}</td>
-                                        <td>${user.dob}</td>
+                                        <td><fmt:formatDate
+                                                pattern='YYYY-MM-DD' value='${user.dob}'/></td>
                                         <td>
-                                            <c:url var="singleURL" value="/user">
-                                                <c:param name="type" value="single"/>
+                                            <c:url var="singleURL" value="user/detail">
                                                 <c:param name="id" value="${user.id}"/>
                                             </c:url>
                                             <a class="btn btn-info" title="Edit"

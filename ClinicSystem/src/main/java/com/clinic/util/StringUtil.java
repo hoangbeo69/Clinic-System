@@ -50,4 +50,23 @@ public class StringUtil {
       return sj.toString();
     }
   }
+
+  public static String arrayStrToDelimitedString(List<String> arr, String delim) {
+    if (ObjectUtils.isEmpty(arr)) {
+      return "";
+    } else if (arr.size() == 1) {
+      return ObjectUtils.toString(arr.get(0));
+    } else {
+      StringJoiner sj = new StringJoiner(delim);
+      List<String> var3 = arr;
+      int var4 = arr.size();
+
+      for (int var5 = 0; var5 < var4; ++var5) {
+        Object elem = var3.get(var5);
+        sj.add(String.valueOf(elem));
+      }
+
+      return sj.toString();
+    }
+  }
 }

@@ -7,6 +7,7 @@ package com.clinic.service;
 import com.clinic.dao.AccountDao;
 import com.clinic.dao.AccountDaoImpl;
 import com.clinic.entity.Account;
+import com.clinic.model.UserDetail;
 import java.util.List;
 
 /**
@@ -59,5 +60,10 @@ public class AccountServiceImpl implements AccountService {
       return false;
     }
     return accountDao.delete(id);
+  }
+
+  @Override
+  public UserDetail findByUserDetailNameAndPassword(String username, String password) {
+    return accountDao.findByUserDetailNameAndPassword(username,password);
   }
 }

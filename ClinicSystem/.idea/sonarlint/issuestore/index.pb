@@ -1,14 +1,8 @@
 
-h
-8src/main/java/com/clinic/service/AccountServiceImpl.java,a\c\ac61037fedb641e414a3ac2fb12b6381d8bf40dd
 a
 1src/main/webapp/resources/vendor/jquery/jquery.js,6\4\6458a84569a31b4ed6b1586730c08f06a6a97f13
 Y
 )src/main/java/com/clinic/dao/RoleDao.java,4\b\4b510a24ae5353b299b245db35d2168fb413e60c
-R
-"src/main/webapp/views/UserHome.jsp,3\f\3f0e9bb7f0a6160a15c56920d717a4ad0b5f0a2b
-S
-#src/main/webapp/views/user-home.jsp,f\0\f0be0012b884dc9958a2a6bdcb182ad68aa81f2a
 k
 ;src/main/java/com/clinic/service/UserDetailServiceImpl.java,c\c\cc83d96ffc8cba3e07f30b9881254e33cc29fd9e
 ]

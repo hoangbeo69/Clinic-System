@@ -4,9 +4,11 @@
     Author     : Long
 --%>
 
-<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
+<html lang="en">
 <html>
 <header>
     <title>Patient Infomation</title>
@@ -94,7 +96,8 @@
                                         <td>${patient.fullName}</td>
                                         <td>${patient.phoneNumber}</td>
                                         <td>${patient.email}</td>
-                                        <td>${patient.dob}</td>
+                                        <td><fmt:formatDate
+                                                pattern='YYYY-MM-DD' value='${patient.dob}' /></td>
                                         <td>${patient.insuranceCode}</td>
                                         <td>${patient.identityCard}</td>
                                         <td>${patient.address}</td>
@@ -102,7 +105,7 @@
                                         <td>${patient.guardianPhoneNumber}</td>
                                         <td>
                                             <c:url var="singleURL" value="patient/detail">
-                                                <c:param name="id" value="${user.id}"/>
+                                                <c:param name="id" value="${patient.id}"/>
                                             </c:url>
                                             <a class="btn btn-info" title="Detail"
                                                data-toggle="tooltip"

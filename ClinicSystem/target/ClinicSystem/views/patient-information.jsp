@@ -4,11 +4,11 @@
     Author     : Long
 --%>
 
-<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <header>
     <title>Patient Infomation</title>
     <jsp:include page="common/header.jsp"/>
@@ -72,37 +72,35 @@
                     </div>
                     <div class="card-body py-3 px-4">
                         <form action="<%=request.getContextPath()%>/patient/detail" method="post">
-                            <c:if test="${not empty message}">
-                                <div class="alert alert-${alert}" role="alert">
-                                        ${message}
-                                </div>
-                            </c:if>
+                            <input type="hidden" id="id" name="id" value="${patient.id}">
+                            <!-- <h6>Mã bệnh nhân</h6>
+                            <div class="form-group input-group">
+                                    <input name="" class="form-control" placeholder=""
+                                            type="text">
+                            </div> -->
+
                             <div class="form-group">
-                                <label for="username">Username</label>
+                                <label for="fullName">FullName</label>
                                 <input type="text" required="" class="form-control"
-                                       name="username"
-                                       id="username" placeholder=""
-                                       value="${patient.username}">
+                                       name="fullName"
+                                       id="fullName" placeholder=""
+                                       value="${patient.fullName}">
                             </div>
-                            <div class="form-group">
-                                <label for="fullName">Full Name</label>
-                                <input type="text" class="form-control" name="fullName"
-                                       id="fullName"
-                                       placeholder="" value="${patient.fullName}">
-                            </div>
-                            <div class="form-group">
-                                <label for="phoneNumber">Phone Number</label>
-                                <input type="text" required="" class="form-control"
-                                       name="phoneNumber"
-                                       id="phoneNumber" placeholder=""
-                                       value="${patient.phoneNumber}">
-                            </div>
+
                             <div class="form-group">
                                 <label for="dob">Date Of Birth</label>
-                                <input type="date" name="dob" class="form-control" id=
+                                <input type="date" required name="dob" class="form-control" id=
                                         "dob"
                                        placeholder="DD/MM/YYYY" value="<fmt:formatDate
                                        pattern='YYYY-MM-DD' value='${patient.dob}' />">
+                            </div>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-phone"></i>
+                                </span>
+                                </div>
+                                <input type="text" required name="phoneNumber" class="form-control"
+                                       value="${patient.phoneNumber}">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -110,21 +108,37 @@
                                        name="email" id="email"
                                        placeholder="" value="${patient.email}">
                             </div>
-                            <div class="form-group">
-                                <label for="specialization">Specialization</label>
-                                <input type="text" required="" class="form-control"
-                                       name="specialization" id="specialization"
-                                       placeholder="" value="${patient.specialization}">
-                            </div>
-                            <input type="hidden" id="id" name="id" value="${patient.id}">
-                            <div class="form-group">
-                                <input type="reset" class="btn  btn-secondary"
-                                       data-dismiss="modal" value="Reset"/>
 
+                            <div class="form-group">
+                                <label for="sex">Sex</label>
+                                <select class="form-control" name="sex" id="sex">
+                                    <option value="other" selected="selected">Other</option>
+                                    <option value="male"  selected="">Nam</option>
+                                    <option value="female">Nữ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="guardianFullname">Guardian Fullname</label>
+                                <input type="text" class="form-control"
+                                       name="guardianFullname" id="guardianFullname"
+                                       placeholder="" value="${patient.guardianFullname}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="guardianPhoneNumber">Guardian Phone Number</label>
+                                <input type="text" class="form-control"
+                                       name="guardianPhoneNumber" id="guardianPhoneNumber"
+                                       placeholder="" value="${patient.guardianPhoneNumber}">
+                            </div>
+
+                            <div class="form-group">
                                 <c:if test="${not empty patient.id}">
-                                    <button type="submit" class="btn btn-primary"
-                                            id="btnUpdateOrAddUser">Edit
-                                    </button>
+                                    <input type="button" class="btn btn-primary" id="btnUpdateOrAddNews"
+                                           value="Edit"/>
+                                </c:if>
+                                <c:if test="${empty patient.id}">
+                                    <input type="button" class="btn btn-primary" id="btnUpdateOrAddNews"
+                                           value="Create new"/>
                                 </c:if>
                             </div>
 

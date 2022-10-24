@@ -23,8 +23,8 @@
                          src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-2.jpg"
                          alt="User-Profile-Image">
                     <div class="user-details">
-                        <span>TungNDHE141593</span>
-                        <div id="more-details">Role: User</div>
+                        <span>${sessionScope.USERMODEL.username}</span>
+                        <div id="more-details">Role: ${sessionScope.USERMODEL.strRole}</div>
                     </div>
                 </div>
             </div>
@@ -197,16 +197,16 @@
                         <div class="pro-head">
                             <img src="<%=request.getContextPath()%>/resources/assets/images/user/avatar-1.jpg"
                                  class="img-radius" alt="User-Profile-Image">
-                            <span>John Doe</span>
+                            <span>${sessionScope.USERMODEL.username}</span>
                             <a href="auth-signin.html" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
                             </a>
                         </div>
                         <ul class="pro-body">
-                            <li><a href="<%=request.getContextPath()%>/doctorhome"
+                            <li><a href="<%=request.getContextPath()%>/user/details?id=${sessionScope.USERMODEL.id}"
                                    class="dropdown-item"><i class="feather icon-user"></i>
                                 Profile</a></li>
-                            <li><a href="<%=request.getContextPath()%>/changePasswordController"
+                            <li><a href="<%=request.getContextPath()%>/user/changePassword"
                                    class="dropdown-item"><i class="fa-solid fa-gear"></i> Change
                                 password</a></li>
                             <li><a href="email_inbox.html" class="dropdown-item"><i

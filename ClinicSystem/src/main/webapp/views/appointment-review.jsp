@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <header>
     <title>Appointment Infomation</title>
@@ -330,8 +331,7 @@
                             <!-- form-group// -->
                             <div class="form-group">
                                 <a class="btn btn-warning"
-                                   href="<%=request.getContextPath()%>/appointment/returnResult?id
-                                   =${appointment.id}">Back
+                                   href="<%=request.getContextPath()%>/appointment/returnResult?id=${appointment.id}">Back
                                 </a>
                                 <button type="submit" class="btn btn-primary">Complete</button>
                                 <button type="reset"

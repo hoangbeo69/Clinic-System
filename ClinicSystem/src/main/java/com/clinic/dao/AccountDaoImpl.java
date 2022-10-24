@@ -100,8 +100,8 @@ public class AccountDaoImpl extends AbstractDAO implements AccountDao {
     }
     List<Role> roles = roleDao.findRoleByAccountId(account.getId());
     UserDetail userDetail = new UserDetail();
-    userDetail.addRoles(roles);
     userDetail.setUserDetailInfo(account);
+    userDetail.addRoles(roles);
 
     return userDetail;
   }
