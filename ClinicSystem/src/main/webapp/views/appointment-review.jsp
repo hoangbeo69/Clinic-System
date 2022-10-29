@@ -62,59 +62,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="dob">Date Of Birth</label>
-                                <input type="date" required name="dob" class="form-control" id=
-                                        "dob"
-                                       placeholder="DD/MM/YYYY" value="<fmt:formatDate
-                                       pattern='YYYY-MM-DD' value='${appointment.dob}' />" disabled>
-                            </div>
-                            <div class="form-group input-group">
-                                <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-phone"></i>
-                                </span>
-                                </div>
-                                <input type="text" required name="phoneNumber" class="form-control"
-                                       value="${appointment.phoneNumber}" disabled>
-                            </div>
-                            <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" required="" class="form-control"
                                        name="email" id="email"
                                        placeholder="" value="${appointment.email}" disabled>
                             </div>
-
-                            <div class="form-group">
-                                <label for="sex">Sex</label>
-                                <select class="form-control" name="sex" id="sex" disabled>
-                                    <option selected="selected">Other</option>
-                                    <option value="male" selected="">Nam</option>
-                                    <option value="female">Nữ</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="guardianFullname">Guardian Fullname</label>
-                                <input type="text" required="" class="form-control"
-                                       name="guardianFullname" id="guardianFullname"
-                                       placeholder="" value="${appointment.guardianFullname}"
-                                       disabled>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="guardianPhoneNumber">Guardian Phone Number</label>
-                                <input type="text" required="" class="form-control"
-                                       name="guardianPhoneNumber" id="guardianPhoneNumber"
-                                       placeholder="" value="${appointment.guardianPhoneNumber}"
-                                       disabled>
-                            </div>
-
                             <!-- form-group end.// -->
-                            <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea class="form-control" cols="61" name="description"
-                                          id="description"
-                                          disabled>${appointment.description}</textarea>
-                            </div>
 
                             <div class="form-group">
                                 <label for="dateSlot">Date Slot</label>
@@ -161,7 +114,7 @@
                                     </c:forEach>
                                 </select>
                             </div>
-
+                            <hr>
                             <div>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -226,10 +179,10 @@
                                         <div class="form-group form-inline">
                                             <label class="col-form-label">Nhiệt độ
                                                 (°C): </label> <input disabled
-                                                class="form-control temperature-patient ml-2"
-                                                id="temperature-patient" name="bodyTemperature"
-                                                style="width: 100px;"
-                                                value="${medicalReport.bodyTemperature}">
+                                                                      class="form-control temperature-patient ml-2"
+                                                                      id="temperature-patient" name="bodyTemperature"
+                                                                      style="width: 100px;"
+                                                                      value="${medicalReport.bodyTemperature}">
                                         </div>
 
                                     </div>
@@ -238,9 +191,9 @@
                                         <div class="form-group form-inline">
                                             <label class="col-form-label">Chiều cao
                                                 (cm):</label> <input disabled
-                                                class="form-control height-patient ml-2"
-                                                id="height-patient" name="height" style="width: 100px;"
-                                                value="${medicalReport.height}">
+                                                                     class="form-control height-patient ml-2"
+                                                                     id="height-patient" name="height" style="width: 100px;"
+                                                                     value="${medicalReport.height}">
                                         </div>
 
                                     </div>
@@ -248,10 +201,10 @@
                                         <div class="form-group form-inline">
                                             <label class="col-form-label">Huyết áp
                                                 (mmHg):</label> <input disabled
-                                                class="form-control blood-pressure-patient ml-2"
-                                                id="blood-pressure-patient" name="bloodPressure"
-                                                style="width: 100px;"
-                                                value="${medicalReport.bloodPressure}">
+                                                                       class="form-control blood-pressure-patient ml-2"
+                                                                       id="blood-pressure-patient" name="bloodPressure"
+                                                                       style="width: 100px;"
+                                                                       value="${medicalReport.bloodPressure}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -349,15 +302,15 @@
 </div>
 <jsp:include page="common/footer.jsp"/>
 <script>
-  $(document).ready(function () {
-    $('#appointment-table').DataTable({
-      lengthMenu: [
-        [5, 10, 25, -1],
-        [5, 10, 25, "All"]
-      ],
-    });
+    $(document).ready(function () {
+        $('#appointment-table').DataTable({
+            lengthMenu: [
+                [5, 10, 25, -1],
+                [5, 10, 25, "All"]
+            ],
+        });
 
-  });
+    });
 </script>
 </body>
 
