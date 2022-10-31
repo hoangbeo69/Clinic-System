@@ -59,7 +59,7 @@
                             class="pcoded-mtext">Room</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/home" class="nav-link "><span
+                    <a href="<%=request.getContextPath()%>/schedule" class="nav-link "><span
                             class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
                             class="pcoded-mtext">Schedule</span></a>
                 </li>
@@ -203,7 +203,7 @@
                             </a>
                         </div>
                         <ul class="pro-body">
-                            <li><a href="<%=request.getContextPath()%>/user/details?id=${sessionScope.USERMODEL.id}"
+                            <li><a href="<%=request.getContextPath()%>/user/detail?id=${sessionScope.USERMODEL.id}"
                                    class="dropdown-item"><i class="feather icon-user"></i>
                                 Profile</a></li>
                             <li><a href="<%=request.getContextPath()%>/user/changePassword"

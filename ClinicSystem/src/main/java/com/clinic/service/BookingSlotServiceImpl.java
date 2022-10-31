@@ -32,4 +32,10 @@ public class BookingSlotServiceImpl implements BookingSlotService {
     Long bookingSlotId = bookingSlotDao.save(bookingSlot);
     return bookingSlotDao.findById(bookingSlotId);
   }
+
+  @Override
+  public long save(BookingSlot bookingSlot) {
+    return bookingSlotDao.save(bookingSlot);
+  }
+
 }

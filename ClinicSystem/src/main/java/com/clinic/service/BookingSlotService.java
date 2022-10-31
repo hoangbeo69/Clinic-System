@@ -11,4 +11,7 @@ public interface BookingSlotService {
   BookingSlotDto findDtoById(Long id);
 
   BookingSlot confirmBooking(BookingAppointmentDto bookingAppointmentDto);
+
+  long save(BookingSlot bookingSlot);
+
 }
