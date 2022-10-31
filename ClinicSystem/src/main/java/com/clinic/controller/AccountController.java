@@ -4,9 +4,12 @@
  */
 package com.clinic.controller;
 
+import com.clinic.entity.Account;
 import com.clinic.service.AccountService;
 import com.clinic.service.AccountServiceImpl;
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +49,11 @@ public class AccountController extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    request.setAttribute("users", accountService.getAllAccount());
+    List<Account> activeAccounts = accountService.getAllAccount()
+            .stream()
+            .filter(a -> a.getStatus().getStatusCode()==1)
+            .collect(Collectors.toList());
+    request.setAttribute("users", activeAccounts);
     request.getRequestDispatcher("/views/user-home.jsp").forward(request, response);
   }
 

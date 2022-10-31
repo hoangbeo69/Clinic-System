@@ -26,8 +26,7 @@
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i
                                     class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Appointment Record</a></li>
+                            <li class="breadcrumb-item"><a href="<%=request.getContextPath()%>/home">Home</a></li>
                         </ul>
                     </div>
                 </div>
@@ -65,6 +64,7 @@
                                     <th>Description</th>
                                     <th>Status</th>
                                     <th>Action</th>
+                                    <th>Export to PDF</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -88,6 +88,14 @@
                                                data-toggle="tooltip"
                                                href="<c:url value="${singleURL}"/>">
                                                 <i class="feather icon-info" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-info" title="Export to PDF"
+                                               data-toggle="tooltip"
+                                               href="<%=request.getContextPath()%>/appointment/pdf?id=${appointment.id}">
+                                                <i class="fa fa-pencil-square-o"
+                                                   aria-hidden="true"></i>
                                             </a>
                                         </td>
                                     </tr>

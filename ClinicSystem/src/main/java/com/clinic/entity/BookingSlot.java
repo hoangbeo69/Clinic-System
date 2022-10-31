@@ -8,6 +8,8 @@ import com.clinic.dto.BookingAppointmentDto;
 import com.clinic.model.BookingStatus;
 import com.clinic.model.TimeSlot;
 import java.util.Date;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +20,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
+@AllArgsConstructor
 public class BookingSlot {
 
   private Long          id;

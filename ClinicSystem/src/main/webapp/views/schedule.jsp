@@ -73,7 +73,7 @@
                     <div class="form-group w-25">
                         <input type="submit" value="Add new booking slot" class="btn btn-primary" id="btnUpdateOrAddNews"/>
                     </div>
-                    <input type="hidden" id="id" name="id" value="${user.id}">--%>
+                    <input type="hidden" id="id" name="id" value="${user.id}">
                 </form>
             </div>
         </div>

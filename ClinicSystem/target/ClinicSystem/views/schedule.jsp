@@ -19,7 +19,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Select new schedule</h5>
+                            <h5 class="m-b-10">Add new booking slot</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i
@@ -71,51 +71,9 @@
                         </select>
                     </div>
                     <div class="form-group w-25">
-                        <input type="submit" value="Add new schedule" class="btn btn-primary" id="btnUpdateOrAddNews"/>
+                        <input type="submit" value="Add new booking slot" class="btn btn-primary" id="btnUpdateOrAddNews"/>
                     </div>
-
-                    <%--                                   value="Create new"/>--%>
-
-                    <%--                    <div class="form-group">--%>
-                    <%--                        <label for="password">Password</label>--%>
-                    <%--                        <input type="password" required="" class="form-control" name="password"--%>
-                    <%--                               id="password" placeholder="" value="123456">--%>
-                    <%--                    </div>--%>
-                    <%--                    <div class="form-group">--%>
-                    <%--                        <label for="repassword">Re-Password</label>--%>
-                    <%--                        <input type="password" required="" class="form-control" name="repassword"--%>
-                    <%--                               id="repassword" placeholder="" value="123456">--%>
-                    <%--                    </div>--%>
-                    <%--                    <div class="form-group">--%>
-                    <%--                        <label for="phoneNumber">Phone Number</label>--%>
-                    <%--                        <input type="text" required="" class="form-control" name="phoneNumber"--%>
-                    <%--                               id="phoneNumber" placeholder="" value="${user.phoneNumber}">--%>
-                    <%--                    </div>--%>
-                    <%--                    <div class="form-group">--%>
-                    <%--                        <label for="email">Email</label>--%>
-                    <%--                        <input type="text" required="" class="form-control" name="email" id="email"--%>
-                    <%--                               placeholder="" value="${user.email}">--%>
-                    <%--                    </div>--%>
-                    <%--                    <div class="form-group">--%>
-                    <%--                        <label for="dob">Date Of Birth</label>--%>
-                    <%--                        <input type="date" name="dob" class="form-control" id=--%>
-                    <%--                                "dob"--%>
-                    <%--                               placeholder="DD/MM/YYYY" value="<fmt:formatDate--%>
-                    <%--                                       pattern='YYYY-MM-DD' value='${user.dob}' />">--%>
-                    <%--                    </div>--%>
-
-
-                    <%--                    <div class="form-group">--%>
-                    <%--                        <c:if test="${not empty user.id}">--%>
-                    <%--                            <input type="submit" class="btn btn-primary" id="btnUpdateOrAddNews"--%>
-                    <%--                                   value="Edit"/>--%>
-                    <%--                        </c:if>--%>
-                    <%--                        <c:if test="${empty user.id}">--%>
-                    <%--                            <input type="submit" class="btn btn-primary" id="btnUpdateOrAddNews"--%>
-                    <%--                                   value="Create new"/>--%>
-                    <%--                        </c:if>--%>
-                    <%--                    </div>--%>
-                    <%--                    <input type="hidden" id="id" name="id" value="${user.id}">--%>
+                    <input type="hidden" id="id" name="id" value="${user.id}">
                 </form>
             </div>
         </div>
