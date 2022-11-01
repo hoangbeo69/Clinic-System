@@ -78,7 +78,7 @@ public class ReviewController extends HttpServlet {
         Patient patient = patientService.findById(bookingAppointmentDto.getPatientId());
 
         if (result) {
-            String content = "Patience name: " + patient.getGuardianFullname() + "\n" +
+            String content = "Patience name: " + patient.getGuardianFullname() + "\n"+
                     "Date: " + sdf.format(bookingAppointmentDto.getUpdatedDate()) + "\n"+
                     "Body temperature: " + medicalReport.getBodyTemperature() + "\n"+
                     "Blood pressure: " + medicalReport.getBloodPressure() + "\n"+
