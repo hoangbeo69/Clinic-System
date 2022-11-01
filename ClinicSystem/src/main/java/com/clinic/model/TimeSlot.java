@@ -28,7 +28,8 @@ public enum TimeSlot {
   FIFTEEN("16H - 16H30", 15),
   SIXTEEN("16H30 - 17H", 16),
   SEVENTEEN("17H - 17H30", 17),
-  EIGHTEEN("17H30 - 18H", 18);
+  EIGHTEEN("17H30 - 18H", 18),
+  ALLDAY("8H00 - 18H", 19);
 
   private final String  timeValue;
   private final Integer slotOrder;

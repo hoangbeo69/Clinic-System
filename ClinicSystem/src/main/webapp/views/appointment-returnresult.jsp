@@ -238,15 +238,15 @@
 </div>
 <jsp:include page="common/footer.jsp"/>
 <script>
-  $(document).ready(function () {
-    $('#appointment-table').DataTable({
-      lengthMenu: [
-        [5, 10, 25, -1],
-        [5, 10, 25, "All"]
-      ],
-    });
+    $(document).ready(function () {
+        $('#appointment-table').DataTable({
+            lengthMenu: [
+                [5, 10, 25, -1],
+                [5, 10, 25, "All"]
+            ],
+        });
 
-  });
+    });
 </script>
 </body>
 
