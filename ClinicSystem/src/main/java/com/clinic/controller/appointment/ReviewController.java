@@ -9,11 +9,8 @@ import com.clinic.model.TimeSlot;
 import com.clinic.service.*;
 
 import java.io.*;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.mail.MessagingException;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,11 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.clinic.util.EmailUtil;
-import com.google.gson.Gson;
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfWriter;
 import org.apache.commons.lang3.StringUtils;
-import sun.java2d.pipe.SpanShapeRenderer;
 
 @WebServlet(name = "appointment/review", value = "/appointment/review")
 public class ReviewController extends HttpServlet {
@@ -42,6 +35,7 @@ public class ReviewController extends HttpServlet {
         roomService = new RoomServiceImpl();
         doctorService = new DoctorServiceImpl();
         medicalHistoryService = new MedicalHistoryServiceImpl();
+        patientService = new PatientServiceImpl();
     }
 
     @Override
@@ -84,7 +78,17 @@ public class ReviewController extends HttpServlet {
         Patient patient = patientService.findById(bookingAppointmentDto.getPatientId());
 
         if (result) {
-            String content = "Patience name: " + patient.getGuardianFullname() + "\n" + "Date: " + sdf.format(bookingAppointmentDto.getUpdatedDate()) + "\n" + "Body temperature: " + medicalReport.getBodyTemperature() + "\n" + "Blood pressure: " + medicalReport.getBloodPressure() + "\n" + "Height: " + medicalReport.getHeight() + " cm" + "\n" + "Weight: " + medicalReport.getWeight() + " kg" + "\n" + "Symptom: " + medicalReport.getSymptom() + "\n" + "Early diagnosis: " + medicalReport.getEarlyDiagnosis() + "\n" + "Final diagnosis: " + medicalReport.getFinalDiagnosis() + "\n" + "Diagnosis disease: " + medicalReport.getDiagnosisDisease() + "\n" + "Conclusion: " + medicalReport.getConclusion();
+            String content = "Patience name: " + patient.getGuardianFullname() + "\n" +
+                    "Date: " + sdf.format(bookingAppointmentDto.getUpdatedDate()) + "\n"+
+                    "Body temperature: " + medicalReport.getBodyTemperature() + "\n"+
+                    "Blood pressure: " + medicalReport.getBloodPressure() + "\n"+
+                    "Height: " + medicalReport.getHeight() + " cm" + "\n"+
+                    "Weight: " + medicalReport.getWeight() + " kg" + "\n"+
+                    "Symptom: " + medicalReport.getSymptom() + "\n"+
+                    "Early diagnosis: " + medicalReport.getEarlyDiagnosis() + "\n"+
+                    "Final diagnosis: " + medicalReport.getFinalDiagnosis() + "\n"+
+                    "Diagnosis disease: " + medicalReport.getDiagnosisDisease() + "\n"+
+                    "Conclusion: " + medicalReport.getConclusion();
 
             // send mail
             try {
