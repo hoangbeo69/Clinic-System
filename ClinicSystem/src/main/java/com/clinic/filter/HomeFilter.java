@@ -43,28 +43,29 @@ public class HomeFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         String url = request.getRequestURI();
         if (url.contains("/wellcome") || url.contains("/login") || url.contains("/css") ||
-                url.contains("/js") || url.contains("/vendor") || url.contains("/assets") || url.equals("/ClinicSystem/")) {
+                url.contains("/js") || url.contains("/vendor") || url.contains("/assets") || url.equals("/ClinicSystem/")
+        ||  url.contains("/bookingAppointment")) {
             chain.doFilter(servletRequest, servletResponse);
         } else {
             UserDetail userDetail = (UserDetail) SessionUtil.getInstance().getValue(request, "USERMODEL");
             boolean isAuthorized = true;
             if (userDetail != null) {
-                if (url.contains("/appointment/review") && !userDetail.getStrRole().equalsIgnoreCase("ADMIN")) {
+                if (url.contains("/appointment/review") && !userDetail.getStrRole().contains("MANAGER")) {
                     isAuthorized = false;
                 }
                 if (url.contains("/schedule")) {
                     // not doctor or admin
-                    if (new DoctorServiceImpl().findById(userDetail.getId()) == null && !userDetail.getStrRole().equalsIgnoreCase("ADMIN")) {
+                    if (new DoctorServiceImpl().findById(userDetail.getId()) == null && !userDetail.getStrRole().contains("MANAGER")) {
                         isAuthorized = false;
                     }
                 }
                 if (url.endsWith("/medicalRecord")) {
                     // not doctor or admin
-                    if (new DoctorServiceImpl().findById(userDetail.getId()) == null && !userDetail.getStrRole().equalsIgnoreCase("ADMIN")) {
+                    if (new DoctorServiceImpl().findById(userDetail.getId()) == null && !userDetail.getStrRole().contains("MANAGER")) {
                         isAuthorized = false;
                     }
                 }
-                if (url.contains("/appointment/confirmBooking") && !userDetail.getStrRole().equalsIgnoreCase("ADMIN")) {
+                if (url.contains("/appointment/confirmBooking") && !userDetail.getStrRole().contains("MANAGER")) {
                     isAuthorized = false;
                 }
                 if (url.contains("/appointment/review") && new DoctorServiceImpl().findById(userDetail.getId()) == null) {
