@@ -64,7 +64,7 @@
                             class="pcoded-mtext">Schedule</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="<%=request.getContextPath()%>/home" class="nav-link "><span
+                    <a href="<%=request.getContextPath()%>/medicalRecord" class="nav-link "><span
                             class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
                             class="pcoded-mtext">Medical Records</span></a>
                 </li>

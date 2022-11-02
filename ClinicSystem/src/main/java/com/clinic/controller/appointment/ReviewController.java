@@ -78,26 +78,28 @@ public class ReviewController extends HttpServlet {
         Patient patient = patientService.findById(bookingAppointmentDto.getPatientId());
 
         if (result) {
-            String content = "Patience name: " + patient.getGuardianFullname() +"\n"+
-                    "Date: " + sdf.format(bookingAppointmentDto.getUpdatedDate()) + "\n"+
-                    "Body temperature: " + medicalReport.getBodyTemperature() + "\n"+
-                    "Blood pressure: " + medicalReport.getBloodPressure() + "\n"+
-                    "Height: " + medicalReport.getHeight() + " cm" + "\n"+
-                    "Weight: " + medicalReport.getWeight() + " kg" + "\n"+
-                    "Symptom: " + medicalReport.getSymptom() + "\n"+
-                    "Early diagnosis: " + medicalReport.getEarlyDiagnosis() + "\n"+
-                    "Final diagnosis: " + medicalReport.getFinalDiagnosis() + "\n"+
-                    "Diagnosis disease: " + medicalReport.getDiagnosisDisease() + "\n"+
-                    "Conclusion: " + medicalReport.getConclusion();
+            String content = "Tên bệnh nhân: " + patient.getGuardianFullname() +"\n"+
+                    "Số điện thoại: " + patient.getPhoneNumber() +"\n"+
+                    "Ngày sinh: " + sdf.format(patient.getDob()) +"\n"+
+                    "Ngày khám: " + sdf.format(bookingAppointmentDto.getUpdatedDate()) + "\n"+
+                    "Nhiệt độ: " + medicalReport.getBodyTemperature() + " °C\n"+
+                    "Huyết áp: " + medicalReport.getBloodPressure() + " mmHg\n"+
+                    "Chiều cao: " + medicalReport.getHeight() + " cm" + "\n"+
+                    "Cân nặng: " + medicalReport.getWeight() + " kg" + "\n"+
+                    "Triệu chứng: " + medicalReport.getSymptom() + "\n"+
+                    "Chẩn đoán đầu: " + medicalReport.getEarlyDiagnosis() + "\n"+
+                    "Chẩn đoán cuối: " + medicalReport.getFinalDiagnosis() + "\n"+
+                    "Bệnh kèm theo: " + medicalReport.getDiagnosisDisease() + "\n"+
+                    "Kết luận: " + medicalReport.getConclusion();
 
             // send mail
             try {
                 String receiver = bookingAppointmentDto.getEmail();
-                String subject = "Patient detail in  " + sdf.format(bookingAppointmentDto.getUpdatedDate());
+                String subject = "Thông tin khám bệnh ngày " + sdf.format(bookingAppointmentDto.getUpdatedDate());
 
                 EmailUtil.sendEmail(receiver, subject, content);
             } catch (MessagingException e) {
-                System.out.println("Error sending mail");
+                System.out.println("Lỗi gửi mail");
             }
 
             response.sendRedirect(request.getContextPath() + "/appointment/complete?id=" + bookingAppointmentDto.getId());

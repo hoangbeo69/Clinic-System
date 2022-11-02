@@ -2,6 +2,8 @@ package com.clinic.service;
 
 import com.clinic.entity.MedicalHistory;
 
+import java.util.List;
+
 public interface MedicalHistoryService {
 
   Long save(MedicalHistory medicalHistory);
@@ -9,4 +11,6 @@ public interface MedicalHistoryService {
   boolean update(MedicalHistory medicalHistory);
 
   MedicalHistory findById(Long medicalRecordId);
+
+  List<MedicalHistory> getAll();
 }

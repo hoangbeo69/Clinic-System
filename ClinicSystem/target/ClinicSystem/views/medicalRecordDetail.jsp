@@ -4,150 +4,106 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Hồ sơ bệnh nhân</title>
-    <link rel="stylesheet" href="../vendors/feather/feather.css">
-    <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet"
-          href="../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-    <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" type="text/css"
-          href="../js/select.dataTables.min.css">
-    <link rel="stylesheet" href="../css/vertical-layout-light/style.css">
-    <link rel="shortcut icon" href="../images/favicon.png"/>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <!-- Bootstrap Font Icon CSS -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<jsp:include page="common/header.jsp"/>
 
-</head>
-<body>
-<div class="container-scroller">
-    <%@include file="../common/header.jsp" %>
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_settings-panel.html -->
-        <div class="theme-setting-wrapper">
-            <div id="settings-trigger">
-                <i class="bi bi-gear"></i>
-            </div>
-            <div id="theme-settings" class="settings-panel">
-                <i class="settings-close ti-close"></i>
-                <p class="settings-heading">SIDEBAR SKINS</p>
-                <div class="sidebar-bg-options selected" id="sidebar-light-theme">
-                    <div class="img-ss rounded-circle bg-light border mr-3"></div>
-                    Light
-                </div>
-                <div class="sidebar-bg-options" id="sidebar-dark-theme">
-                    <div class="img-ss rounded-circle bg-dark border mr-3"></div>
-                    Dark
-                </div>
-                <p class="settings-heading mt-2">HEADER SKINS</p>
-                <div class="color-tiles mx-0 px-4">
-                    <div class="tiles success"></div>
-                    <div class="tiles warning"></div>
-                    <div class="tiles danger"></div>
-                    <div class="tiles info"></div>
-                    <div class="tiles dark"></div>
-                    <div class="tiles default"></div>
-                </div>
-            </div>
-        </div>
+<body class="">
 
-        <!-- partial -->
-        <!-- partial:partials/_sidebar.html -->
-        <%@include file="../common/sidebar.jsp" %>
-        <!-- partial -->
-        <div class="main-panel">
-            <div class="content-wrapper">
-                <div class="row">
-                    <div class="col-md-12 grid-margin">
-                        <div class="row">
-                            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                                <h3 class="font-weight-bold">Hồ sơ bệnh nhân</h3>
-                                <div style="width: 900px;margin-left: 100px;"
-                                     class="content-wrapper">
-                                    <div class="card card-outline">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <strong>Mã bệnh nhân:&nbsp</strong> <span
-                                                            class="code-patient"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <strong>Họ tên:&nbsp</strong> <span
-                                                            class="name-patient"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <strong>Số điện thoại:&nbsp</strong> <span
-                                                            class="phone-patient"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <strong>Giới tính:&nbsp</strong> <span
-                                                            class="gender-patient"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <strong>Ngày sinh:&nbsp</strong> <span
-                                                            class="birthday-patient"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <strong>Địa chỉ:&nbsp</strong> <span
-                                                            class="address-patient"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4"></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div style="width: 350px;" class="card">
-                                                        <div class="card-header bg-info">
-                                                            <h3 class="card-title">Bệnh án</h3>
-                                                        </div>
-                                                        <!-- /.card-header -->
-                                                        <div class="card-body list-profile-detail row"></div>
-                                                        <!-- /.card-body -->
-                                                    </div>
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                        </div>
-                                        <!-- /.card -->
-                                    </div>
-                                    <!-- /.content -->
-                                </div>
-                            </div>
+<jsp:include page="common/header-sidebar.jsp"/>
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] end -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Medical record detail</h5>
                         </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i
+                                    class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="<%=request.getContextPath()%>/home">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<%=request.getContextPath()%>/medicalRecord">Medical
+                                record list</a></li>
+
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="form-group">
+                    <label for="username">Patient name</label>
+                    <input type="text" required="" class="form-control" name="username"
+                           id="username" placeholder="" value="${medicalRecord.patient.guardianFullname}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="fullname">Date of birth</label>
+                    <input type="date" class="form-control" name="fullName" id="fullName"
+                           placeholder="" value="<fmt:formatDate
+                                       pattern='YYYY-MM-DD' value='${medicalRecord.patient.dob}' />" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="password">Phone number</label>
+                    <input type="text" class="form-control" name="password"
+                           id="password" placeholder="" value="${medicalRecord.patient.phoneNumber}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="repassword">Weight</label>
+                    <input type="password" class="form-control" name="repassword"
+                           id="repassword" placeholder="" value="${medicalRecord.medicalReport.weight}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="Height">Height</label>
+                    <input type="password" class="form-control" name="repassword"
+                           id="Height" placeholder="" value="${medicalRecord.medicalReport.height}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="temperature">Body temperature</label>
+                    <input type="password" class="form-control" name="repassword"
+                           id="temperature" placeholder="" value="${medicalRecord.medicalReport.bodyTemperature}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Blood Pressure</label>
+                    <input type="text" class="form-control" name="phoneNumber"
+                           id="phoneNumber" placeholder="" value="${medicalRecord.medicalReport.bloodPressure}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="symptom">Symptom</label>
+                    <input type="text" class="form-control" name="phoneNumber"
+                           id="symptom" placeholder="" value="${medicalRecord.medicalReport.symptom}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="diagnosis1">Early diagnosis</label>
+                    <input type="text" class="form-control" name="phoneNumber"
+                           id="diagnosis1" placeholder="" value="${medicalRecord.medicalReport.earlyDiagnosis}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="diagnosis2">Final diagnosis</label>
+                    <input type="text" class="form-control" name="phoneNumber"
+                           id="diagnosis2" placeholder="" value="${medicalRecord.medicalReport.finalDiagnosis}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="diagnosis3">Diagnosis disease</label>
+                    <input type="text" class="form-control" name="phoneNumber"
+                           id="diagnosis3" placeholder="" value="${medicalRecord.medicalReport.diagnosisDisease}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="conclusion">Conclusion</label>
+                    <input type="text" class="form-control" name="phoneNumber"
+                           id="conclusion" placeholder="" value="${medicalRecord.medicalReport.diagnosisDisease}" disabled>
+                </div>
+            </div>
+        </div>
+        <!-- [ Main Content ] end -->
     </div>
-    <%@include file="../common/footer.jsp" %>
 </div>
+
+<jsp:include page="common/footer.jsp"/>
 </body>
+
 </html>
-
-
-

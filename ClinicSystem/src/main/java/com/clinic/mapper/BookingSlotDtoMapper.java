@@ -2,7 +2,7 @@ package com.clinic.mapper;
 
 import com.clinic.dto.BookingSlotDto;
 import com.clinic.model.TimeSlot;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

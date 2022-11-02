@@ -28,7 +28,8 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService {
     return medicalHistoryDao.findById(medicalRecordId);
   }
 
-  public List<MedicalHistory> findAll(){
+  @Override
+  public List<MedicalHistory> getAll(){
     return medicalHistoryDao.findAll();
   }
 }
